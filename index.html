@@ -378,7 +378,7 @@ body[data-ui-theme="dawn"] #beijingClock,body[data-ui-theme="day"] #beijingClock
 <div class="modal-mask" id="settingsMask">
 <div class="modal">
 <h3 class="serif">接入元景智能体</h3>
-<div class="desc">直接调用你在元景上配好的「共生鱼」智能体，人设自动生效。在控制台「APIKEY 管理」创建密钥后填入。留空则使用本地陪伴。</div>
+<div class="desc">可以直接填写元景接口和 API Key，也可以填写你自己的后端代理地址并将 API Key 留空。只有 Endpoint 仍为默认元景地址且 API Key 为空时，才使用本地陪伴模式。</div>
 <div class="field"><label>生态球名字</label><input id="cfgBallName" maxlength="12" autocomplete="off"></div>
 <div class="field"><label>小鱼名字</label><input id="cfgFishName" maxlength="8" autocomplete="off"></div>
 <div class="field"><label>界面主题</label><select id="cfgTheme" style="width:100%;padding:10px 14px;border-radius:12px;border:1px solid rgba(180,210,220,.5);background:rgba(255,255,255,.5);font-family:inherit;font-size:14px;color:var(--ink);outline:none"><option value="auto">跟随时间</option><option value="dawn">晨雾</option><option value="day">晴日</option><option value="dusk">黄昏</option><option value="night">深夜</option><option value="aurora">极光</option><option value="forest">森屿</option></select></div>
@@ -1241,7 +1241,7 @@ function applyTimeTheme(){
   if(theme==="night")unlockEgg('night');
   applyUITheme();
 }
-try{applyTimeTheme();}catch(e){console.error("timeTheme error:",e.message);}
+try{applyUITheme();}catch(e){console.error("theme error:",e.message);}
 setInterval(applyTimeTheme,60000);setInterval(function(){recordDailyBalance();checkMorningSummary();},3600000);setInterval(checkMomentReminders,60000);
 
 var EGGS=[
@@ -1448,7 +1448,8 @@ if(detectRisk(text)){
   state.chatHistory.push({role:"assistant",content:thinking.textContent});
   addCrisisCard();persist();return;
 }
-if(!state.cfg.apiKey){
+var useRemote=!!state.cfg.apiKey||state.cfg.endpoint!==DEFAULT_CFG.endpoint;
+if(!useRemote){
   setTimeout(function(){
     var reply=localReply(text,det);
     typeBotText(thinking,reply,function(){
@@ -1459,7 +1460,9 @@ if(!state.cfg.apiKey){
 try{
 var reqBody={agent_id:state.cfg.model,input:buildAgentInput(text),stream:false};
 if(state.sessionId)reqBody.session_id=state.sessionId;
-var resp=await fetch(state.cfg.endpoint,{method:"POST",headers:{"Content-Type":"application/json","Authorization":"Bearer "+state.cfg.apiKey},body:JSON.stringify(reqBody)});
+var headers={"Content-Type":"application/json"};
+if(state.cfg.apiKey)headers.Authorization="Bearer "+state.cfg.apiKey;
+var resp=await fetch(state.cfg.endpoint,{method:"POST",headers:headers,body:JSON.stringify(reqBody)});
 if(!resp.ok){
   var eb="";try{var ej=await resp.json();eb=JSON.stringify(ej).slice(0,120);}catch(e){}
   var fallback=localReply(text,det);
@@ -2193,7 +2196,7 @@ toast("欢迎来到"+state.ballName+"，我是"+fn);
 document.getElementById("inputFishName").addEventListener("keydown",function(e){if(e.key==="Enter")document.getElementById("btnFishName").click();});
 
 window.addEventListener("resize",resize);
-loadAll();resize();updateBalanceUI();initD3Panel();
+loadAll();applyTimeTheme();resize();updateBalanceUI();initD3Panel();
 
 function updateBeijingClock(){
   var d=new Date();
