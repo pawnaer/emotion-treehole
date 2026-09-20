@@ -1408,7 +1408,10 @@ var chatMsgs=document.getElementById("chatMsgs"),chatInput=document.getElementBy
 function addMsg(r,t){var d=document.createElement("div");d.className="msg "+(r==="user"?"user":"bot");d.textContent=t;chatMsgs.appendChild(d);chatMsgs.scrollTop=chatMsgs.scrollHeight;return d;}
 function botSay(t){addMsg("bot",t);}
 function userSay(t){addMsg("user",t);state.chatHistory.push({role:"user",content:t});}
-function buildSysPrompt(){var e=state.emo;return "你是「"+(state.fishName||"共生鱼")+"」，一条住在用户生态球里的小鱼。语气温柔自然像朋友，不说教不鸡汤。当前情绪：快乐"+Math.round(e.joy)+"，希望"+Math.round(e.hope)+"，压力"+Math.round(e.stress)+"，焦虑"+Math.round(e.anxiety)+"，疲惫"+Math.round(e.fatigue)+"，平衡度"+state.balance+"。请先用一句话回应感受，再给一个两分钟内可执行的小行动。若出现伤害自己或他人的表达，停止普通陪伴，明确建议联系身边的可信任成年人和当地紧急服务。回复60-120字。";}
+function buildSysPrompt(){
+  var e=state.emo;
+  return "你是「"+(state.fishName||"共生鱼")+"」，住在用户生态球里的长期陪伴伙伴。像真人朋友一样自然、连续地交谈，不机械总结，不重复模板，不频繁说教。先理解并回应用户刚刚说的具体内容，可以追问一个最相关的细节。不要每次都给行动建议，也不要反复让用户去某个功能球；只有用户明确求助、情绪明显需要稳定，或前文已经自然导入时，才提供一个可选的轻量行动。通常回复1-3段短句，结尾最多一个自然问题。当前情绪仅作背景理解，不要直接读出分数：快乐"+Math.round(e.joy)+"，希望"+Math.round(e.hope)+"，压力"+Math.round(e.stress)+"，焦虑"+Math.round(e.anxiety)+"，疲惫"+Math.round(e.fatigue)+"。若出现伤害自己或他人的表达，停止普通陪伴，明确建议联系身边可信任的人和当地紧急服务。";
+}
 function detectRisk(text){return /自杀|不想活|活不下去|结束生命|伤害自己|自残|割腕|跳楼|去死|死了算了|活着没意思/.test(text);}
 function addCrisisCard(){
   var d=document.createElement("div");
@@ -1417,7 +1420,23 @@ function addCrisisCard(){
   chatMsgs.appendChild(d);chatMsgs.scrollTop=chatMsgs.scrollHeight;
 }
 function buildAgentInput(text){
-  return "[陪伴上下文，不要直接复述]\n"+buildSysPrompt()+"\n[用户刚刚说]\n"+text;
+  var recent=state.chatHistory.slice(-12,-1).map(function(m){
+    return (m.role==="user"?"用户":"你")+"："+m.content;
+  }).join("\n");
+  return "[长期人设与回复原则]\n"+buildSysPrompt()+
+    (recent?"\n\n[最近对话，请保持连续性和称呼一致]\n"+recent:"")+
+    "\n\n[用户新消息]\n"+text+
+    "\n\n[回复要求]\n直接回应新消息，可结合最近对话，但不要复述这段上下文。除非用户明确需要，不要把回答变成行动清单或功能球导航。";
+}
+function typeBotText(el,text,done){
+  var full=String(text||"");
+  var index=0;el.textContent="";
+  var timer=setInterval(function(){
+    index+=Math.max(1,Math.ceil(full.length/45));
+    el.textContent=full.slice(0,index);
+    chatMsgs.scrollTop=chatMsgs.scrollHeight;
+    if(index>=full.length){clearInterval(timer);if(done)done();}
+  },24);
 }
 async function sendToFish(text){
 userSay(text);chatInput.value="";
@@ -1429,21 +1448,41 @@ if(detectRisk(text)){
   state.chatHistory.push({role:"assistant",content:thinking.textContent});
   addCrisisCard();persist();return;
 }
-if(!state.cfg.apiKey){setTimeout(function(){thinking.textContent=localReply(text,det);state.chatHistory.push({role:"assistant",content:thinking.textContent});persist();chatMsgs.scrollTop=chatMsgs.scrollHeight;},500);return;}
+if(!state.cfg.apiKey){
+  setTimeout(function(){
+    var reply=localReply(text,det);
+    typeBotText(thinking,reply,function(){
+      state.chatHistory.push({role:"assistant",content:reply});persist();chatMsgs.scrollTop=chatMsgs.scrollHeight;
+    });
+  },420);return;
+}
 try{
 var reqBody={agent_id:state.cfg.model,input:buildAgentInput(text),stream:false};
 if(state.sessionId)reqBody.session_id=state.sessionId;
 var resp=await fetch(state.cfg.endpoint,{method:"POST",headers:{"Content-Type":"application/json","Authorization":"Bearer "+state.cfg.apiKey},body:JSON.stringify(reqBody)});
-if(!resp.ok){var eb="";try{var ej=await resp.json();eb=JSON.stringify(ej).slice(0,120);}catch(e){}thinking.textContent="（鱼没接到：HTTP "+resp.status+(eb?" "+eb:"")+"）";return;}
+if(!resp.ok){
+  var eb="";try{var ej=await resp.json();eb=JSON.stringify(ej).slice(0,120);}catch(e){}
+  var fallback=localReply(text,det);
+  typeBotText(thinking,fallback,function(){
+    state.chatHistory.push({role:"assistant",content:fallback});persist();chatMsgs.scrollTop=chatMsgs.scrollHeight;
+  });
+  return;
+}
 var data=await resp.json();
 var result=data.result||data;
 var c=result.content||result.answer||result.output_text||result.reply||(data.choices&&data.choices[0]&&data.choices[0].message&&data.choices[0].message.content)||data.output||data.content||data.answer;
 var sid=result.session_id||data.session_id;
 if(sid)state.sessionId=sid;
-thinking.textContent=c?String(c).trim():"（鱼摆了摆尾巴）";
-if(c)state.chatHistory.push({role:"assistant",content:String(c).trim()});
-persist();
-}catch(err){thinking.textContent="（网路过不去，鱼游不过来了："+(err.message||err)+"）";}
+var reply=c?String(c).trim():localReply(text,det);
+typeBotText(thinking,reply,function(){
+  state.chatHistory.push({role:"assistant",content:reply});persist();chatMsgs.scrollTop=chatMsgs.scrollHeight;
+});
+}catch(err){
+  var fallback=localReply(text,det);
+  typeBotText(thinking,fallback,function(){
+    state.chatHistory.push({role:"assistant",content:fallback});persist();chatMsgs.scrollTop=chatMsgs.scrollHeight;
+  });
+}
 chatMsgs.scrollTop=chatMsgs.scrollHeight;
 }
 function analyzeInput(t){
@@ -1464,11 +1503,33 @@ if(orb==="映"&&t.length>2)orb="映";
 return {delta:delta,orb:orb};
 }
 function localReply(t,d){
-if(d.orb==="生")return "真好呀。先把这一刻保存到「生」，再给它加一句：我希望未来什么时候还能想起它。两分钟内就能完成。";
-if(d.orb==="愈")return "我看到了，这确实不好受。先不用解决所有问题，去「愈」里选一个 60 秒呼吸，或者只写下刚才最刺痛你的那一句话。";
-if(d.orb==="望")return "先不想完整个未来，只处理下一步：把最担心的一件事写成一句具体的话，再标出今天能完成的最小动作。「望」会陪你做。";
-if(state.balance<45)return "你已经撑了一阵子了。现在先打开「望」，选一个两分钟内能完成的动作，不需要一次把生活修好。";
-return "我在听。你可以继续说发生了什么，也可以告诉我：此刻最想被理解的是哪一部分？";
+var messages=state.chatHistory.filter(function(m){return m.role==="user";});
+var previous=messages.length>1?messages[messages.length-2].content:"";
+var seed=(t.length+previous.length)%4;
+var questions=[
+  "听起来这件事在你心里占了不少位置。是哪一个瞬间，让你最明显地感觉到这种难受？",
+  "我先不急着给答案。你更希望我听你把事情讲完，还是和你一起理一理？",
+  "这里面最让你放不下的，是已经发生的事，还是接下来可能发生的事？",
+  "如果只说一句，你最希望有个人能理解你的哪一部分？"
+];
+var reflections=[
+  "我在听，而且你刚才说的不是一件小事。",
+  "我能感觉到你已经忍了一阵子，先不用急着把它解释得很完整。",
+  "这件事听上去不只是表面的麻烦，好像还牵着一些更深的在意。",
+  "你现在的反应可以理解，不需要先证明自己为什么这么难受。"
+];
+if(/^(嗯|哦|好|好吧|没事|算了|不知道)[。！!？?]*$/.test(t))return "不用急着找一句正确的话。你可以停一会儿，也可以只告诉我，现在身体最明显的感觉是什么。";
+if(/不要建议|别建议|只想说|听我说|陪我/.test(t))return "好，我先不给建议，也不催你振作。你可以慢慢说，我会跟着你的节奏听。";
+if(/朋友|同学|室友|舍友|伴侣|对象|吵架|矛盾|误会|冷战|人际/.test(t))return "关系里的委屈常常来自“我很在意，但对方好像没看见”。这次最让你受伤的是对方做了什么，还是没有人站在你这边？";
+if(/考试|成绩|论文|学习|ddl|deadline|作业|答辩|升学/.test(t))return "考试或学习压力最折磨人的，往往不是任务本身，而是脑子一直停不下来。你现在更卡在担心结果，还是已经不知道从哪里开始？";
+if(/失眠|睡不着|醒得早|做梦|夜里|凌晨/.test(t))return "夜里情绪会被放大，这很常见。你现在是身体很累但脑子清醒，还是心里有一件事反复回来？";
+if(/工作|加班|领导|同事|汇报|裁员|实习|上班/.test(t))return "这种消耗很像一直在绷着，表面上还在运转，里面已经很累了。最近是哪一件事最容易把你耗尽？";
+if(/我不行|没用|失败|讨厌自己|不够好|自责|丢人/.test(t))return "你现在对自己说的话很重。先不急着反驳它，我想知道：这种“我不够好”的感觉，通常在什么场景里最明显？";
+if(d.orb==="生")return "听你这么说，我也能感觉到那一刻是亮的。先让它在这里多停一会儿，不用马上总结它为什么珍贵。";
+if(d.orb==="愈")return reflections[seed]+" "+questions[seed];
+if(d.orb==="望")return "我们先不把整个未来一次想完。你现在最想弄清楚的是眼前这一步，还是一个更长远的决定？";
+if(/[？?]|为什么|怎么办|能不能|可以吗|是什么|怎么/.test(t))return "这个问题可能没有一个马上正确的答案。你愿意先告诉我，你最担心的结果是什么吗？我陪你一步一步看。";
+return reflections[seed]+" "+questions[seed];
 }
 
 // ===== 情绪鱼饵系统 =====
