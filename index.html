@@ -74,6 +74,19 @@ body.night .scene-chip{color:rgba(235,247,255,.8);background:rgba(255,255,255,.0
 .quick-prompts::-webkit-scrollbar{display:none}
 .quick-prompts button{white-space:nowrap;border:1px solid rgba(130,180,200,.35);background:rgba(255,255,255,.5);color:var(--ink-dim);border-radius:999px;padding:6px 10px;font:12px "Noto Sans SC",sans-serif;cursor:pointer}
 .quick-prompts button:hover{background:rgba(255,255,255,.85);color:var(--ink)}
+.agent-share-row{display:none;justify-content:flex-end;padding:7px 14px 0}
+.agent-share-row a{font-size:11px;color:var(--ink-dim);text-decoration:none;border-bottom:1px solid rgba(90,150,175,.35);padding-bottom:2px}
+.agent-share-row a:hover{color:var(--ink)}
+.agent-share-actions{display:flex;align-items:center;gap:12px}
+.agent-share-actions button{border:none;background:none;padding:0;color:var(--ink-dim);font-size:11px;border-bottom:1px solid rgba(90,150,175,.35);cursor:pointer}
+.agent-embed-mask{position:fixed;inset:0;z-index:95;background:rgba(10,28,42,.72);backdrop-filter:blur(12px);display:flex;align-items:center;justify-content:center;padding:18px;box-sizing:border-box}
+.agent-embed-card{width:min(980px,96vw);height:min(780px,88vh);display:flex;flex-direction:column;background:rgba(248,252,253,.98);border:1px solid rgba(255,255,255,.7);border-radius:20px;overflow:hidden;box-shadow:0 24px 70px rgba(0,20,40,.35)}
+.agent-embed-head{display:flex;align-items:center;justify-content:space-between;gap:12px;padding:12px 16px;border-bottom:1px solid rgba(120,170,190,.22);color:var(--ink)}
+.agent-embed-head strong{font-size:14px}
+.agent-embed-head a{font-size:12px;color:#4c8ca5;text-decoration:none}
+.agent-embed-head button{width:32px;height:32px;border-radius:50%;border:1px solid rgba(120,170,190,.28);background:rgba(255,255,255,.7);color:var(--ink-dim);cursor:pointer;font-size:18px}
+.agent-embed-card iframe{flex:1;width:100%;border:0;background:#fff}
+.agent-embed-foot{padding:9px 16px;font-size:11px;line-height:1.6;color:var(--ink-faint);border-top:1px solid rgba(120,170,190,.18)}
 .action-card{border:1px solid rgba(126,192,208,.35);background:rgba(255,255,255,.5);border-radius:12px;padding:12px;margin-top:10px}
 .action-card h4{font-size:14px;margin-bottom:6px;color:var(--ink)}
 .action-card p{font-size:12px;line-height:1.7;color:var(--ink-dim);margin-bottom:9px}
@@ -327,6 +340,7 @@ body[data-ui-theme="dawn"] #beijingClock,body[data-ui-theme="day"] #beijingClock
 <div class="chat-box"><button class="chat-collapse" id="chatCollapse">×</button>
 <div class="msgs" id="chatMsgs"></div>
 <div class="quick-prompts" id="quickPrompts"></div>
+<div class="agent-share-row" id="agentShareRow"><div class="agent-share-actions"><button id="agentEmbedBtn" type="button">页内打开元景智能体</button><a id="agentShareLink" href="#" target="_blank" rel="noopener noreferrer">新窗口打开 ↗</a></div></div>
 <div class="input-row">
 <textarea id="chatInput" placeholder="和你的鱼说点什么…" rows="1"></textarea>
 <button class="send" id="chatSend"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 2L11 13M22 2l-7 20-4-9-9-4 20-7z"></path></svg></button>
@@ -382,6 +396,7 @@ body[data-ui-theme="dawn"] #beijingClock,body[data-ui-theme="day"] #beijingClock
 <div class="field"><label>生态球名字</label><input id="cfgBallName" maxlength="12" autocomplete="off"></div>
 <div class="field"><label>小鱼名字</label><input id="cfgFishName" maxlength="8" autocomplete="off"></div>
 <div class="field"><label>界面主题</label><select id="cfgTheme" style="width:100%;padding:10px 14px;border-radius:12px;border:1px solid rgba(180,210,220,.5);background:rgba(255,255,255,.5);font-family:inherit;font-size:14px;color:var(--ink);outline:none"><option value="auto">跟随时间</option><option value="dawn">晨雾</option><option value="day">晴日</option><option value="dusk">黄昏</option><option value="night">深夜</option><option value="aurora">极光</option><option value="forest">森屿</option></select></div>
+<div class="field"><label>元景智能体分享链接（可选）</label><input id="cfgShareUrl" placeholder="https://maas.ai-yuanjing.com/cubm/share/..."></div>
 <div class="field"><label>API Endpoint</label><input id="cfgEndpoint"><div style="font-size:11px;color:var(--ink-faint);margin-top:5px">元景智能体对话接口地址，一般不用改。</div></div>
 <div class="field"><label>API Key</label><input id="cfgKey" type="password" placeholder="Bearer Token"></div>
 <div class="field"><label>智能体 ID (agent_id)</label><input id="cfgModel" placeholder="元景智能体地址栏里 /cubm/app/ 后面那段 ID"></div>
@@ -1320,6 +1335,32 @@ function renderQuickPrompts(){
     wrap.appendChild(b);
   });
 }
+function updateAgentShareLink(){
+  var row=document.getElementById("agentShareRow"),link=document.getElementById("agentShareLink");
+  if(!row||!link)return;
+  var url=(state.cfg.shareUrl||"").trim();
+  if(/^https:\/\/maas\.ai-yuanjing\.com\//.test(url)){
+    link.href=url;row.style.display="flex";
+  }else{
+    link.href="#";row.style.display="none";
+  }
+}
+function openAgentEmbed(){
+  var url=(state.cfg.shareUrl||"").trim();
+  if(!/^https:\/\/maas\.ai-yuanjing\.com\//.test(url))return;
+  var old=document.getElementById("agentEmbedMask");if(old)old.remove();
+  var mask=document.createElement("div");mask.id="agentEmbedMask";mask.className="agent-embed-mask";
+  mask.innerHTML="<div class='agent-embed-card'><div class='agent-embed-head'><strong>元景智能体</strong><div style='display:flex;align-items:center;gap:12px'><a id='agentEmbedExternal' target='_blank' rel='noopener noreferrer'>新窗口打开 ↗</a><button id='agentEmbedClose' aria-label='关闭'>×</button></div></div><iframe id='agentEmbedFrame' title='元景智能体'></iframe><div class='agent-embed-foot'>如果这里显示空白，说明元景分享页禁止 iframe 嵌入，请点击上方“新窗口打开”。</div></div>";
+  document.body.appendChild(mask);
+  mask.querySelector("#agentEmbedExternal").href=url;
+  mask.querySelector("#agentEmbedFrame").src=url;
+  function close(){mask.remove();document.removeEventListener("keydown",onKey);}
+  function onKey(e){if(e.key==="Escape")close();}
+  mask.querySelector("#agentEmbedClose").addEventListener("click",close);
+  mask.addEventListener("click",function(e){if(e.target===mask)close();});
+  document.addEventListener("keydown",onKey);
+}
+document.getElementById("agentEmbedBtn").onclick=openAgentEmbed;
 function openChat(){
   if(chatOpened)return;
   chatOpened=true;
@@ -1333,6 +1374,7 @@ function openChat(){
       botSay("你好呀，我是"+(state.fishName||"小鱼")+"。我会先听你说，再和你一起找一个很小、能执行的下一步。我不是医生，如果出现伤害自己的想法，请立刻联系身边可信任的人和专业求助资源。");
     }
   }
+  updateAgentShareLink();
   renderQuickPrompts();
 }
 function closeChat(){chatOpened=false;document.getElementById("chatDock").classList.remove("open");document.getElementById("chatMini").classList.add("show");document.getElementById("fishTip").style.display="none";}
@@ -2131,10 +2173,10 @@ function showTiedNote(text,ctxHtml){
 
 function showRecover(text,label){var mask=document.getElementById("bottleMask");mask.innerHTML='<div class="tied-note-wrap"><div class="tied-note" style="max-width:520px"><h3 style="text-align:center;color:#8a6a30;letter-spacing:4px;margin-bottom:12px;font-size:18px">打 捞 到</h3><div style="font-size:12px;color:var(--ink-faint);margin-bottom:10px">'+label+'</div><p style="font-family:Noto Serif SC,serif;font-size:16px;line-height:1.9;color:var(--ink);margin:16px 0">'+esc(text)+'</p><button class="btn-primary" onclick="this.closest(\'.modal-mask\').classList.remove(\'open\')">收 下</button></div>';mask.classList.add("open");}
 function fmtDate(ts){var d=new Date(ts);return (d.getMonth()+1)+"/"+d.getDate()+" "+(d.getHours()<10?"0":"")+d.getHours()+":"+(d.getMinutes()<10?"0":"")+d.getMinutes();}
-document.getElementById("btnSettings").onclick=function(){document.getElementById("cfgBallName").value=state.ballName||"";document.getElementById("cfgFishName").value=state.fishName||"";document.getElementById("cfgTheme").value=state.uiTheme||"auto";document.getElementById("cfgEndpoint").value=state.cfg.endpoint;document.getElementById("cfgKey").value=state.cfg.apiKey;document.getElementById("cfgModel").value=state.cfg.model;document.getElementById("settingsMask").classList.add("open");};
+document.getElementById("btnSettings").onclick=function(){document.getElementById("cfgBallName").value=state.ballName||"";document.getElementById("cfgFishName").value=state.fishName||"";document.getElementById("cfgTheme").value=state.uiTheme||"auto";document.getElementById("cfgShareUrl").value=state.cfg.shareUrl||"";document.getElementById("cfgEndpoint").value=state.cfg.endpoint;document.getElementById("cfgKey").value=state.cfg.apiKey;document.getElementById("cfgModel").value=state.cfg.model;document.getElementById("settingsMask").classList.add("open");};
 document.getElementById("cfgCancel").onclick=function(){document.getElementById("settingsMask").classList.remove("open");};
 document.getElementById("settingsMask").addEventListener("click",function(e){if(e.target===this)this.classList.remove("open");});
-document.getElementById("cfgSave").onclick=function(){var bn=document.getElementById("cfgBallName").value.trim(),fn=document.getElementById("cfgFishName").value.trim();if(bn)state.ballName=bn;if(fn)state.fishName=fn;state.uiTheme=document.getElementById("cfgTheme").value||"auto";document.getElementById("ballName").textContent=state.ballName||"生态球";state.cfg.endpoint=document.getElementById("cfgEndpoint").value.trim()||DEFAULT_CFG.endpoint;state.cfg.apiKey=document.getElementById("cfgKey").value.trim();state.cfg.model=document.getElementById("cfgModel").value.trim()||"58b8236d-7b19-4a1f-bd16-2efac7f29d75";saveCfg();persist();applyUITheme();document.getElementById("settingsMask").classList.remove("open");toast(state.cfg.apiKey?"共生鱼已接入元景 MaaS":"已切回本地陪伴");};
+document.getElementById("cfgSave").onclick=function(){var bn=document.getElementById("cfgBallName").value.trim(),fn=document.getElementById("cfgFishName").value.trim();if(bn)state.ballName=bn;if(fn)state.fishName=fn;state.uiTheme=document.getElementById("cfgTheme").value||"auto";document.getElementById("ballName").textContent=state.ballName||"生态球";state.cfg.shareUrl=document.getElementById("cfgShareUrl").value.trim();state.cfg.endpoint=document.getElementById("cfgEndpoint").value.trim()||DEFAULT_CFG.endpoint;state.cfg.apiKey=document.getElementById("cfgKey").value.trim();state.cfg.model=document.getElementById("cfgModel").value.trim()||"58b8236d-7b19-4a1f-bd16-2efac7f29d75";saveCfg();persist();applyUITheme();updateAgentShareLink();document.getElementById("settingsMask").classList.remove("open");toast(state.cfg.apiKey?"共生鱼已接入元景 MaaS":"已切回本地陪伴");};
 document.getElementById("clearEcoData").onclick=function(){
   if(!confirm("清空情绪记录、聊天、共鸣行动、漂流瓶和图鉴进度？生态球和小鱼的名字会保留。"))return;
   state.emo={joy:55,stress:32,anxiety:28,fatigue:38,hope:60};
@@ -2214,7 +2256,7 @@ updateBeijingClock();
 (function(){
   var splash=document.getElementById("splashMask");
   if(state.entered&&splash)splash.remove();
-})();applyUITheme();recordDailyBalance();checkMorningSummary();checkMomentReminders();
+})();applyUITheme();updateAgentShareLink();recordDailyBalance();checkMorningSummary();checkMomentReminders();
 document.getElementById("ballName").textContent=state.ballName||"生态球";
 if(state.entered){document.getElementById("welcome").style.display="none";document.getElementById("fishTip").style.display="block";introStep=-1;}else{introStep=0;}
 if(state.balance>=70)document.getElementById("bottleBtn").classList.add("show");
