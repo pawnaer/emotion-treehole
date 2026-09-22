@@ -1,0 +1,2376 @@
+<!DOCTYPE html>
+<html lang="zh-CN"><head><script src="https://lf3-short.ibytedapm.com/slardar/fe/sdk-web/browser.cn.js" crossorigin="anonymous"></script><script>if(window.Slardar){Slardar("context.merge",{app_id:"app_17efwtmqyn8",user_id:"",tenant_id:"4740928162",app_type:"9",arch_type:"4"});Slardar("init",{bid:"apaas_miaoda",env:"online"});Slardar("start")}</script><script>(function(e,t){e.LogAnalyticsObject=t;if(!e[t]){function c(){c.q.push(arguments)}c.q=[];e[t]=c}e[t].l=+new Date})(window,"collectEvent");var s=document.createElement("script");s.src="https://lf3-cdn-tos.bytescm.com/obj/static/log-sdk/collect/5.1/collect.js";s.crossOrigin="anonymous";s.async=true;s.onerror=function(){console.warn("Failed to load Tea script")};document.head.appendChild(s)</script><script src="https://lf3-cdn-tos.bytescm.com/obj/static/log-sdk/collect/5.1/collect.js" crossorigin="anonymous" async=""></script><script>window.appId="app_17efwtmqyn8";window.userId="";window.tenantId="4740928162";window.csrfToken="2659b6b3c9523fffafea1fed10ee2106806a12dc077feba2b237ad56946d90ed";window.appEnv="runtime";globalThis.CLIENT_BASE_PATH="/app/app_17efwtmqyn8";globalThis.ENVIRONMENT="online"</script><script>"use strict";var MiaodaRuntime=(()=>{var Te=Object.create;var H=Object.defineProperty;var Ae=Object.getOwnPropertyDescriptor;var Pe=Object.getOwnPropertyNames;var Be=Object.getPrototypeOf,Oe=Object.prototype.hasOwnProperty;var i=(n,e)=>H(n,"name",{value:e,configurable:!0});var U=(n,e)=>()=>(e||n((e={exports:{}}).exports,e),e.exports),Me=(n,e)=>{for(var o in e)H(n,o,{get:e[o],enumerable:!0})},q=(n,e,o,u)=>{if(e&&typeof e=="object"||typeof e=="function")for(let p of Pe(e))!Oe.call(n,p)&&p!==o&&H(n,p,{get:()=>e[p],enumerable:!(u=Ae(e,p))||u.enumerable});return n};var X=(n,e,o)=>(o=n!=null?Te(Be(n)):{},q(e||!n||!n.__esModule?H(o,"default",{value:n,enumerable:!0}):o,n)),He=n=>q(H({},"__esModule",{value:!0}),n);var Q=U((Y,D)=>{"use strict";(function(n){"use strict";function e(t,h){var r=(t&65535)+(h&65535),y=(t>>16)+(h>>16)+(r>>16);return y<<16|r&65535}i(e,"safeAdd");function o(t,h){return t<<h|t>>>32-h}i(o,"bitRotateLeft");function u(t,h,r,y,C,S){return e(o(e(e(h,t),e(y,S)),C),r)}i(u,"md5cmn");function p(t,h,r,y,C,S,A){return u(h&r|~h&y,t,h,C,S,A)}i(p,"md5ff");function m(t,h,r,y,C,S,A){return u(h&y|r&~y,t,h,C,S,A)}i(m,"md5gg");function g(t,h,r,y,C,S,A){return u(h^r^y,t,h,C,S,A)}i(g,"md5hh");function v(t,h,r,y,C,S,A){return u(r^(h|~y),t,h,C,S,A)}i(v,"md5ii");function w(t,h){t[h>>5]|=128<<h%32,t[(h+64>>>9<<4)+14]=h;var r,y,C,S,A,a=1732584193,s=-271733879,c=-1732584194,l=271733878;for(r=0;r<t.length;r+=16)y=a,C=s,S=c,A=l,a=p(a,s,c,l,t[r],7,-680876936),l=p(l,a,s,c,t[r+1],12,-389564586),c=p(c,l,a,s,t[r+2],17,606105819),s=p(s,c,l,a,t[r+3],22,-1044525330),a=p(a,s,c,l,t[r+4],7,-176418897),l=p(l,a,s,c,t[r+5],12,1200080426),c=p(c,l,a,s,t[r+6],17,-1473231341),s=p(s,c,l,a,t[r+7],22,-45705983),a=p(a,s,c,l,t[r+8],7,1770035416),l=p(l,a,s,c,t[r+9],12,-1958414417),c=p(c,l,a,s,t[r+10],17,-42063),s=p(s,c,l,a,t[r+11],22,-1990404162),a=p(a,s,c,l,t[r+12],7,1804603682),l=p(l,a,s,c,t[r+13],12,-40341101),c=p(c,l,a,s,t[r+14],17,-1502002290),s=p(s,c,l,a,t[r+15],22,1236535329),a=m(a,s,c,l,t[r+1],5,-165796510),l=m(l,a,s,c,t[r+6],9,-1069501632),c=m(c,l,a,s,t[r+11],14,643717713),s=m(s,c,l,a,t[r],20,-373897302),a=m(a,s,c,l,t[r+5],5,-701558691),l=m(l,a,s,c,t[r+10],9,38016083),c=m(c,l,a,s,t[r+15],14,-660478335),s=m(s,c,l,a,t[r+4],20,-405537848),a=m(a,s,c,l,t[r+9],5,568446438),l=m(l,a,s,c,t[r+14],9,-1019803690),c=m(c,l,a,s,t[r+3],14,-187363961),s=m(s,c,l,a,t[r+8],20,1163531501),a=m(a,s,c,l,t[r+13],5,-1444681467),l=m(l,a,s,c,t[r+2],9,-51403784),c=m(c,l,a,s,t[r+7],14,1735328473),s=m(s,c,l,a,t[r+12],20,-1926607734),a=g(a,s,c,l,t[r+5],4,-378558),l=g(l,a,s,c,t[r+8],11,-2022574463),c=g(c,l,a,s,t[r+11],16,1839030562),s=g(s,c,l,a,t[r+14],23,-35309556),a=g(a,s,c,l,t[r+1],4,-1530992060),l=g(l,a,s,c,t[r+4],11,1272893353),c=g(c,l,a,s,t[r+7],16,-155497632),s=g(s,c,l,a,t[r+10],23,-1094730640),a=g(a,s,c,l,t[r+13],4,681279174),l=g(l,a,s,c,t[r],11,-358537222),c=g(c,l,a,s,t[r+3],16,-722521979),s=g(s,c,l,a,t[r+6],23,76029189),a=g(a,s,c,l,t[r+9],4,-640364487),l=g(l,a,s,c,t[r+12],11,-421815835),c=g(c,l,a,s,t[r+15],16,530742520),s=g(s,c,l,a,t[r+2],23,-995338651),a=v(a,s,c,l,t[r],6,-198630844),l=v(l,a,s,c,t[r+7],10,1126891415),c=v(c,l,a,s,t[r+14],15,-1416354905),s=v(s,c,l,a,t[r+5],21,-57434055),a=v(a,s,c,l,t[r+12],6,1700485571),l=v(l,a,s,c,t[r+3],10,-1894986606),c=v(c,l,a,s,t[r+10],15,-1051523),s=v(s,c,l,a,t[r+1],21,-2054922799),a=v(a,s,c,l,t[r+8],6,1873313359),l=v(l,a,s,c,t[r+15],10,-30611744),c=v(c,l,a,s,t[r+6],15,-1560198380),s=v(s,c,l,a,t[r+13],21,1309151649),a=v(a,s,c,l,t[r+4],6,-145523070),l=v(l,a,s,c,t[r+11],10,-1120210379),c=v(c,l,a,s,t[r+2],15,718787259),s=v(s,c,l,a,t[r+9],21,-343485551),a=e(a,y),s=e(s,C),c=e(c,S),l=e(l,A);return[a,s,c,l]}i(w,"binlMD5");function T(t){var h,r="",y=t.length*32;for(h=0;h<y;h+=8)r+=String.fromCharCode(t[h>>5]>>>h%32&255);return r}i(T,"binl2rstr");function x(t){var h,r=[];for(r[(t.length>>2)-1]=void 0,h=0;h<r.length;h+=1)r[h]=0;var y=t.length*8;for(h=0;h<y;h+=8)r[h>>5]|=(t.charCodeAt(h/8)&255)<<h%32;return r}i(x,"rstr2binl");function L(t){return T(w(x(t),t.length*8))}i(L,"rstrMD5");function E(t,h){var r,y=x(t),C=[],S=[],A;for(C[15]=S[15]=void 0,y.length>16&&(y=w(y,t.length*8)),r=0;r<16;r+=1)C[r]=y[r]^909522486,S[r]=y[r]^1549556828;return A=w(C.concat(x(h)),512+h.length*8),T(w(S.concat(A),640))}i(E,"rstrHMACMD5");function P(t){var h="0123456789abcdef",r="",y,C;for(C=0;C<t.length;C+=1)y=t.charCodeAt(C),r+=h.charAt(y>>>4&15)+h.charAt(y&15);return r}i(P,"rstr2hex");function I(t){return unescape(encodeURIComponent(t))}i(I,"str2rstrUTF8");function d(t){return L(I(t))}i(d,"rawMD5");function f(t){return P(d(t))}i(f,"hexMD5");function _(t,h){return E(I(t),I(h))}i(_,"rawHMACMD5");function b(t,h){return P(_(t,h))}i(b,"hexHMACMD5");function k(t,h,r){return h?r?_(h,t):b(h,t):r?d(t):f(t)}i(k,"md5"),typeof define=="function"&&define.amd?define(function(){return k}):typeof D=="object"&&D.exports?D.exports=k:n.md5=k})(Y)});var te=U((R,ee)=>{"use strict";(function(n,e){typeof R=="object"?ee.exports=R=e():typeof define=="function"&&define.amd?define([],e):n.CryptoJS=e()})(R,function(){var n=n||(function(e,o){var u=Object.create||(function(){function d(){}return i(d,"F"),function(f){var _;return d.prototype=f,_=new d,d.prototype=null,_}})(),p={},m=p.lib={},g=m.Base=(function(){return{extend:i(function(d){var f=u(this);return d&&f.mixIn(d),(!f.hasOwnProperty("init")||this.init===f.init)&&(f.init=function(){f.$super.init.apply(this,arguments)}),f.init.prototype=f,f.$super=this,f},"extend"),create:i(function(){var d=this.extend();return d.init.apply(d,arguments),d},"create"),init:i(function(){},"init"),mixIn:i(function(d){for(var f in d)d.hasOwnProperty(f)&&(this[f]=d[f]);d.hasOwnProperty("toString")&&(this.toString=d.toString)},"mixIn"),clone:i(function(){return this.init.prototype.extend(this)},"clone")}})(),v=m.WordArray=g.extend({init:i(function(d,f){d=this.words=d||[],f!=o?this.sigBytes=f:this.sigBytes=d.length*4},"init"),toString:i(function(d){return(d||T).stringify(this)},"toString"),concat:i(function(d){var f=this.words,_=d.words,b=this.sigBytes,k=d.sigBytes;if(this.clamp(),b%4)for(var t=0;t<k;t++){var h=_[t>>>2]>>>24-t%4*8&255;f[b+t>>>2]|=h<<24-(b+t)%4*8}else for(var t=0;t<k;t+=4)f[b+t>>>2]=_[t>>>2];return this.sigBytes+=k,this},"concat"),clamp:i(function(){var d=this.words,f=this.sigBytes;d[f>>>2]&=4294967295<<32-f%4*8,d.length=e.ceil(f/4)},"clamp"),clone:i(function(){var d=g.clone.call(this);return d.words=this.words.slice(0),d},"clone"),random:i(function(d){for(var f=[],_=i(function(r){var r=r,y=987654321,C=4294967295;return function(){y=36969*(y&65535)+(y>>16)&C,r=18e3*(r&65535)+(r>>16)&C;var S=(y<<16)+r&C;return S/=4294967296,S+=.5,S*(e.random()>.5?1:-1)}},"r"),b=0,k;b<d;b+=4){var t=_((k||e.random())*4294967296);k=t()*987654071,f.push(t()*4294967296|0)}return new v.init(f,d)},"random")}),w=p.enc={},T=w.Hex={stringify:i(function(d){for(var f=d.words,_=d.sigBytes,b=[],k=0;k<_;k++){var t=f[k>>>2]>>>24-k%4*8&255;b.push((t>>>4).toString(16)),b.push((t&15).toString(16))}return b.join("")},"stringify"),parse:i(function(d){for(var f=d.length,_=[],b=0;b<f;b+=2)_[b>>>3]|=parseInt(d.substr(b,2),16)<<24-b%8*4;return new v.init(_,f/2)},"parse")},x=w.Latin1={stringify:i(function(d){for(var f=d.words,_=d.sigBytes,b=[],k=0;k<_;k++){var t=f[k>>>2]>>>24-k%4*8&255;b.push(String.fromCharCode(t))}return b.join("")},"stringify"),parse:i(function(d){for(var f=d.length,_=[],b=0;b<f;b++)_[b>>>2]|=(d.charCodeAt(b)&255)<<24-b%4*8;return new v.init(_,f)},"parse")},L=w.Utf8={stringify:i(function(d){try{return decodeURIComponent(escape(x.stringify(d)))}catch{throw new Error("Malformed UTF-8 data")}},"stringify"),parse:i(function(d){return x.parse(unescape(encodeURIComponent(d)))},"parse")},E=m.BufferedBlockAlgorithm=g.extend({reset:i(function(){this._data=new v.init,this._nDataBytes=0},"reset"),_append:i(function(d){typeof d=="string"&&(d=L.parse(d)),this._data.concat(d),this._nDataBytes+=d.sigBytes},"_append"),_process:i(function(d){var f=this._data,_=f.words,b=f.sigBytes,k=this.blockSize,t=k*4,h=b/t;d?h=e.ceil(h):h=e.max((h|0)-this._minBufferSize,0);var r=h*k,y=e.min(r*4,b);if(r){for(var C=0;C<r;C+=k)this._doProcessBlock(_,C);var S=_.splice(0,r);f.sigBytes-=y}return new v.init(S,y)},"_process"),clone:i(function(){var d=g.clone.call(this);return d._data=this._data.clone(),d},"clone"),_minBufferSize:0}),P=m.Hasher=E.extend({cfg:g.extend(),init:i(function(d){this.cfg=this.cfg.extend(d),this.reset()},"init"),reset:i(function(){E.reset.call(this),this._doReset()},"reset"),update:i(function(d){return this._append(d),this._process(),this},"update"),finalize:i(function(d){d&&this._append(d);var f=this._doFinalize();return f},"finalize"),blockSize:512/32,_createHelper:i(function(d){return function(f,_){return new d.init(_).finalize(f)}},"_createHelper"),_createHmacHelper:i(function(d){return function(f,_){return new I.HMAC.init(d,_).finalize(f)}},"_createHmacHelper")}),I=p.algo={};return p})(Math);return n})});var re=U((F,ne)=>{"use strict";(function(n,e){typeof F=="object"?ne.exports=F=e(te()):typeof define=="function"&&define.amd?define(["./core"],e):e(n.CryptoJS)})(F,function(n){return(function(){var e=n,o=e.lib,u=o.WordArray,p=o.Hasher,m=e.algo,g=[],v=m.SHA1=p.extend({_doReset:i(function(){this._hash=new u.init([1732584193,4023233417,2562383102,271733878,3285377520])},"_doReset"),_doProcessBlock:i(function(w,T){for(var x=this._hash.words,L=x[0],E=x[1],P=x[2],I=x[3],d=x[4],f=0;f<80;f++){if(f<16)g[f]=w[T+f]|0;else{var _=g[f-3]^g[f-8]^g[f-14]^g[f-16];g[f]=_<<1|_>>>31}var b=(L<<5|L>>>27)+d+g[f];f<20?b+=(E&P|~E&I)+1518500249:f<40?b+=(E^P^I)+1859775393:f<60?b+=(E&P|E&I|P&I)-1894007588:b+=(E^P^I)-899497514,d=I,I=P,P=E<<30|E>>>2,E=L,L=b}x[0]=x[0]+L|0,x[1]=x[1]+E|0,x[2]=x[2]+P|0,x[3]=x[3]+I|0,x[4]=x[4]+d|0},"_doProcessBlock"),_doFinalize:i(function(){var w=this._data,T=w.words,x=this._nDataBytes*8,L=w.sigBytes*8;return T[L>>>5]|=128<<24-L%32,T[(L+64>>>9<<4)+14]=Math.floor(x/4294967296),T[(L+64>>>9<<4)+15]=x,w.sigBytes=T.length*4,this._process(),this._hash},"_doFinalize"),clone:i(function(){var w=p.clone.call(this);return w._hash=this._hash.clone(),w},"clone")});e.SHA1=p._createHelper(v),e.HmacSHA1=p._createHmacHelper(v)})(),n.SHA1})});var ut={};Me(ut,{TrackKey:()=>z,name:()=>dt,reportTeaEvent:()=>G,version:()=>lt});var le=X(Q(),1),de=X(re(),1);function B(){return window.appId||null}i(B,"getAppId");function ie(){var o;let n="suda-csrf-token",e=document.cookie.split("; ");for(let u of e){let[p,m]=u.split("=");if(p===n)return decodeURIComponent(m)}return(o=window.csrfToken)!=null?o:null}i(ie,"getCsrfToken");function N(){let n=globalThis.CLIENT_BASE_PATH||"/";return/^\/app\/[^/]/.test(n)}i(N,"isNewPathEnabled");function $(){switch(globalThis.ENVIRONMENT){case"gray":return"PRE";case"online":return"ONLINE";default:return"BOE"}}i($,"getEnv");function oe(){return window.appEnv!=null?window.appEnv==="runtime":!0}i(oe,"isOnlineEnv");function W(){let n=navigator.userAgent,e=/(phone|pad|pod|iPhone|iPod|ios|iPad|Android|Mobile|BlackBerry|IEMobile|MQQBrowser|JUC|Fennec|wOSBrowser|BrowserNG|WebOS|Symbian|Windows Phone)/i.test(n),o=/iPad|Tab|Tablet/i.test(n)&&navigator.maxTouchPoints>1;return e||o}i(W,"isMobile");async function ae(){var n,e,o;try{let u=B();if(!u)return!0;let p=N()?`/app/${u}/__runtime__/api/v1/studio/get_published`:`/spark/b/${u}/get_published`,g=await(await fetch(p,{headers:{"X-Suda-Csrf-Token":(n=ie())!=null?n:""}})).json();if(g.code===0||g.status_code==="0")return((o=(e=g.data)==null?void 0:e.app_info)==null?void 0:o.show_badge)!==!1}catch{}return!0}i(ae,"fetchShowBadge");async function se(){var u;let n=B();if(!n)return{code:1,msg:"appId is required",data:{}};let e=N()?`/app/${n}/__runtime__/api/v1/studio/lark/user_info`:`/spark/b/${n}/lark/user_info`;return await(await fetch(e,{headers:{"X-Suda-Csrf-Token":(u=ie())!=null?u:""}})).json()}i(se,"getLarkUserInfo");var z={VIEW:"aily_agent_artifact_page_view"},De="08a441",Re="42b91e";function ce(n){let e=String(n);return(0,de.default)(De+(0,le.default)(e+Re)).toString()}i(ce,"encryptTea");var V=!1;async function Fe(){var m,g,v,w;let{data:n}=await se(),{tenantID:e,userID:o}=n||{},u=o&&o!=="0"?ce(o):void 0,p=e&&e!=="0"?ce(e):void 0;(m=window.collectEvent)==null||m.call(window,"init",{app_id:788827,channel:"cn",disable_auto_pv:!1,enable_ab_test:!1,enable_debug:!1,enable_stay_duration:!0,reportTime:1e3}),(v=window.collectEvent)==null||v.call(window,"config",{user_unique_id:u,device_type:W()?"mobile":"pc",evtParams:{open_from:(g=new URLSearchParams(window.location.search).get("open-from"))!=null?g:void 0,env:$(),user_id:u,tenant_id:p}}),V=!0,(w=window.collectEvent)==null||w.call(window,"start")}i(Fe,"createTracker");async function G({trackKey:n,trackParams:e={}}){var o;try{V||(V=!0,await Fe()),(o=window.collectEvent)==null||o.call(window,n,e)}catch(u){console.error(u)}}i(G,"reportTeaEvent");function ue(){return G({trackKey:z.VIEW,trackParams:{artifact_uid:B(),agent_id:"agent_miaoda",url:window.location.href}})}i(ue,"reportPageView");function fe(){if(typeof crypto!="undefined"&&crypto.getRandomValues){let e=new Uint8Array(8);return crypto.getRandomValues(e),Array.from(e).map(o=>o.toString(16).padStart(2,"0")).join("")}let n="";for(let e=0;e<16;e++)n+=Math.floor(Math.random()*16).toString(16);return n}i(fe,"generateUUID");var pe="x_sdk_device_id";function Ne(){try{let n=localStorage.getItem(pe);return n||(n=fe(),localStorage.setItem(pe,n)),n}catch{return fe()}}i(Ne,"getDeviceId");function $e(){let n=typeof navigator!="undefined"?navigator.userAgent:"";return n&&(/Android/i.test(n)&&/Mobile/i.test(n)||/iPhone|iPod/i.test(n)||/BlackBerry|IEMobile|Opera Mini/i.test(n))?"mobile":"desktop"}i($e,"getDeviceType");var We="pageSessionID";function je(){try{return new URLSearchParams(window.location.search).get(We)||""}catch{return""}}i(je,"getPvId");function Ue(n={}){let e=n.pvId||je();return{app_id:window.appId||"",tenant_id:window.tenantId||"",user_id:window.userId||"",did:Ne(),module:"app_web",app_env:"runtime",source_type:"user",device_type:$e(),release_commit_id:window.__RELEASE_COMMIT_ID__||"",...e?{pv_id:e}:{}}}i(Ue,"getDefaultAttributes");function he(n){let e=Math.round(n);if(!Number.isFinite(e))throw new RangeError(`toNanoString: \u975E\u6CD5\u65F6\u95F4\u6233 ${n}`);return typeof BigInt!="function"?e===0?"0":`${e}000000`:String(BigInt(e)*BigInt(1e6))}i(he,"toNanoString");var Ve="1.0.2";function ze(n,e){let o=Ue(e),u=he(Date.now());return{metricsData:{resource:{attributes:{sdk_version:Ve,sdk_lang:"javascript",sdk_type:"client-frontend"}},metrics:[{name:"apaas_internal_metrics_pv_uv",description:"Count of page views",unit:"",scopeName:"apaas_internal_metrics_pv_uv",sum:{aggregationTemporality:1,isMonotonic:!0,dataPoints:n.map(p=>({attributes:{...o,url:p.url,path:p.path,referrer:p.referrer},startTimeUnixNano:he(p.timestampMs),timeUnixNano:u,asDouble:1}))}}]}}}i(ze,"buildPayload");function Ge(n,e,o={},u){if(e.length===0)return;let p;try{p=JSON.stringify(ze(e,u))}catch{return}try{fetch(n,{method:"POST",headers:{"Content-Type":"application/json","X-Suda-Csrf-Token":window.csrfToken||"",...o},body:p,keepalive:!0}).catch(()=>{})}catch{}}i(Ge,"sendPvData");var K="__APAAS_PV_TRACKER_STARTED__";function Ke(){try{let n=window;return n[K]?!1:(n[K]=!0,!0)}catch{return!0}}i(Ke,"claimPvReporting");function me(){try{window[K]=!1}catch{}}i(me,"releasePvReporting");var O,Ze=(O=class{constructor(){this.started=!1,this.disposers=[],this.holdsPvReporting=!1,this.buffer=[]}static get instance(){return this._instance||(this._instance=new O),this._instance}start(e){var o;if(!this.started&&Ke()){this.holdsPvReporting=!0,this.config=e,this.started=!0;try{this.listenRouteChanges(),this.registerLifecycleListeners();let u=(o=e.flushIntervalMs)!=null?o:1e4;this.flushTimer=setInterval(()=>this.flush(),u)}catch(u){throw this.started=!1,this.flushTimer&&(clearInterval(this.flushTimer),this.flushTimer=void 0),this.holdsPvReporting=!1,me(),u}}}shutdown(){this.flush(),this.flushTimer&&(clearInterval(this.flushTimer),this.flushTimer=void 0),this.firstFlushTimer&&(clearTimeout(this.firstFlushTimer),this.firstFlushTimer=void 0),this.started=!1;for(let e of this.disposers.splice(0))try{e()}catch{}this.holdsPvReporting&&(this.holdsPvReporting=!1,me())}pageKey(){let{origin:e,pathname:o,search:u}=window.location;return`${e}${o}${u}`}scheduleFirstFlush(){var e;let o=(e=this.config)==null?void 0:e.firstFlushDelayMs;o==null||this.firstFlushTimer||(this.firstFlushTimer=setTimeout(()=>this.flush(),o))}recordPv(){let e=this.pageKey();this.lastKey!==e&&(this.lastKey=e,this.buffer.push({url:window.location.href,path:window.location.pathname,referrer:document.referrer,timestampMs:Date.now()}),this.scheduleFirstFlush())}flush(){if(!this.config||this.buffer.length===0)return;let e=this.buffer.splice(0);Ge(this.config.collectorUrl,e,this.config.headers,{pvId:this.config.pvId})}listenRouteChanges(){this.recordPv();let e=i(()=>this.recordPv(),"onPopState");window.addEventListener("popstate",e),this.disposers.push(()=>window.removeEventListener("popstate",e)),this.patchHistory("pushState"),this.patchHistory("replaceState")}patchHistory(e){let o=history[e],u=i(()=>this.recordPv(),"recordPv");history[e]=function(...p){let m=o.apply(this,p);return u(),m},this.disposers.push(()=>{history[e]=o})}registerLifecycleListeners(){let e=i(()=>{document.visibilityState==="hidden"&&this.flush()},"onVisibilityChange");document.addEventListener("visibilitychange",e),this.disposers.push(()=>document.removeEventListener("visibilitychange",e));let o=i(()=>this.flush(),"onPageHide");window.addEventListener("pagehide",o),this.disposers.push(()=>window.removeEventListener("pagehide",o))}},i(O,"_PvTracker"),O),ge=Ze.instance;function ve(){var o;let n=(o=B())!=null?o:"",e=N()?`/app/${n}/__runtime__/api/v1/observability/metrics/collect`:`/spark/app/${n}/runtime/api/v1/observability/metrics/collect`;ge.start({collectorUrl:e})}i(ve,"initPvTracking");var ye="https://lf3-static.bytednsdoc.com/obj/eden-cn/LMfspH/ljhwZthlaukjlkulzlp",Je=`${ye}/miaoda-ui/doubao.svg`,qe=`${ye}/logo/miaodalogo.svg`,we='<svg viewBox="0 0 10 10" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M8.08312 8.08298C8.2384 7.92769 8.23953 7.67705 8.08424 7.52176L5.3625 4.80002L8.08422 2.07829C8.23951 1.92301 8.23839 1.67236 8.0831 1.51708C7.92781 1.36179 7.67717 1.36066 7.52188 1.51595C7.36659 1.67124 4.80016 4.23767 4.80016 4.23767L2.07841 1.51593C1.92313 1.36064 1.67248 1.36177 1.5172 1.51705C1.36191 1.67234 1.36078 1.92298 1.51607 2.07827L4.23782 4.80002L1.51605 7.52178C1.36076 7.67707 1.36189 7.92771 1.51718 8.083C1.67246 8.23829 1.92311 8.23941 2.07839 8.08412L4.80016 5.36236L7.5219 8.0841C7.67719 8.23939 7.92783 8.23826 8.08312 8.08298Z" fill="currentColor"/></svg>',Xe='<svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M12.6667 2H3.33333V14H6.66667V15.3334H3.33333C2.59695 15.3334 2 14.7364 2 14V2C2 1.26364 2.59695 0.666687 3.33333 0.666687H12.6667C13.403 0.666687 14 1.26364 14 2V7.33335H12.6667V2Z" fill="currentColor"/><path d="M5.33333 4.66669C4.96514 4.66669 4.66667 4.96516 4.66667 5.33335C4.66667 5.70154 4.96514 6 5.33333 6H10.6667C11.0349 6 11.3333 5.70154 11.3333 5.33335C11.3333 4.96516 11.0349 4.66669 10.6667 4.66669H5.33333Z" fill="currentColor"/><path d="M4.66667 8.33335C4.66667 7.96516 4.96514 7.66669 5.33333 7.66669H8C8.36819 7.66669 8.66667 7.96516 8.66667 8.33335C8.66667 8.70154 8.36819 9 8 9H5.33333C4.96514 9 4.66667 8.70154 4.66667 8.33335Z" fill="currentColor"/><path d="M13.5523 8.70017C13.9428 8.30964 14.576 8.30964 14.9665 8.70017C15.357 9.09069 15.357 9.72386 14.9665 10.1144L14.2594 10.8215L12.8452 9.40728L13.5523 8.70017Z" fill="currentColor"/><path d="M12.1381 10.1144L13.5523 11.5286L10.2309 14.85C10.0916 14.9892 9.91229 15.0815 9.71798 15.1138L8.45737 15.3234C8.42136 15.3294 8.38467 15.3177 8.35885 15.2918C8.33271 15.2657 8.32099 15.2284 8.32749 15.192L8.55128 13.9374C8.58465 13.7502 8.6746 13.5779 8.80901 13.4435L12.1381 10.1144Z" fill="currentColor"/></svg>',Ye='<svg width="16" height="16" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M11.9922 1.99221C12.5445 1.98895 12.9958 2.43407 12.999 2.98634L13.0762 16.1943L14.6387 14.6328L17.8926 11.3789C18.2831 10.9884 18.9171 10.9885 19.3076 11.3789C19.6977 11.7695 19.6979 12.4026 19.3076 12.793L16.0527 16.0479L12.7979 19.3018C12.7111 19.3884 12.6098 19.4566 12.5 19.5059H20.375C20.9271 19.5059 21.3748 19.9538 21.375 20.5059C21.375 21.0581 20.9273 21.5059 20.375 21.5059H3.625C3.07272 21.5059 2.625 21.0581 2.625 20.5059C2.62523 19.9538 3.07286 19.5059 3.625 19.5059H11.6816C11.572 19.4566 11.4704 19.3884 11.3838 19.3018L4.87402 12.793C4.48372 12.4026 4.4839 11.7694 4.87402 11.3789C5.26452 10.9884 5.89756 10.9885 6.28809 11.3789L11.0762 16.166L10.999 2.99806C10.9958 2.44603 11.4402 1.99582 11.9922 1.99221Z" fill="currentColor"/></svg>',Qe='<svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M2.0754 7.57153C2.23188 9.44922 3.49231 11.053 5.27982 11.6488C5.31351 11.6601 5.33994 11.6865 5.35117 11.7202L5.72076 12.8289C5.88752 13.3292 6.3557 13.6667 6.88304 13.6667H9.11696C9.6443 13.6667 10.1125 13.3292 10.2792 12.8289L10.6488 11.7202C10.6601 11.6865 10.6865 11.6601 10.7202 11.6488C12.5077 11.053 13.7681 9.44922 13.9246 7.57153L14 6.66667C14 3.35296 11.3137 0.666668 8 0.666668C4.68629 0.666668 2 3.35296 2 6.66667L2.0754 7.57153ZM9.38392 11.2985L9.03899 12.3333H6.96101L6.61608 11.2985C6.47214 10.8667 6.13328 10.5279 5.70146 10.3839C4.41995 9.95675 3.51631 8.80696 3.40413 7.4608L3.33362 6.61462C3.36152 4.06127 5.44004 2 8 2C10.56 2 12.6385 4.06127 12.6664 6.61462L12.5959 7.4608C12.4837 8.80696 11.5801 9.95675 10.2985 10.3839C9.86672 10.5279 9.52786 10.8667 9.38392 11.2985Z" fill="currentColor"/><path d="M6.66667 14.3333C6.29848 14.3333 6 14.6318 6 15C6 15.3682 6.29848 15.6667 6.66667 15.6667H9.33333C9.70152 15.6667 10 15.3682 10 15C10 14.6318 9.70152 14.3333 9.33333 14.3333H6.66667Z" fill="currentColor"/><path d="M8.00864 4.13208L5.44578 6.94049C5.20258 7.18228 5.37835 7.56531 5.74361 7.58951L7.2181 7.6872L7.21814 9.60852C7.21814 9.96788 7.72139 10.1366 7.99168 9.86792C8.26197 9.59921 10.5545 7.05951 10.5545 7.05951C10.7977 6.81772 10.622 6.43469 10.2567 6.41049L8.78222 6.3128L8.78219 4.39148C8.78218 4.03212 8.27893 3.86336 8.00864 4.13208Z" fill="currentColor"/></svg>',_e=!0,et="0px 8px 32px rgba(0,0,0,0.08), 0px 4px 16px rgba(0,0,0,0.04), 0px 2px 4px rgba(0,0,0,0.02)",tt="0px 4px 16px rgba(0,0,0,0.03), 0px 4px 10px rgba(0,0,0,0.03), 0px 2px 4px rgba(0,0,0,0.02)",J="'PingFang SC', -apple-system, BlinkMacSystemFont, sans-serif",j={doubao:{brandText:"\u8C46\u5305\u5DE5\u4F5C\u751F\u6210",logoSrc:Je,downloadUrl:"https://ugapk.com/FCtLH"},miaoda:{brandText:"\u5999\u642D\u751F\u6210",logoSrc:qe,landingUrl:"https://miaoda.feishu.cn/landing"}},nt={BOE:"tns.feishu-boe.cn",PRE:"tns.feishu-pre.cn",ONLINE:"tns.feishu.cn"};function Ce(){var o;let n=JSON.stringify({scene:"miaoda_app_report",entity_id:(o=B())!=null?o:"",entity_type:"miaoda_app",extra:""}),e=`https://${nt[$()]}/cust/lark_report/?type=common&params=${encodeURIComponent(n)}&lang=zh-CN`;window.open(e,"_blank","noopener,noreferrer")}i(Ce,"openReport");var rt={feedback:Xe,close:we,download:Ye,efficiency:Qe};function xe(n){let e=document.createElement("span");Object.assign(e.style,{display:"inline-flex",width:`${n}px`,height:`${n}px`,flexShrink:"0"}),e.innerHTML=we;let o=e.firstElementChild;return o&&(o.setAttribute("width",String(n)),o.setAttribute("height",String(n)),o.style.display="block"),e}i(xe,"makeCloseIcon");function it(n,e=16){if(n==="close")return xe(e);let o=document.createElement("span");Object.assign(o.style,{display:"inline-flex",width:`${e}px`,height:`${e}px`,flexShrink:"0"}),o.innerHTML=rt[n];let u=o.firstElementChild;return u&&(u.style.display="block"),o}i(it,"makeIcon");function ot(n,e){let o=document.createElement("img");return o.src=n,o.width=e,o.height=e,o.alt="",Object.assign(o.style,{width:`${e}px`,height:`${e}px`,maxWidth:"none",maxHeight:"none",borderRadius:"100px",flexShrink:"0",display:"block"}),o}i(ot,"makeLogo");function ke(n,e,o){let u=e==="desktop",p=j[n],m=document.createElement("div");Object.assign(m.style,{boxSizing:"border-box",display:"inline-flex",alignItems:"center",gap:"4px",padding:u?"6px 12px 6px 8px":"5px 12px 5px 8px",background:"#363636",border:"0.5px solid rgba(255,255,255,0.1)",borderRadius:"100px",boxShadow:et,cursor:"pointer"});let g=ot(p.logoSrc,16),v=document.createElement("span");if(v.textContent=p.brandText,Object.assign(v.style,{fontFamily:J,fontSize:u?"12px":"14px",lineHeight:u?"18px":"22px",color:"rgba(255,255,255,0.85)",whiteSpace:"nowrap"}),m.append(g,v),u&&o){let w=document.createElement("span");w.setAttribute("role","button"),w.setAttribute("aria-label","\u5173\u95ED"),w.setAttribute("data-watermark-close",""),Object.assign(w.style,{display:"none",alignItems:"center",cursor:"pointer",flexShrink:"0",color:"rgba(255,255,255,0.5)"}),w.appendChild(xe(10)),w.addEventListener("click",T=>{T.stopPropagation(),o()}),m.appendChild(w)}return m}i(ke,"buildPill");function M(n){let e=document.createElement("div");e.setAttribute("role","menuitem"),e.setAttribute("data-label",n.label),Object.assign(e.style,{boxSizing:"border-box",display:"flex",alignItems:"center",gap:"8px",minHeight:"38px",padding:"4px 10px",borderRadius:"6px",cursor:"pointer",color:"#000000"});let o=document.createElement("span");Object.assign(o.style,{display:"inline-flex",width:"16px",height:"16px",flexShrink:"0",color:"#000000"}),o.appendChild(it(n.icon));let u=document.createElement("span");return u.textContent=n.label,Object.assign(u.style,{fontFamily:J,fontSize:`${n.fontSize}px`,lineHeight:`${n.fontSize+8}px`,color:"#000000",whiteSpace:"nowrap"}),e.append(o,u),e.addEventListener("mouseenter",()=>{e.style.background="rgba(0,0,0,0.04)"}),e.addEventListener("mouseleave",()=>{e.style.background="transparent"}),e.addEventListener("click",n.onClick),e}i(M,"buildMenuRow");function at(){let n=document.createElement("div");return Object.assign(n.style,{height:"1px",background:"rgba(0,0,0,0.08)",margin:"0 10px"}),n}i(at,"buildDivider");function Se(n){var o;let e=document.createElement("div");if(Object.assign(e.style,{boxSizing:"border-box",display:"flex",flexDirection:"column",minWidth:`${n.minWidth}px`,background:"#ffffff",border:"0.5px solid rgba(0,0,0,0.1)",borderRadius:"10px",boxShadow:tt,overflow:"hidden",outline:"none"}),n.items.length){let u=document.createElement("div");Object.assign(u.style,{boxSizing:"border-box",padding:"4px",display:"flex",flexDirection:"column",gap:`${(o=n.itemGap)!=null?o:0}px`}),n.items.forEach(p=>u.appendChild(p)),e.appendChild(u)}if(n.extraItems&&n.extraItems.length){e.appendChild(at());let u=document.createElement("div");Object.assign(u.style,{boxSizing:"border-box",padding:"4px"}),n.extraItems.forEach(p=>u.appendChild(p)),e.appendChild(u)}return e}i(Se,"buildMenuCard");function Ee(n,e=!1){let o=document.createElement("div");o.setAttribute("data-custom-element",`${n}-watermark${e?"-mobile":""}`);let u=o.attachShadow({mode:"open"}),p=document.createElement("style");p.textContent=`
+    :host {
+      all: initial !important;
+      display: block !important;
+      position: fixed !important;
+      right: 12px !important;
+      bottom: 12px !important;
+      z-index: 9999 !important;
+      direction: ltr !important;
+      unicode-bidi: isolate !important;
+    }
+    :host::before, :host::after { content: none !important; }
+    .watermark-root {
+      all: initial;
+      direction: ltr;
+      unicode-bidi: isolate;
+      font-family: ${J};
+      display: flex;
+      flex-direction: column;
+      align-items: flex-end;
+      gap: 8px;
+    }
+  `;let m=document.createElement("div");return m.className="watermark-root",u.append(p,m),{host:o,container:m}}i(Ee,"createWatermarkRoot");function st(n){let{host:e,container:o}=Ee(n),u=[];n==="doubao"?u.push(M({icon:"download",label:"\u4E0B\u8F7D\u8C46\u5305\u5DE5\u4F5C",fontSize:14,onClick:i(()=>window.open(j.doubao.downloadUrl,"_blank","noopener,noreferrer"),"onClick")})):u.push(M({icon:"efficiency",label:"\u4E86\u89E3\u5999\u642D",fontSize:14,onClick:i(()=>window.open(j.miaoda.landingUrl,"_blank","noopener,noreferrer"),"onClick")})),_e&&u.push(M({icon:"feedback",label:"\u6295\u8BC9\u4E0E\u4E3E\u62A5",fontSize:14,onClick:Ce}));let p=Se({items:u,minWidth:160,itemGap:8});p.style.display="none";let m=ke(n,"desktop",()=>e.remove()),g=m.querySelector("[data-watermark-close]");o.append(p,m);let v=null;return o.addEventListener("mouseenter",()=>{v&&clearTimeout(v),p.style.display="flex",g&&(g.style.display="inline-flex")}),o.addEventListener("mouseleave",()=>{v=setTimeout(()=>{p.style.display="none",g&&(g.style.display="none")},100)}),e}i(st,"buildDesktopWatermark");function ct(n){let{host:e,container:o}=Ee(n,!0);o.style.cursor="pointer";let u=[];n==="miaoda"&&u.push(M({icon:"efficiency",label:"\u4E86\u89E3\u5999\u642D",fontSize:16,onClick:i(()=>window.open(j.miaoda.landingUrl,"_blank","noopener,noreferrer"),"onClick")})),_e&&u.push(M({icon:"feedback",label:"\u6295\u8BC9\u4E0E\u4E3E\u62A5",fontSize:16,onClick:Ce}));let p=[M({icon:"close",label:"\u4E0D\u518D\u5C55\u793A",fontSize:16,onClick:i(w=>{w.stopPropagation(),document.removeEventListener("click",v),e.remove()},"onClick")})],m=Se({items:u,extraItems:p,minWidth:160});m.style.display="none";let g=ke(n,"mobile");o.append(m,g),o.addEventListener("click",w=>{w.stopPropagation(),m.style.display=m.style.display==="none"?"flex":"none"});let v=i(()=>{m.style.display="none"},"onOutsideClick");return document.addEventListener("click",v),e}i(ct,"buildMobileWatermark");var be=!1,Z=!1;async function Le(n){if(be||Z||typeof document=="undefined")return;if(document.readyState==="loading"){document.addEventListener("DOMContentLoaded",()=>Le(n),{once:!0});return}Z=!0;let e=await ae();if(be=!0,Z=!1,!e)return;let o=W()?ct(n):st(n);document.body.appendChild(o)}i(Le,"mountWatermark");function Ie(){return Le("doubao")}i(Ie,"mountDoubaoWatermark");var lt="0.0.1",dt="@lark-apaas/miaoda-coding-sdk";oe()&&(ue(),ve());Ie();return He(ut);})();
+</script><meta property="og:title" content="ecosphere"><meta property="og:image" content="https://lf3-static.bytednsdoc.com/obj/eden-cn/ylcylz_fsph_ryhs/ljhwZthlaukjlkulzlp/feisuda/avatar/7.svg">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+<title>生态球 · 你的内在世界</title>
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Ccircle cx='16' cy='16' r='14' fill='%23a8e0e8' opacity='0.5'/%3E%3Ccircle cx='16' cy='16' r='10' fill='%235ab8c8' opacity='0.4'/%3E%3C/svg%3E">
+<link rel="stylesheet" href="https://miaoda.feishu.cn/fonts/css2?family=ZCOOL+KuaiLe&amp;family=Noto+Serif+SC:wght@300;400;500;600;700&amp;family=Noto+Sans+SC:wght@300;400;500;700&amp;display=swap">
+<style>
+:root{--glass:rgba(255,255,255,0.18);--glass-border:rgba(255,255,255,0.35);--ink:#2a4a5a;--ink-dim:#5a7a8a;--ink-faint:#8aa8b5;}
+*{margin:0;padding:0;box-sizing:border-box;-webkit-tap-highlight-color:transparent}
+html,body{height:100%;overflow:hidden}
+body{font-family:"ZCOOL KuaiLe","Noto Sans SC",system-ui,sans-serif;color:var(--ink);position:relative;user-select:none;
+background:radial-gradient(circle at 20% 20%,rgba(180,230,180,.5),transparent 40%),radial-gradient(circle at 80% 30%,rgba(160,210,230,.5),transparent 45%),radial-gradient(circle at 50% 80%,rgba(200,220,180,.4),transparent 50%),linear-gradient(160deg,#d8e8d0 0%,#c0dce0 40%,#a8c8d8 100%);}
+@keyframes bk{0%,100%{transform:translate(0,0) scale(1)}50%{transform:translate(20px,-30px) scale(1.1)}}
+.serif{font-family:"ZCOOL KuaiLe","Noto Serif SC",serif}
+#scene{position:fixed;inset:0;z-index:1}
+#glCanvas{position:absolute;inset:0;width:100%;height:100%;display:block;cursor:pointer}
+.topbar{position:fixed;top:0;left:0;right:0;z-index:20;display:flex;align-items:center;justify-content:space-between;padding:18px 22px;pointer-events:none}
+.glass-chip{background:var(--glass);backdrop-filter:blur(20px) saturate(1.4);-webkit-backdrop-filter:blur(20px) saturate(1.4);border:1px solid var(--glass-border);border-radius:30px;padding:8px 16px;font-size:13px;letter-spacing:1px;color:var(--ink);display:flex;align-items:center;gap:8px;box-shadow:0 4px 20px rgba(120,160,180,.15),inset 0 1px 0 rgba(255,255,255,.4)}
+.brand{pointer-events:auto}
+.brand .name{font-family:"Noto Serif SC",serif;font-size:16px;font-weight:600}
+#beijingClock{position:fixed;top:24px;left:168px;z-index:20;font-family:"ZCOOL KuaiLe",serif;font-size:13px;color:#5a8a9a;letter-spacing:2px;opacity:.78;pointer-events:none}
+.top-right{display:flex;gap:8px;pointer-events:auto}
+.icon-btn{width:38px;height:38px;border-radius:50%;background:var(--glass);backdrop-filter:blur(20px);-webkit-backdrop-filter:blur(20px);border:1px solid var(--glass-border);color:var(--ink-dim);cursor:pointer;display:flex;align-items:center;justify-content:center;transition:.25s}
+.icon-btn:hover{color:var(--ink);transform:scale(1.08)}
+.icon-btn svg{width:18px;height:18px}
+.balance-chip{position:fixed;top:64px;left:50%;transform:translateX(-50%);z-index:20;display:flex;align-items:center;gap:8px;background:var(--glass);backdrop-filter:blur(20px);-webkit-backdrop-filter:blur(20px);border:1px solid var(--glass-border);border-radius:30px;padding:6px 14px;font-size:12px;color:var(--ink-dim);letter-spacing:1px;box-shadow:0 4px 20px rgba(120,160,180,.12)}
+.balance-chip .dot{width:8px;height:8px;border-radius:50%;background:#7ec850;box-shadow:0 0 8px #7ec850}
+.balance-chip .num{color:var(--ink);font-weight:500}
+.scene-chip{position:fixed;top:100px;left:50%;transform:translateX(-50%);z-index:18;padding:5px 11px;border-radius:999px;background:rgba(255,255,255,.2);backdrop-filter:blur(14px);border:1px solid rgba(255,255,255,.32);color:var(--ink-dim);font-size:11px;letter-spacing:1px;transition:background .5s,color .5s;pointer-events:none}
+body.night .scene-chip{color:rgba(235,247,255,.8);background:rgba(255,255,255,.08)}
+.orb-hint{position:fixed;z-index:18;background:var(--glass);backdrop-filter:blur(16px);-webkit-backdrop-filter:blur(16px);border:1px solid var(--glass-border);border-radius:20px;padding:8px 14px;font-size:13px;cursor:pointer;display:none;align-items:center;gap:8px;box-shadow:0 4px 20px rgba(120,160,180,.2);animation:hp 3s ease-in-out infinite;transition:.3s}
+.orb-hint:hover{transform:scale(1.05)}
+.orb-hint .zi{width:28px;height:28px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-family:"Noto Serif SC",serif;font-size:15px;font-weight:500;color:#fff}
+@keyframes hp{0%,100%{box-shadow:0 4px 20px rgba(120,160,180,.2)}50%{box-shadow:0 4px 30px rgba(120,160,180,.4)}}
+.chat-dock{position:fixed;bottom:0;left:0;right:0;z-index:25;display:flex;justify-content:center;padding:0 16px 20px;transform:translateY(120%);transition:transform .6s cubic-bezier(.2,.8,.2,1)}
+.chat-dock.open{transform:translateY(0)}
+.chat-box{width:min(560px,100%);background:var(--glass);backdrop-filter:blur(28px) saturate(1.5);-webkit-backdrop-filter:blur(28px) saturate(1.5);border:1px solid var(--glass-border);border-radius:24px;box-shadow:0 10px 40px rgba(80,120,150,.25),inset 0 1px 0 rgba(255,255,255,.5);overflow:hidden}
+.chat-box .msgs{max-height:24vh;overflow-y:auto;padding:12px 14px;display:flex;flex-direction:column;gap:8px}
+.chat-box .msgs::-webkit-scrollbar{width:3px}
+.msg{max-width:80%;padding:9px 14px;border-radius:18px;font-size:14px;line-height:1.65;animation:fu .3s;position:relative}
+@keyframes fu{from{opacity:0;transform:translateY(8px)}to{opacity:1;transform:translateY(0)}}
+.msg.bot{align-self:flex-start;background:rgba(255,255,255,.35);color:var(--ink);border-bottom-left-radius:4px}
+.msg.user{align-self:flex-end;background:rgba(120,200,220,.5);color:#1a3a4a;border-bottom-right-radius:6px;backdrop-filter:blur(10px);border:1px solid rgba(255,255,255,.4)}
+.chat-box .input-row{display:flex;gap:8px;padding:8px 12px;border-top:1px solid rgba(255,255,255,.3);align-items:center}
+.chat-box textarea{flex:1;border:none;background:rgba(255,255,255,.3);border-radius:20px;padding:10px 14px;font-family:inherit;font-size:14px;color:var(--ink);resize:none;outline:none;line-height:1.5;min-height:40px;max-height:100px}
+.chat-box textarea::placeholder{color:var(--ink-faint)}
+.chat-box .send{width:40px;height:40px;border-radius:50%;border:none;cursor:pointer;background:linear-gradient(135deg,#fff,#e0f0f5);box-shadow:0 2px 10px rgba(100,150,180,.3);display:flex;align-items:center;justify-content:center;color:#4a8aaa;flex-shrink:0}
+.chat-box .send svg{width:18px;height:18px}
+.quick-prompts{display:flex;gap:8px;overflow-x:auto;padding:8px 14px 2px;scrollbar-width:none}
+.quick-prompts::-webkit-scrollbar{display:none}
+.quick-prompts button{white-space:nowrap;border:1px solid rgba(130,180,200,.35);background:rgba(255,255,255,.5);color:var(--ink-dim);border-radius:999px;padding:6px 10px;font:12px "Noto Sans SC",sans-serif;cursor:pointer}
+.quick-prompts button:hover{background:rgba(255,255,255,.85);color:var(--ink)}
+.agent-share-row{display:none;justify-content:flex-end;padding:7px 14px 0}
+.agent-share-row a{font-size:11px;color:var(--ink-dim);text-decoration:none;border-bottom:1px solid rgba(90,150,175,.35);padding-bottom:2px}
+.agent-share-row a:hover{color:var(--ink)}
+.agent-share-actions{display:flex;align-items:center;gap:12px}
+.agent-share-actions button{border:none;background:none;padding:0;color:var(--ink-dim);font-size:11px;border-bottom:1px solid rgba(90,150,175,.35);cursor:pointer}
+.agent-embed-mask{position:fixed;inset:0;z-index:95;background:rgba(10,28,42,.72);backdrop-filter:blur(12px);display:flex;align-items:center;justify-content:center;padding:18px;box-sizing:border-box}
+.agent-embed-card{width:min(980px,96vw);height:min(780px,88vh);display:flex;flex-direction:column;background:rgba(248,252,253,.98);border:1px solid rgba(255,255,255,.7);border-radius:20px;overflow:hidden;box-shadow:0 24px 70px rgba(0,20,40,.35)}
+.agent-embed-head{display:flex;align-items:center;justify-content:space-between;gap:12px;padding:12px 16px;border-bottom:1px solid rgba(120,170,190,.22);color:var(--ink)}
+.agent-embed-head strong{font-size:14px}
+.agent-embed-head a{font-size:12px;color:#4c8ca5;text-decoration:none}
+.agent-embed-head button{width:32px;height:32px;border-radius:50%;border:1px solid rgba(120,170,190,.28);background:rgba(255,255,255,.7);color:var(--ink-dim);cursor:pointer;font-size:18px}
+.agent-embed-card iframe{flex:1;width:100%;border:0;background:#fff}
+.agent-embed-foot{padding:9px 16px;font-size:11px;line-height:1.6;color:var(--ink-faint);border-top:1px solid rgba(120,170,190,.18)}
+.action-card{border:1px solid rgba(126,192,208,.35);background:rgba(255,255,255,.5);border-radius:12px;padding:12px;margin-top:10px}
+.action-card h4{font-size:14px;margin-bottom:6px;color:var(--ink)}
+.action-card p{font-size:12px;line-height:1.7;color:var(--ink-dim);margin-bottom:9px}
+.action-grid{display:grid;grid-template-columns:1fr 1fr;gap:8px}
+.action-grid button,.action-card .wide-action{border:none;border-radius:10px;padding:9px 10px;background:rgba(126,192,208,.18);color:var(--ink);font:12px "Noto Sans SC",sans-serif;cursor:pointer;text-align:left}
+.action-grid button:hover,.action-card .wide-action:hover{background:rgba(126,192,208,.35)}
+.action-card .wide-action{width:100%;text-align:center;margin-top:8px;background:linear-gradient(135deg,#8ad0e0,#64bfc4);color:#fff}
+.roulette-window{position:relative;height:190px;overflow:hidden;margin:14px 0 10px;border-radius:16px;border:1px solid rgba(126,192,208,.35);background:linear-gradient(180deg,rgba(255,255,255,.28),rgba(255,255,255,.68),rgba(255,255,255,.28))}
+.roulette-window::before,.roulette-window::after{content:"";position:absolute;left:0;right:0;height:58px;z-index:3;pointer-events:none}
+.roulette-window::before{top:0;background:linear-gradient(180deg,rgba(235,247,250,.96),rgba(235,247,250,0))}
+.roulette-window::after{bottom:0;background:linear-gradient(0deg,rgba(235,247,250,.96),rgba(235,247,250,0))}
+.roulette-focus{position:absolute;left:10px;right:10px;top:63px;height:64px;z-index:2;border:1px solid rgba(90,180,200,.55);border-radius:12px;background:rgba(126,200,220,.12);box-shadow:0 0 0 1px rgba(255,255,255,.5) inset;pointer-events:none}
+.roulette-focus::before,.roulette-focus::after{content:"";position:absolute;top:50%;width:0;height:0;border-top:6px solid transparent;border-bottom:6px solid transparent;transform:translateY(-50%)}
+.roulette-focus::before{left:-8px;border-left:9px solid #64bfc4}
+.roulette-focus::after{right:-8px;border-right:9px solid #64bfc4}
+.roulette-reel{transition:transform 2.8s cubic-bezier(.12,.72,.18,1)}
+.roulette-item{height:64px;display:flex;align-items:center;justify-content:center;text-align:center;padding:0 24px;font-size:13px;line-height:1.45;color:var(--ink);box-sizing:border-box}
+.roulette-result{min-height:22px;text-align:center;font-size:13px;color:var(--ink-dim)}
+.journal-list{display:flex;flex-direction:column;gap:8px;max-height:48vh;overflow-y:auto;padding-right:3px}
+.journal-entry{padding:11px 12px;border-radius:12px;background:rgba(255,255,255,.5);border:1px solid rgba(180,210,220,.28)}
+.journal-entry time{display:block;font-size:10px;color:var(--ink-faint);margin-bottom:5px}
+.journal-entry p{font-size:13px;line-height:1.7;color:var(--ink);white-space:pre-wrap;word-break:break-word}
+.selfcare-list{display:grid;grid-template-columns:1fr 1fr;gap:8px;margin:14px 0}
+.selfcare-option{min-height:48px;border:1px solid rgba(126,192,208,.3);border-radius:12px;background:rgba(255,255,255,.48);color:var(--ink-dim);font:12px "Noto Sans SC",sans-serif;text-align:left;padding:9px 11px;cursor:pointer}
+.selfcare-option.selected{border-color:rgba(90,180,170,.72);background:rgba(126,220,205,.22);color:var(--ink);box-shadow:0 0 0 1px rgba(90,180,170,.16) inset}
+.trend-wrap{position:relative;background:rgba(255,255,255,.45);border:1px solid rgba(126,192,208,.28);border-radius:16px;padding:12px;margin:10px 0 14px}
+.trend-wrap canvas{width:100%;height:180px;display:block}
+.trend-summary{display:grid;grid-template-columns:repeat(3,1fr);gap:8px;margin:8px 0 2px}
+.trend-summary div{text-align:center;background:rgba(255,255,255,.5);border-radius:10px;padding:8px 4px}
+.trend-summary b{display:block;font-size:16px;color:var(--ink)}
+.trend-summary span{font-size:10px;color:var(--ink-faint)}
+.crisis-note{border:1px solid rgba(224,128,128,.5);background:rgba(255,240,240,.86);border-radius:14px;padding:14px;margin-top:10px;color:#7a3f3f;font-size:13px;line-height:1.8}
+.crisis-note b{font-size:15px}
+.msg.system{align-self:center;max-width:92%;padding:7px 11px;border-radius:10px;background:rgba(255,240,240,.86);border:1px solid rgba(220,130,130,.35);color:#9a4d4d;font:11px "Noto Sans SC",sans-serif;line-height:1.6;text-align:center}
+.agent-test-status{margin-top:8px;padding:8px 10px;border-radius:10px;font-size:11px;line-height:1.6;display:none}
+.agent-test-status.show{display:block}
+.agent-test-status.testing{background:rgba(126,200,220,.12);color:var(--ink-dim)}
+.agent-test-status.ok{background:rgba(112,190,130,.14);color:#34764a}
+.agent-test-status.error{background:rgba(255,230,230,.75);color:#9a4d4d;border:1px solid rgba(220,130,130,.3)}
+.practice-mask{position:fixed;inset:0;z-index:90;background:rgba(16,36,54,.72);backdrop-filter:blur(12px);display:flex;align-items:center;justify-content:center;color:#fff;text-align:center}
+.practice-card{width:min(420px,90vw);padding:28px;border:1px solid rgba(255,255,255,.22);border-radius:24px;background:rgba(255,255,255,.08)}
+.practice-orb{width:128px;height:128px;margin:18px auto;border-radius:50%;background:rgba(160,230,240,.35);box-shadow:0 0 50px rgba(140,220,240,.45);transition:transform 4s ease,background 4s ease}
+.practice-orb.inhale{transform:scale(1.22);background:rgba(160,230,240,.62)}
+.practice-orb.exhale{transform:scale(.82);background:rgba(160,210,230,.24)}
+.practice-card h3{font-size:20px;margin-bottom:8px}
+.practice-card p{font-size:14px;line-height:1.8;color:rgba(255,255,255,.82)}
+.practice-card .wide-action{width:100%;min-height:48px;margin-top:18px;border:none;border-radius:999px;background:linear-gradient(135deg,rgba(255,255,255,.96),rgba(215,244,248,.94));color:#245568;font:600 15px "Noto Sans SC",sans-serif;letter-spacing:1px;cursor:pointer;box-shadow:0 10px 28px rgba(10,40,60,.25);transition:transform .2s,box-shadow .2s}
+.practice-card .wide-action:hover{transform:translateY(-2px);box-shadow:0 14px 34px rgba(10,40,60,.32)}
+.practice-card .practice-note{font-size:12px;color:rgba(255,255,255,.58);margin-top:10px}
+.note-paper{position:relative;width:min(720px,calc(100vw - 28px));max-height:82vh;overflow-y:auto;background:linear-gradient(180deg,#fffef8,#fbf1c9);border:1px solid rgba(190,160,100,.24);border-radius:14px;padding:62px 58px 48px;box-shadow:0 24px 70px rgba(70,50,20,.28),inset 0 0 90px rgba(255,240,180,.36);transform:rotateX(-12deg) rotateY(-4deg) rotate(-.5deg);transform-style:preserve-3d;transition:transform .8s cubic-bezier(.2,.8,.3,1);box-sizing:border-box;scrollbar-width:thin}
+.note-paper::-webkit-scrollbar{width:5px}
+.note-paper::-webkit-scrollbar-thumb{background:rgba(170,140,85,.35);border-radius:999px}
+.note-context{font-size:12px;color:#aa8753;letter-spacing:2px;margin-bottom:14px;text-align:center}
+.note-content{font-size:18px;line-height:2;color:#4a3a20;font-family:"Noto Serif SC","ZCOOL KuaiLe",serif;text-align:left;opacity:0;transition:opacity .6s ease .3s;word-break:break-word;white-space:normal}
+.note-hint{position:absolute;left:50%;bottom:14px;transform:translateX(-50%);font-size:12px;color:#7a6a4a;letter-spacing:3px;white-space:nowrap;animation:hintPulse 2s ease-in-out infinite}
+.note-close{position:absolute;right:14px;top:14px;width:32px;height:32px;border-radius:50%;border:1px solid rgba(160,130,80,.2);background:rgba(255,255,255,.56);color:#8a6a30;font-size:18px;cursor:pointer;z-index:7}
+.bottle-read-mask{position:fixed;inset:0;z-index:86;display:flex;align-items:center;justify-content:center;padding:16px;box-sizing:border-box;background:rgba(28,52,66,.42);backdrop-filter:blur(12px);animation:fu .25s}
+.bottle-read-card{position:relative;width:min(720px,calc(100vw - 28px));display:grid;grid-template-columns:154px minmax(0,1fr);align-items:center;gap:24px;padding:30px 34px 30px 28px;border-radius:22px;border:1px solid rgba(230,245,250,.72);background:linear-gradient(135deg,rgba(255,255,255,.96),rgba(232,248,250,.92));box-shadow:0 24px 70px rgba(30,65,85,.28);box-sizing:border-box}
+.bottle-read-visual{display:flex;align-items:center;justify-content:center;min-height:150px;border-radius:18px;background:linear-gradient(160deg,rgba(126,200,220,.18),rgba(126,200,220,.05));border:1px solid rgba(126,192,208,.2)}
+.bottle-read-visual svg{width:72px;height:88px;filter:drop-shadow(0 10px 18px rgba(70,130,150,.18))}
+.bottle-read-copy{min-width:0}
+.bottle-read-eyebrow{font-size:11px;letter-spacing:3px;color:var(--ink-faint);margin-bottom:10px}
+.bottle-read-text{font-family:"Noto Serif SC",serif;font-size:17px;line-height:1.9;color:var(--ink);white-space:pre-wrap;word-break:break-word;max-height:42vh;overflow-y:auto;padding-right:4px}
+.bottle-read-actions{display:flex;justify-content:flex-end;margin-top:18px}
+.bottle-read-close{position:absolute;right:14px;top:14px;width:34px;height:34px;border-radius:50%;border:1px solid rgba(140,180,200,.28);background:rgba(255,255,255,.72);color:var(--ink-dim);font-size:19px;cursor:pointer}
+@media (max-width:600px){
+  .bottle-read-card{grid-template-columns:70px minmax(0,1fr);gap:14px;padding:24px 18px;border-radius:18px}
+  .bottle-read-visual{min-height:104px;border-radius:14px}
+  .bottle-read-visual svg{width:46px;height:58px}
+  .bottle-read-text{font-size:15px;line-height:1.8;max-height:48vh}
+}
+@media (max-width:600px){
+  .practice-card{width:calc(100vw - 28px);padding:22px 18px;border-radius:20px}
+  .practice-orb{width:112px;height:112px;margin:14px auto}
+  .practice-card h3{font-size:18px}
+  .practice-card p{font-size:13px}
+  .note-paper{width:calc(100vw - 20px);max-height:76vh;padding:50px 20px 30px;border-radius:12px;transform:rotateX(-8deg) rotate(-.5deg)}
+  .note-content{font-size:16px;line-height:1.9}
+  .note-hint{bottom:10px;letter-spacing:2px}
+  .modal-mask .sticky-note{width:calc(100vw - 24px);max-height:82vh;overflow-y:auto;padding:24px 18px}
+  .tied-note{width:calc(100vw - 28px);max-height:80vh;overflow-y:auto;padding:28px 20px}
+}
+.chat-collapse{position:absolute;top:8px;right:12px;width:26px;height:26px;border-radius:50%;background:rgba(255,255,255,.4);border:1px solid rgba(180,210,220,.4);color:var(--ink-dim);cursor:pointer;font-size:14px;z-index:5;}
+.chat-mini{position:fixed;bottom:24px;right:24px;z-index:26;width:56px;height:56px;border-radius:50%;background:var(--glass);backdrop-filter:blur(20px);border:1px solid var(--glass-border);display:none;align-items:center;justify-content:center;cursor:pointer;box-shadow:0 4px 20px rgba(120,160,180,.2);transition:.3s;}
+.chat-mini.show{display:flex}
+.chat-mini:hover{transform:scale(1.1)}
+.chat-mini svg{width:28px;height:28px}
+.chat-box{position:relative}
+.island-tip{position:fixed;z-index:20;max-width:170px;padding:7px 11px;background:rgba(255,255,255,.55);backdrop-filter:blur(16px);border:1.5px solid rgba(255,255,255,.8);border-radius:12px;font-size:12px;color:#3a5a6a;line-height:1.45;box-shadow:0 3px 12px rgba(100,150,180,.18),inset 0 1px 0 rgba(255,255,255,.6);opacity:0;transition:opacity .3s;pointer-events:none;}
+.island-tip.show{opacity:1;}
+.island-tip::after{content:"";position:absolute;bottom:-6px;left:50%;width:12px;height:12px;background:var(--glass);border-right:1px solid var(--glass-border);border-bottom:1px solid var(--glass-border);transform:translateX(-50%) rotate(45deg);}
+
+
+.fish-tip{position:fixed;z-index:22;background:var(--glass);backdrop-filter:blur(16px);border:1px solid var(--glass-border);border-radius:16px;padding:8px 14px;font-size:12px;color:var(--ink-dim);letter-spacing:1px;pointer-events:none;animation:bf 2.5s ease-in-out infinite}
+@keyframes bf{0%,100%{transform:translateY(0)}50%{transform:translateY(-8px)}}
+.welcome{position:fixed;inset:0;z-index:50;overflow:hidden;transition:opacity 1.2s;pointer-events:none}
+.welcome.hide{opacity:0;pointer-events:none}
+.intro-veil{position:absolute;inset:0;background:transparent;transition:opacity 1.2s}
+.intro-step{position:absolute;inset:0}
+.intro-hint{position:absolute;bottom:16%;left:50%;transform:translateX(-50%);color:rgba(255,255,255,.85);font-size:15px;letter-spacing:8px;animation:hintPulse 3s ease-in-out infinite;text-shadow:0 0 20px rgba(180,220,255,.6);white-space:nowrap}
+@keyframes hintPulse{0%,100%{opacity:.4}50%{opacity:.95}}
+.intro-ball-glow{position:absolute;top:50%;left:50%;width:340px;height:340px;transform:translate(-50%,-50%);border-radius:50%;pointer-events:none;opacity:0;transition:opacity 1.5s,transform 1.5s;background:radial-gradient(circle,rgba(180,230,255,.35) 0%,rgba(140,200,255,.15) 40%,transparent 70%);box-shadow:0 0 120px rgba(150,210,255,.3),inset 0 0 80px rgba(200,240,255,.2)}
+.intro-ball-glow.on{opacity:1;transform:translate(-50%,-50%) scale(1.08)}
+.intro-bubble{position:absolute;top:30%;left:50%;transform:translateX(-50%);background:rgba(255,255,255,.15);backdrop-filter:blur(20px);-webkit-backdrop-filter:blur(20px);border:1px solid rgba(255,255,255,.35);border-radius:20px;padding:14px 24px;color:#e8f4ff;font-size:16px;letter-spacing:2px;white-space:nowrap;animation:bubbleIn .8s ease-out;box-shadow:0 8px 30px rgba(100,160,200,.2)}
+@keyframes bubbleIn{0%{opacity:0;transform:translateX(-50%) translateY(15px) scale(.9)}100%{opacity:1;transform:translateX(-50%) translateY(0) scale(1)}}
+.intro-input-wrap{position:absolute;top:42%;left:50%;transform:translateX(-50%);display:flex;align-items:center;gap:10px;pointer-events:auto;animation:bubbleIn .8s ease-out .2s backwards}
+.intro-input{background:rgba(255,255,255,.12);backdrop-filter:blur(15px);border:1px solid rgba(255,255,255,.3);border-radius:24px;padding:12px 22px;color:#e8f4ff;font-size:15px;width:220px;outline:none;text-align:center;letter-spacing:1px;transition:border .3s,box-shadow .3s}
+.intro-input::placeholder{color:rgba(200,220,240,.4)}
+.intro-input:focus{border-color:rgba(180,220,255,.6);box-shadow:0 0 20px rgba(150,210,255,.2)}
+.intro-go{width:44px;height:44px;border-radius:50%;border:1px solid rgba(255,255,255,.4);background:rgba(180,220,255,.15);color:#c8e4ff;font-size:16px;cursor:pointer;transition:all .3s;display:flex;align-items:center;justify-content:center}
+.intro-go:hover{background:rgba(180,220,255,.35);box-shadow:0 0 20px rgba(150,210,255,.3);transform:scale(1.05)}
+.welcome.hide{opacity:0;pointer-events:none}
+
+.welcome-card h1{font-family:"Noto Serif SC",serif;font-size:26px;font-weight:500;color:var(--ink);margin-bottom:8px;letter-spacing:2px}
+.welcome-card .sub{font-size:13px;color:var(--ink-dim);line-height:1.8;margin-bottom:24px}
+.welcome-card .field{margin-bottom:16px;text-align:left}
+.welcome-card label{display:block;font-size:12px;color:var(--ink-dim);margin-bottom:6px;letter-spacing:1px}
+.welcome-card input{width:100%;padding:12px 16px;border-radius:16px;border:1px solid rgba(180,210,220,.5);background:rgba(255,255,255,.5);font-family:inherit;font-size:15px;color:var(--ink);outline:none}
+.welcome-card input:focus{border-color:#7ec8d8;background:rgba(255,255,255,.7)}
+.welcome-card .btn-primary{margin-top:8px;width:100%;padding:14px;border-radius:24px;border:none;cursor:pointer;background:linear-gradient(135deg,#7ec8d8,#5ab8a0);color:#fff;font-family:inherit;font-size:15px;letter-spacing:3px;box-shadow:0 6px 20px rgba(90,180,160,.4)}
+.orb-panel{position:fixed;top:0;right:0;height:100%;width:min(380px,90vw);z-index:30;background:rgba(255,255,255,.35);backdrop-filter:blur(30px) saturate(1.5);-webkit-backdrop-filter:blur(30px) saturate(1.5);border-left:1px solid rgba(255,255,255,.5);transform:translateX(100%);transition:transform .5s;display:flex;flex-direction:column}
+.orb-panel.open{transform:translateX(0)}
+.orb-panel-head{padding:24px 24px 16px;border-bottom:1px solid rgba(180,210,220,.3)}
+.orb-panel-head .zi-big{width:56px;height:56px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-family:"Noto Serif SC",serif;font-size:28px;color:#fff;margin-bottom:12px}
+.orb-panel-head h3{font-family:"Noto Serif SC",serif;font-size:22px;font-weight:500}
+.orb-panel-head .s{font-size:12px;color:var(--ink-dim);margin-top:4px;line-height:1.6}
+.orb-panel-body{flex:1;overflow-y:auto;padding:20px 24px}
+.orb-panel-close{position:absolute;top:20px;right:20px;width:32px;height:32px;border-radius:50%;background:rgba(255,255,255,.4);border:1px solid rgba(180,210,220,.4);color:var(--ink-dim);cursor:pointer;font-size:16px}
+.meter{margin:12px 0}
+.meter .lab{display:flex;justify-content:space-between;font-size:12px;margin-bottom:5px;color:var(--ink-dim)}
+.meter .track{height:5px;border-radius:3px;background:rgba(180,210,220,.3);overflow:hidden}
+.meter .fill{height:100%;border-radius:3px;transition:width .8s}
+.rec-item{padding:10px 14px;border-radius:12px;margin-bottom:8px;background:rgba(255,255,255,.35);border:1px solid rgba(180,210,220,.25)}
+.rec-item .meta{font-size:11px;color:var(--ink-faint);margin-bottom:4px}
+.rec-item .txt{font-size:13px;line-height:1.6;color:var(--ink)}
+.bottle-btn{position:fixed;bottom:24px;left:24px;z-index:22;width:54px;height:54px;border-radius:50%;background:var(--glass);backdrop-filter:blur(20px);border:1px solid var(--glass-border);display:none;align-items:center;justify-content:center;cursor:pointer;transition:.3s;box-shadow:0 4px 20px rgba(120,160,180,.2)}
+.bottle-btn.show{display:flex}
+.bottle-btn:hover{transform:scale(1.1) rotate(-10deg)}
+.bottle-btn svg{width:26px;height:26px}
+.bottle-badge{position:absolute;top:-2px;right:-2px;min-width:18px;height:18px;border-radius:9px;background:#f08080;color:#fff;font-size:10px;display:none;align-items:center;justify-content:center;padding:0 5px}
+.modal-mask{position:fixed;inset:0;z-index:40;background:rgba(180,210,220,.3);backdrop-filter:blur(10px);display:none;align-items:center;justify-content:center;padding:20px}
+.modal-mask.open{display:flex}
+.modal{width:min(480px,92vw);max-height:85vh;overflow-y:auto;background:rgba(255,255,255,.5);backdrop-filter:blur(30px) saturate(1.5);border:1px solid rgba(255,255,255,.5);border-radius:24px;padding:28px}
+.modal h3{font-family:"Noto Serif SC",serif;font-size:20px;margin-bottom:6px}
+.modal .desc{font-size:12px;color:var(--ink-dim);line-height:1.7;margin-bottom:16px}
+.modal .field{margin-bottom:12px}
+.modal label{display:block;font-size:12px;color:var(--ink-dim);margin-bottom:5px}
+.modal input{width:100%;padding:10px 14px;border-radius:12px;border:1px solid rgba(180,210,220,.5);background:rgba(255,255,255,.5);font-family:inherit;font-size:14px;color:var(--ink);outline:none}
+.modal .actions{display:flex;gap:10px;margin-top:18px;justify-content:flex-end}
+.modal .actions button:disabled{cursor:not-allowed}
+.btn-ghost{padding:10px 18px;border-radius:20px;border:1px solid rgba(180,210,220,.5);background:transparent;color:var(--ink-dim);cursor:pointer;font-family:inherit}
+.btn-primary{padding:10px 20px;border-radius:20px;border:none;background:linear-gradient(135deg,#7ec8d8,#5ab8a0);color:#fff;cursor:pointer;font-family:inherit;letter-spacing:2px}
+.data-zone{margin-top:22px;padding-top:18px;border-top:1px solid rgba(180,210,220,.35)}
+.data-zone h4{font-size:14px;color:var(--ink);margin-bottom:6px}
+.data-zone p{font-size:11px;line-height:1.7;color:var(--ink-faint);margin-bottom:12px}
+.data-buttons{display:grid;grid-template-columns:1fr 1fr;gap:8px}
+.data-buttons button{min-height:40px;border-radius:12px;border:1px solid rgba(180,210,220,.5);background:rgba(255,255,255,.42);color:var(--ink-dim);font:12px "Noto Sans SC",sans-serif;cursor:pointer}
+.data-buttons button:hover{background:rgba(255,255,255,.76)}
+.data-buttons .danger{color:#a65353;border-color:rgba(210,130,130,.42);background:rgba(255,240,240,.55)}
+.toast{position:fixed;bottom:120px;left:50%;transform:translateX(-50%) translateY(10px);z-index:60;padding:10px 20px;border-radius:20px;background:rgba(255,255,255,.6);backdrop-filter:blur(20px);border:1px solid rgba(255,255,255,.5);font-size:13px;color:var(--ink);opacity:0;transition:.3s;pointer-events:none}
+.toast.show{opacity:1;transform:translateX(-50%) translateY(0)}
+.egg-popup{position:fixed;top:80px;right:24px;z-index:70;display:flex;align-items:center;gap:14px;padding:16px 20px;border-radius:18px;background:rgba(255,252,240,.92);backdrop-filter:blur(20px);border:1px solid rgba(255,220,150,.5);box-shadow:0 12px 40px rgba(200,160,80,.25);transform:translateX(400px);opacity:0;transition:all .5s cubic-bezier(.2,.8,.3,1);max-width:320px}
+.egg-popup.show{transform:translateX(0);opacity:1}
+.egg-popup-icon{width:44px;height:44px;border-radius:50%;background:radial-gradient(circle,#fff5d0,#ffe8a0);display:flex;align-items:center;justify-content:center;font-size:20px;color:#d4a040;flex-shrink:0;box-shadow:0 0 16px rgba(255,220,120,.4)}
+.egg-popup-title{font-size:11px;color:#b09060;letter-spacing:3px;margin-bottom:2px}
+.egg-popup-name{font-size:16px;color:#5a4a2a;margin-bottom:2px}
+.egg-popup-desc{font-size:12px;color:#8a7a5a}
+.modal-mask .sticky-note{background:linear-gradient(135deg,#fff9e0 0%,#fff3c8 100%);border:1px solid rgba(200,180,100,.3);border-radius:14px;box-shadow:0 8px 30px rgba(180,150,80,.2),inset 0 0 40px rgba(255,240,180,.5);position:relative;padding:32px 30px 26px;width:min(620px,calc(100vw - 32px));max-height:86vh;overflow-y:auto;transform:rotate(-.6deg)}
+.modal-mask .sticky-note::before{content:"";position:absolute;top:0;left:50%;transform:translateX(-50%);width:80px;height:18px;background:rgba(255,200,100,.35);border-radius:0 0 4px 4px;box-shadow:0 2px 4px rgba(180,150,80,.15)}
+.modal-mask .sticky-note h3{color:#8a6a30;font-family:"ZCOOL KuaiLe",serif;letter-spacing:4px;text-align:center;margin-bottom:16px;font-size:18px}
+.modal-mask .sticky-note p{color:#6a5a30;line-height:2;font-size:15px;text-align:center;font-family:"ZCOOL KuaiLe",serif}
+.tied-note-wrap{display:flex !important;flex-direction:row !important;justify-content:center;align-items:center;min-height:400px;width:100% !important;max-width:100vw}
+.tied-note{position:relative;background:linear-gradient(180deg,#fefdf5 0%,#fdf6d8 100%);border-radius:14px;padding:32px 40px;max-width:680px !important;width:min(680px,calc(100vw - 32px)) !important;min-height:200px;max-height:82vh;overflow-y:auto;box-shadow:0 12px 34px rgba(150,120,60,.2),inset 0 0 60px rgba(255,240,180,.3);transform:rotate(-.6deg);transition:all .6s ease;box-sizing:border-box}
+.tied-note::before{content:"";position:absolute;top:0;left:0;right:0;height:36px;background:repeating-linear-gradient(90deg,transparent,transparent 1px,rgba(200,180,120,.06) 1px,rgba(200,180,120,.06) 2px);pointer-events:none}
+.tied-note::after{content:"";position:absolute;top:36px;left:0;right:0;height:1px;background:rgba(200,150,100,.15);pointer-events:none}
+.tied-note p{text-align:left;word-break:break-word}
+.tied-note .btn-primary{display:block;margin:18px auto 0;min-width:120px}
+.tied-note.unwrapped{transform:rotate(0deg) scale(1.01)}
+.note-paper{position:relative;z-index:1}
+.note-text{font-size:16px;line-height:2.2;color:#5a4a2a;font-family:"ZCOOL KuaiLe",serif;text-align:left;opacity:0;max-height:0;overflow:hidden;transition:all .7s ease .4s;letter-spacing:1px;width:100%}
+.rope-svg{position:absolute;top:10px;left:50%;transform:translateX(-50%);width:120px;height:60px;z-index:3;transition:all .8s ease}
+.rope-hint{position:absolute;top:-40px;left:50%;transform:translateX(-50%);font-size:12px;color:#8a7a5a;letter-spacing:3px;white-space:nowrap;animation:hintPulse 2s ease-in-out infinite;z-index:4}
+
+
+
+@media (max-width:760px){.topbar{padding:12px 14px}.brand .name{font-size:14px}.chat-box .msgs{max-height:32vh}.bottle-btn{bottom:16px;left:16px;width:48px;height:48px}#beijingClock{display:none}.balance-chip{top:58px;font-size:11px}}
+
+body{transition:background 2.8s ease;}
+body.day{background:radial-gradient(circle at 18% 12%,rgba(210,240,190,.45),transparent 42%),radial-gradient(circle at 82% 28%,rgba(150,210,240,.4),transparent 46%),linear-gradient(160deg,#d4e8d8 0%,#a8d4e8 100%)}
+body.dawn{background:radial-gradient(circle at 70% 8%,rgba(255,190,140,.55),transparent 40%),linear-gradient(160deg,#ffd4b8 0%,#a8d8e8 100%)}
+body.dusk{background:radial-gradient(circle at 80% 20%,rgba(255,140,120,.4),transparent 42%),linear-gradient(160deg,#f8b8a8 0%,#c8a8d8 100%)}
+body.night{background:radial-gradient(circle at 50% 30%,rgba(80,120,180,.35),transparent 50%),linear-gradient(160deg,#152436 0%,#2a4a6a 55%,#1a3048 100%);color:#d8ecf4}
+body.night .glass-chip,body.night .balance-chip,body.night .icon-btn,body.night .chat-mini,body.night .bottle-btn{background:rgba(20,40,60,.38);border-color:rgba(180,220,255,.22);color:#d4e8f0}
+body.night .brand .name,body.night .balance-chip .num{color:#eaf6ff}
+body.night #beijingClock{color:rgba(190,220,240,.78)}
+.night-hint{position:fixed;top:126px;left:50%;transform:translateX(-50%);z-index:15;color:rgba(255,255,255,.45);font-size:12px;display:none;letter-spacing:2px;pointer-events:none}
+body.night .night-hint{display:block}
+body[data-ui-theme="dawn"]{background:radial-gradient(circle at 72% 10%,rgba(255,198,150,.5),transparent 40%),linear-gradient(160deg,#f5d4c2 0%,#c8dce4 52%,#a8d0d8 100%)}
+body[data-ui-theme="day"]{background:radial-gradient(circle at 18% 12%,rgba(210,240,190,.45),transparent 42%),radial-gradient(circle at 82% 28%,rgba(150,210,240,.4),transparent 46%),linear-gradient(160deg,#d4e8d8 0%,#a8d4e8 100%)}
+body[data-ui-theme="dusk"]{background:radial-gradient(circle at 82% 18%,rgba(255,150,120,.42),transparent 42%),linear-gradient(160deg,#f4b8a4 0%,#c7a8cf 52%,#7384aa 100%)}
+body[data-ui-theme="night"]{background:radial-gradient(circle at 50% 28%,rgba(90,140,195,.34),transparent 50%),linear-gradient(160deg,#152436 0%,#2a4a6a 55%,#1a3048 100%)}
+body[data-ui-theme="aurora"]{background:radial-gradient(ellipse at 18% 78%,rgba(75,210,175,.2),transparent 42%),radial-gradient(ellipse at 82% 22%,rgba(115,145,235,.2),transparent 44%),linear-gradient(160deg,#0c1d2a 0%,#17374a 48%,#183f3b 100%)}
+body[data-ui-theme="forest"]{background:radial-gradient(circle at 22% 16%,rgba(170,210,150,.28),transparent 42%),radial-gradient(circle at 80% 62%,rgba(120,180,145,.25),transparent 46%),linear-gradient(160deg,#dce7cf 0%,#a8c8b0 55%,#7da49a 100%)}
+body[data-ui-theme="night"] .glass-chip,body[data-ui-theme="night"] .balance-chip,body[data-ui-theme="night"] .icon-btn,body[data-ui-theme="night"] .chat-mini,body[data-ui-theme="night"] .bottle-btn,body[data-ui-theme="night"] .scene-chip,body[data-ui-theme="aurora"] .glass-chip,body[data-ui-theme="aurora"] .balance-chip,body[data-ui-theme="aurora"] .icon-btn,body[data-ui-theme="aurora"] .chat-mini,body[data-ui-theme="aurora"] .bottle-btn,body[data-ui-theme="aurora"] .scene-chip{background:rgba(20,40,60,.38);border-color:rgba(180,220,255,.22);color:#d4e8f0}
+body[data-ui-theme="night"] .brand .name,body[data-ui-theme="night"] .balance-chip .num,body[data-ui-theme="aurora"] .brand .name,body[data-ui-theme="aurora"] .balance-chip .num{color:#eaf6ff}
+body[data-ui-theme="dawn"] .glass-chip,body[data-ui-theme="day"] .glass-chip,body[data-ui-theme="dusk"] .glass-chip,body[data-ui-theme="forest"] .glass-chip,body[data-ui-theme="dawn"] .balance-chip,body[data-ui-theme="day"] .balance-chip,body[data-ui-theme="dusk"] .balance-chip,body[data-ui-theme="forest"] .balance-chip,body[data-ui-theme="dawn"] .icon-btn,body[data-ui-theme="day"] .icon-btn,body[data-ui-theme="dusk"] .icon-btn,body[data-ui-theme="forest"] .icon-btn,body[data-ui-theme="dawn"] .chat-mini,body[data-ui-theme="day"] .chat-mini,body[data-ui-theme="dusk"] .chat-mini,body[data-ui-theme="forest"] .chat-mini,body[data-ui-theme="dawn"] .bottle-btn,body[data-ui-theme="day"] .bottle-btn,body[data-ui-theme="dusk"] .bottle-btn,body[data-ui-theme="forest"] .bottle-btn,body[data-ui-theme="dawn"] .scene-chip,body[data-ui-theme="day"] .scene-chip,body[data-ui-theme="dusk"] .scene-chip,body[data-ui-theme="forest"] .scene-chip{background:var(--glass);border-color:var(--glass-border);color:var(--ink-dim)}
+body[data-ui-theme="dawn"] .brand .name,body[data-ui-theme="day"] .brand .name,body[data-ui-theme="dusk"] .brand .name,body[data-ui-theme="forest"] .brand .name,body[data-ui-theme="dawn"] .balance-chip .num,body[data-ui-theme="day"] .balance-chip .num,body[data-ui-theme="dusk"] .balance-chip .num,body[data-ui-theme="forest"] .balance-chip .num{color:var(--ink)}
+body[data-ui-theme="dawn"] #beijingClock,body[data-ui-theme="day"] #beijingClock,body[data-ui-theme="dusk"] #beijingClock,body[data-ui-theme="forest"] #beijingClock{color:var(--ink-dim)}
+
+.modal-overlay{position:fixed;inset:0;z-index:40;background:rgba(40,60,80,.25);backdrop-filter:blur(6px);display:none;align-items:center;justify-content:center}
+.modal-overlay.show{display:flex}
+.modal-card{max-width:340px;width:90%;background:rgba(255,255,255,.7);backdrop-filter:blur(24px);border:1.5px solid rgba(255,255,255,.7);border-radius:22px;padding:24px;box-shadow:0 8px 40px rgba(100,150,180,.25);animation:pop .4s cubic-bezier(.2,.8,.2,1)}
+@keyframes pop{from{transform:scale(.85);opacity:0}to{transform:scale(1);opacity:1}}
+.bottle-reveal{position:fixed;z-index:45;width:120px;height:140px;pointer-events:none;transition:all .8s cubic-bezier(.2,.8,.2,1)}
+.bottle-reveal .bottle-body{transition:all .6s}
+.bottle-reveal.open .bottle-body{transform:scale(1.3) rotate(-5deg);opacity:.3}
+.bottle-reveal .note{position:absolute;left:50%;top:50%;transform:translate(-50%,-50%) scale(0);background:rgba(255,250,230,.95);border:1px solid rgba(200,180,140,.5);border-radius:8px;padding:14px 16px;max-width:200px;font-size:13px;line-height:1.7;color:#5a4a3a;transition:all .5s .4s;box-shadow:0 4px 20px rgba(100,150,180,.2)}
+.bottle-reveal.open .note{transform:translate(-50%,-50%) scale(1)}
+</style>
+<script src="https://lf3-short.ibytedapm.com/slardar/fe/sdk-web/plugins/common-monitors.1.16.9.js" crossorigin="anonymous"></script></head>
+<body class="day">
+<div id="splashMask" onclick="this.style.opacity=0;var _t=this;setTimeout(function(){_t.remove();},800);" style="position:fixed;inset:0;z-index:100;background:linear-gradient(135deg,#c8e8f0 0%,#a8d8e8 40%,#d8f0e8 100%);display:flex;flex-direction:column;align-items:center;justify-content:center;cursor:pointer;transition:opacity .8s">
+  <div style="position:relative;width:200px;height:200px;margin-bottom:30px">
+    <div style="position:absolute;inset:0;border-radius:50%;background:radial-gradient(circle at 35% 30%,rgba(255,255,255,.5),rgba(150,210,230,.25) 40%,rgba(100,180,200,.15));border:2px solid rgba(255,255,255,.5);box-shadow:0 0 80px rgba(180,220,240,.5),inset 0 0 50px rgba(200,240,250,.2)">
+      <svg viewBox="0 0 200 200" style="width:100%;height:100%">
+        <ellipse cx="100" cy="110" rx="35" ry="14" fill="rgba(255,255,255,.5)"></ellipse>
+        <polygon points="65,110 45,95 55,110 45,125" fill="rgba(255,255,255,.4)"></polygon>
+        <circle cx="125" cy="107" r="2.5" fill="rgba(255,255,255,.4)"></circle>
+        <path d="M100 60 Q105 50 115 55" stroke="rgba(255,255,255,.15)" stroke-width="1.5" fill="none"></path>
+        <circle cx="100" cy="55" r="2" fill="rgba(255,255,255,.15)"></circle>
+      </svg>
+    </div>
+  </div>
+  <div style="font-family:'ZCOOL KuaiLe',serif;font-size:24px;color:#4a8a9a;letter-spacing:8px;margin-bottom:12px;text-shadow:0 2px 10px rgba(255,255,255,.8)">你找到我了</div>
+  <div style="font-size:13px;color:#6aa0b0;letter-spacing:4px">轻触进入</div>
+</div>
+<div id="scene"><canvas id="glCanvas" width="750" height="485" style="width: 750px; height: 485px;"></canvas></div>
+<div class="topbar">
+<div class="glass-chip brand"><span class="name serif" id="ballName">生态球</span></div>
+<div id="beijingClock">9月20日 周日 16:08:13</div>
+<div class="top-right">
+<div class="icon-btn" id="eggBtn" title="生态图鉴"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M12 2l2.4 7.4H22l-6.2 4.5 2.4 7.4L12 16.8 5.8 21.3l2.4-7.4L2 9.4h7.6z"></path></svg></div><div class="icon-btn" id="btnSettings" title="接入元景MaaS"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><circle cx="12" cy="12" r="3"></circle><path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 1 1-2.83 2.83l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 1 1-4 0v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 1 1-2.83-2.83l.06-.06a1.65 1.65 0 0 0 .33-1.82 1.65 1.65 0 0 0-1.51-1H3a2 2 0 1 1 0-4h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 1 1 2.83-2.83l.06.06a1.65 1.65 0 0 0 1.82.33H9a1.65 1.65 0 0 0 1-1.51V3a2 2 0 1 1 4 0v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 1 1 2.83 2.83l-.06.06a1.65 1.65 0 0 0-.33 1.82V9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 1 1 0 4h-.09a1.65 1.65 0 0 0-1.51 1z"></path></svg></div>
+</div>
+</div>
+<div class="balance-chip"><span class="dot" id="balDot" style="background: rgb(126, 200, 80); box-shadow: rgb(126, 200, 80) 0px 0px 8px;"></span><span>生态平衡</span><span class="num" id="balNum">琉璃世界</span></div>
+<div class="scene-chip" id="sceneChip">景观 · 微光水庭</div>
+<div class="night-hint">夜航 · 这个球在黑夜里安静地亮着</div>
+<div class="fish-tip" id="fishTip" style="left: 335px; top: 162.5px; display: none;">点一点我，和我说说话</div>
+<div class="island-tip" id="islandTip"></div>
+<div class="island-tip" id="fishBubble"></div>
+<div class="orb-hint" data-orb="映" id="hint-映" style="display: none;"><span class="zi" style="background:#7ec0d0">映</span><span class="lbl">看见自己</span></div>
+<div class="orb-hint" data-orb="生" id="hint-生" style="display: none;"><span class="zi" style="background:#7ec850">生</span><span class="lbl">保存好的</span></div>
+<div class="orb-hint" data-orb="愈" id="hint-愈" style="display: none;"><span class="zi" style="background:#5ab0e8">愈</span><span class="lbl">接住情绪</span></div>
+<div class="orb-hint" data-orb="循" id="hint-循" style="display: none;"><span class="zi" style="background:#50d0c0">循</span><span class="lbl">找回平衡</span></div>
+<div class="orb-hint" data-orb="望" id="hint-望" style="display: none;"><span class="zi" style="background:#e8b840">望</span><span class="lbl">下一步</span></div>
+<div class="chat-dock" id="chatDock">
+<div class="chat-box"><button class="chat-collapse" id="chatCollapse">×</button>
+<div class="msgs" id="chatMsgs"></div>
+<div class="quick-prompts" id="quickPrompts"></div>
+<div class="agent-share-row" id="agentShareRow"><div class="agent-share-actions"><button id="agentEmbedBtn" type="button">页内打开元景智能体</button><a id="agentShareLink" href="#" target="_blank" rel="noopener noreferrer">新窗口打开 ↗</a></div></div>
+<div class="input-row">
+<textarea id="chatInput" placeholder="和你的鱼说点什么…" rows="1"></textarea>
+<button class="send" id="chatSend"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 2L11 13M22 2l-7 20-4-9-9-4 20-7z"></path></svg></button>
+</div>
+</div>
+</div>
+<div class="orb-panel" id="orbPanel">
+<button class="orb-panel-close" id="orbPanelClose">×</button>
+<div class="orb-panel-head">
+<div class="zi-big" id="orbZi"></div>
+<h3 id="orbTitle"></h3>
+<div class="s" id="orbDesc"></div>
+</div>
+<div class="orb-panel-body" id="orbBody"></div>
+</div>
+<div class="chat-mini" id="chatMini"><svg viewBox="0 0 24 24" fill="none" stroke="#5a8aaa" stroke-width="1.5"><path d="M6 12c2-3 5-5 9-5 3 0 5 2 3 5 2 3 0 5-3 5-4 0-7-2-9-5z"></path></svg></div>
+<div class="bottle-btn show" id="bottleBtn" title="漂流瓶">
+<svg viewBox="0 0 48 56" fill="none">
+  <path d="M18 6h12v5c0 1.5 1 2.5 2.5 3.5l3 2.5v30a4 4 0 01-4 4H16a4 4 0 01-4-4V17l3-2.5C16 13.5 18 12.5 18 11V6z" fill="rgba(180,220,235,.55)" stroke="rgba(110,160,185,.85)" stroke-width="1.5"></path>
+  <rect x="17" y="2" width="14" height="6" rx="2" fill="rgba(170,130,85,.75)" stroke="rgba(120,90,55,.8)" stroke-width="1"></rect>
+  <path d="M17 24q7-5 14 0v16q-7-5-14 0V24z" fill="rgba(255,250,230,.9)" stroke="rgba(200,175,130,.6)" stroke-width=".8"></path>
+  <line x1="21" y1="29" x2="27" y2="29" stroke="rgba(180,150,100,.5)" stroke-width=".8"></line>
+  <line x1="21" y1="34" x2="27" y2="34" stroke="rgba(180,150,100,.5)" stroke-width=".8"></line>
+  <ellipse cx="24" cy="15" rx="4" ry="2" fill="rgba(255,255,255,.5)"></ellipse>
+</svg>
+<span class="bottle-badge" id="bottleBadge"></span>
+</div>
+<div class="welcome" id="welcome">
+<div class="intro-veil" id="introVeil"></div>
+<div class="intro-step" id="stepBall">
+<div class="intro-hint serif">点一点这颗球</div>
+<div class="intro-ball-glow" id="ballGlow"></div>
+</div>
+<div class="intro-step" id="stepNameBall" style="display:none">
+<div class="intro-bubble serif" id="ballQuestion">你觉得这是哪里？</div>
+<div class="intro-input-wrap">
+<input id="inputBallName" class="intro-input" placeholder="给它起个名字" maxlength="12" autocomplete="off">
+<button class="intro-go" id="btnBallName">✦</button>
+</div>
+</div>
+<div class="intro-step" id="stepFishName" style="display:none">
+<div class="intro-bubble serif" id="fishQuestion">给我取个名字吧，我只有七秒记忆</div>
+<div class="intro-input-wrap">
+<input id="inputFishName" class="intro-input" placeholder="小鱼的名字" maxlength="8" autocomplete="off">
+<button class="intro-go" id="btnFishName">✦</button>
+</div>
+</div>
+</div>
+<div class="modal-mask" id="settingsMask">
+<div class="modal">
+<h3 class="serif">接入元景智能体</h3>
+<div class="desc">支持元景 Assistant 地址、OpenAI 兼容地址和自定义后端代理。兼容模式会自动使用 model + messages 请求格式；Assistant 模式使用 agent_id + input。</div>
+<div class="field"><label>生态球名字</label><input id="cfgBallName" maxlength="12" autocomplete="off"></div>
+<div class="field"><label>小鱼名字</label><input id="cfgFishName" maxlength="8" autocomplete="off"></div>
+<div class="field"><label>界面主题</label><select id="cfgTheme" style="width:100%;padding:10px 14px;border-radius:12px;border:1px solid rgba(180,210,220,.5);background:rgba(255,255,255,.5);font-family:inherit;font-size:14px;color:var(--ink);outline:none"><option value="auto">跟随时间</option><option value="dawn">晨雾</option><option value="day">晴日</option><option value="dusk">黄昏</option><option value="night">深夜</option><option value="aurora">极光</option><option value="forest">森屿</option></select></div>
+<div class="field"><label>智能体分享链接（可选）</label><input id="cfgShareUrl" placeholder="https://maas.ai-yuanjing.com/cubm/share/... 或 https://....doubaoapps.com"><div style="display:flex;align-items:center;justify-content:space-between;gap:10px;margin-top:7px"><span id="agentShareStatus" style="font-size:11px;color:var(--ink-faint)">未设置</span><div style="display:flex;gap:8px"><button type="button" id="cfgOpenAgentEmbed" style="border:1px solid rgba(180,210,220,.5);background:rgba(255,255,255,.42);color:var(--ink-dim);border-radius:10px;padding:6px 9px;font-size:11px;cursor:pointer">页内预览</button><button type="button" id="cfgOpenAgentNew" style="border:none;background:rgba(126,200,220,.22);color:var(--ink);border-radius:10px;padding:6px 9px;font-size:11px;cursor:pointer">新窗口打开</button></div></div></div>
+<div class="field"><label>API Endpoint</label><input id="cfgEndpoint"><div style="font-size:11px;color:var(--ink-faint);margin-top:5px">元景智能体对话接口地址，一般不用改。</div></div>
+<div class="field"><label>API Key</label><input id="cfgKey" type="password" placeholder="Bearer Token"></div>
+<div class="field"><label>智能体 ID / 模型 ID</label><input id="cfgModel" placeholder="Assistant 模式填 agent_id；兼容模式填 model 名称或 ID"></div>
+<div class="field"><button type="button" id="cfgTestAgent" style="border:1px solid rgba(126,192,208,.5);background:rgba(255,255,255,.42);color:var(--ink);border-radius:12px;padding:9px 14px;font:12px 'Noto Sans SC',sans-serif;cursor:pointer">测试元景连接</button><div class="agent-test-status" id="agentTestStatus"></div></div>
+<div class="actions"><button class="btn-ghost" id="cfgCancel">取消</button><button class="btn-primary" id="cfgSave">保存</button></div>
+<div class="data-zone">
+<h4>本地生态数据</h4>
+<p>数据只保存在当前浏览器。清理记录会保留生态球和小鱼的名字，恢复全新生态球会重新进入首次命名流程。</p>
+<div class="data-buttons">
+<button id="clearEcoData">清空记录</button>
+<button class="danger" id="resetEcoData">恢复全新生态球</button>
+</div>
+</div>
+</div>
+</div>
+<div class="toast" id="toast"></div>
+<script>
+
+(function(){
+"use strict";
+
+var DEFAULT_CFG={endpoint:"https://maas-api.ai-yuanjing.com/openapi/v3/assistant/chat/completions",apiKey:"",model:"58b8236d-7b19-4a1f-bd16-2efac7f29d75",shareUrl:"https://maas.ai-yuanjing.com/cubm/share/58b8236d-7b19-4a1f-bd16-2efac7f29d75"};
+var state={ballName:"",fishName:"",uiTheme:"auto",emo:{joy:55,stress:32,anxiety:28,fatigue:38,hope:60},base:{joy:55,stress:32,anxiety:28,fatigue:38,hope:60},balance:62,orbsRevealed:{"映":false,"生":false,"愈":false,"循":false,"望":false},records:[],bottles:[],chatHistory:[],actions:[],eggs:{},cfg:loadCfg(),sessionId:null,entered:false,stabilityCount:0,dailyLog:{},lastSummaryDate:""};
+function loadCfg(){try{var r=localStorage.getItem("eco_cfg");if(r)return Object.assign({},DEFAULT_CFG,JSON.parse(r));}catch(e){}return Object.assign({},DEFAULT_CFG);}
+function saveCfg(){try{localStorage.setItem("eco_cfg",JSON.stringify(state.cfg));}catch(e){}}
+function loadAll(){try{var r=localStorage.getItem("eco_state");if(r){var s=JSON.parse(r);state.ballName=s.ballName||"";state.fishName=s.fishName||"";state.uiTheme=s.uiTheme||"auto";state.emo=Object.assign(state.emo,s.emo||{});state.base=Object.assign(state.base,s.base||{});state.orbsRevealed=Object.assign(state.orbsRevealed,s.orbsRevealed||{});state.records=s.records||[];state.bottles=s.bottles||[];state.chatHistory=s.chatHistory||[];state.actions=(s.actions||[]).filter(function(a){return a.type!=="reminder"||(isFinite(a.dueTime)&&a.dueTime>0);});state.eggs=s.eggs||{};state.sessionId=s.sessionId||null;state.entered=!!s.entered;state.stabilityCount=s.stabilityCount||0;state.dailyLog=s.dailyLog||{};state.lastSummaryDate=s.lastSummaryDate||"";}}catch(e){}}
+function persist(){try{localStorage.setItem("eco_state",JSON.stringify({ballName:state.ballName,fishName:state.fishName,uiTheme:state.uiTheme,emo:state.emo,base:state.base,orbsRevealed:state.orbsRevealed,records:state.records.slice(0,500),bottles:state.bottles.slice(-50),chatHistory:state.chatHistory.slice(-100),actions:state.actions.slice(-100),eggs:state.eggs,sessionId:state.sessionId,entered:state.entered,stabilityCount:state.stabilityCount,dailyLog:state.dailyLog,lastSummaryDate:state.lastSummaryDate}));}catch(e){}}
+function calcBalance(){var e=state.emo;var j=1-Math.abs(e.joy-70)/70,h=1-Math.abs(e.hope-72)/72,s=1-Math.max(0,e.stress-25)/75,a=1-Math.max(0,e.anxiety-22)/78,f=1-Math.max(0,e.fatigue-28)/72;state.balance=Math.round((j*.22+h*.22+s*.18+a*.18+f*.20)*100);return state.balance;}
+
+var canvas=document.getElementById("glCanvas"),ctx=canvas.getContext("2d");
+var W=0,H=0,DPR=Math.min(2,window.devicePixelRatio||1);
+var ball={x:0,y:0,r:0},t=0;
+var bubbles=[],stones=[],plants=[],islands=[],motes=[],lotuses=[],fireflies=[],rainLines=[],swirls=[],bgMotes=[],bgPetals=[],bgReeds=[],bgIslands=[];
+var fish={x:0,y:0,tx:0,ty:0,angle:0,tail:[],life:1,dz:0,pitch:0};
+var yaw=0,targetYaw=0,velYaw=0,dragging=false,lastX=0,mouseX=0,mouseY=0,fishFollow=false,fishBounce=0,fishBubbleTimer=null;
+var innerOrbs={
+"映":{x:0,y:0,r:14,alpha:0,color:[126,192,208],target:0},
+"生":{x:0,y:0,r:14,alpha:0,color:[126,200,80],target:0},
+"愈":{x:0,y:0,r:14,alpha:0,color:[90,176,232],target:0},
+"循":{x:0,y:0,r:14,alpha:0,color:[80,208,192],target:0},
+"望":{x:0,y:0,r:14,alpha:0,color:[232,184,64],target:0}};
+function rgba(r,g,b,a){return "rgba("+(r|0)+","+(g|0)+","+(b|0)+","+a+")";}
+function getWaterPalette(){
+  var night=document.body.classList.contains("night");
+  var dawn=document.body.classList.contains("dawn");
+  var dusk=document.body.classList.contains("dusk");
+  var bf=state.balance/100;
+  if(night)return {top:[36+bf*20,62+bf*24,98+bf*30],mid:[18+bf*16,42+bf*22,72+bf*28],bot:[6,18,36],glow:[90,150,220],rim:[170,210,255],spec:0.55};
+  if(dawn)return {top:[255,210-bf*10,185],mid:[170,175,200],bot:[70,80,120],glow:[255,180,140],rim:[255,230,210],spec:0.72};
+  if(dusk)return {top:[255,170,150],mid:[150,100,150],bot:[50,35,80],glow:[255,130,110],rim:[255,200,180],spec:0.65};
+  return {top:[200-bf*40,235-bf*30,240-bf*20],mid:[140-bf*50,210-bf*40,220-bf*30],bot:[30-bf*10,90-bf*20,120-bf*15],glow:[200+bf*40,235+bf*20,250],rim:[200,230,255],spec:0.8};
+}
+function proj(dx,y,dz){
+  var c=Math.cos(yaw),sn=Math.sin(yaw);
+  var rx=dx*c+dz*sn,rz=dz*c-dx*sn;
+  var sc=1-rz*0.0014; if(sc<0.45)sc=0.45;
+  var al=1-Math.max(0,rz)*0.0016; if(al<0.25)al=0.25;
+  return {sx:ball.x+rx,sy:ball.y+y,scale:sc,alpha:al,rz:rz};
+}
+
+function resize(){W=window.innerWidth;H=window.innerHeight;canvas.width=W*DPR;canvas.height=H*DPR;canvas.style.width=W+"px";canvas.style.height=H+"px";ctx.setTransform(DPR,0,0,DPR,0,0);var isMob=W<760;var r=Math.min(W,H)*(isMob?0.34:0.30);ball.x=W/2;ball.y=H/2-(isMob?20:0);ball.r=r;initEco();positionHints();}
+
+// ===== D3.js 生态平衡数据可视化 =====
+var radarCanvas=null,radarCtx=null;
+var RADAR_DIMS=[
+  {key:"joy",label:"乐",angle:-Math.PI/2},
+  {key:"hope",label:"望",angle:-Math.PI/2+Math.PI*2/5},
+  {key:"stress",label:"压",angle:-Math.PI/2+Math.PI*4/5},
+  {key:"anxiety",label:"虑",angle:-Math.PI/2+Math.PI*6/5},
+  {key:"fatigue",label:"倦",angle:-Math.PI/2+Math.PI*8/5}
+];
+function initD3Panel(){
+  var panel=document.getElementById("d3Panel");
+  if(!panel)return;
+  radarCanvas=document.createElement("canvas");
+  radarCanvas.width=160;radarCanvas.height=160;
+  radarCanvas.style.cssText="width:160px;height:160px";
+  panel.appendChild(radarCanvas);
+  radarCtx=radarCanvas.getContext("2d");
+}
+function updateD3Radar(){
+  if(!radarCtx)return;
+  var cx=80,cy=80,R=55;
+  var rc=radarCtx;
+  rc.clearRect(0,0,160,160);
+  // 网格圈
+  [0.33,0.66,1].forEach(function(f){
+    rc.beginPath();rc.arc(cx,cy,R*f,0,Math.PI*2);
+    rc.strokeStyle="rgba(255,255,255,.15)";rc.lineWidth=.5;rc.stroke();
+  });
+  // 轴线
+  RADAR_DIMS.forEach(function(d){
+    rc.beginPath();rc.moveTo(cx,cy);
+    rc.lineTo(cx+Math.cos(d.angle)*R,cy+Math.sin(d.angle)*R);
+    rc.strokeStyle="rgba(255,255,255,.1)";rc.lineWidth=.5;rc.stroke();
+    rc.fillStyle="rgba(255,255,255,.5)";rc.font="10px sans-serif";rc.textAlign="center";rc.textBaseline="middle";
+    rc.fillText(d.label,cx+Math.cos(d.angle)*(R+12),cy+Math.sin(d.angle)*(R+12));
+  });
+  // 数据多边形
+  rc.beginPath();
+  RADAR_DIMS.forEach(function(d,i){
+    var v=state.emo[d.key]/100;
+    var x=cx+Math.cos(d.angle)*R*v,y=cy+Math.sin(d.angle)*R*v;
+    if(i===0)rc.moveTo(x,y);else rc.lineTo(x,y);
+  });
+  rc.closePath();
+  rc.fillStyle="rgba(126,200,220,.2)";rc.fill();
+  rc.strokeStyle="rgba(126,200,220,.6)";rc.lineWidth=1;rc.stroke();
+}
+// D3 数据驱动的水波计算：根据五维数值生成水波参数
+function getWaveParams(){
+  var e=state.emo;
+  // 波动幅度：压力+焦虑越大，水波越剧烈
+  var amp=(e.stress+e.anxiety)*0.3;
+  // 频率：快乐+希望越高，水波越温柔舒缓
+  var freq=0.02+(e.joy+e.hope)*0.0003;
+  // 衰减：疲惫越高，水波越慢
+  var speed=0.02+(100-e.fatigue)*0.0004;
+  return {amp:amp,freq:freq,speed:speed};
+}
+// 在球内绘制数据驱动的水波线
+function drawDataWaves(){
+  var wp=getWaveParams();
+  var b=ball;
+  ctx.save();
+  ctx.beginPath();
+  ctx.arc(b.x,b.y,b.r*.92,0,Math.PI*2);
+  ctx.clip();
+  for(var layer=0;layer<3;layer++){
+    var yBase=b.y+b.r*(0.2+layer*0.22);
+    var alpha=0.06-layer*0.015;
+    if(alpha<=0)break;
+    ctx.beginPath();
+    for(var x=-b.r;x<=b.r;x+=3){
+      var y=yBase+Math.sin(x*wp.freq+t*wp.speed+layer)*wp.amp*(1-layer*.3);
+      if(x===-b.r)ctx.moveTo(b.x+x,y);
+      else ctx.lineTo(b.x+x,y);
+    }
+    ctx.strokeStyle=rgba(180,220,240,alpha);
+    ctx.lineWidth=1.2;
+    ctx.stroke();
+  }
+  ctx.restore();
+}
+
+function initEco(){
+bubbles=[];for(var i=0;i<22;i++)bubbles.push({dx:(Math.random()-.5)*ball.r*1.4,dy:(Math.random()-.5)*ball.r*1.4,r:Math.random()*4+1.5,speed:Math.random()*.5+.2,dz:(Math.random()-.5)*80});
+motes=[];for(var i=0;i<36;i++)motes.push({dx:(Math.random()-.5)*ball.r*1.6,dy:(Math.random()-.5)*ball.r*1.6,dz:(Math.random()-.5)*90,r:Math.random()*1.4+.3,sp:Math.random()*.25+.08,ph:Math.random()*Math.PI*2});
+stones=[];var sc=[[74,144,217],[126,200,80],[240,160,80],[144,112,192],[240,128,160],[90,160,200]];
+for(var i=0;i<24;i++){var a=Math.PI*.15+Math.random()*Math.PI*.7;var d=ball.r*(.75+Math.random()*.2);stones.push({dx:Math.cos(a)*d*.9,dy:Math.sin(a)*d*.55,r:Math.random()*10+6,color:sc[i%sc.length],dz:-30+Math.random()*100});}
+plants=[];for(var i=0;i<9;i++){plants.push({dx:(Math.random()-.5)*ball.r*1.2,dy:ball.r*.55,h:ball.r*(.25+Math.random()*.45),seg:10,phase:Math.random()*Math.PI*2,width:Math.random()*3.5+2,dz:-60+Math.random()*120});}
+lotuses=[];for(var i=0;i<8;i++){lotuses.push({dx:(Math.random()-.5)*ball.r*1.25,dy:ball.r*(.16+Math.random()*.42),dz:-50+Math.random()*100,size:ball.r*(.045+Math.random()*.035),phase:Math.random()*Math.PI*2,flower:Math.random()});}
+fireflies=[];for(var i=0;i<22;i++){fireflies.push({dx:(Math.random()-.5)*ball.r*1.45,dy:(Math.random()-.35)*ball.r*.95,dz:-40+Math.random()*100,phase:Math.random()*Math.PI*2,speed:.012+Math.random()*.025,r:1.1+Math.random()*1.8});}
+rainLines=[];for(var i=0;i<38;i++){rainLines.push({dx:(Math.random()-.5)*ball.r*1.8,dy:(Math.random()-.5)*ball.r*1.5,dz:-20+Math.random()*80,speed:.7+Math.random()*.9,len:5+Math.random()*8});}
+swirls=[];for(var i=0;i<16;i++){swirls.push({dx:(Math.random()-.5)*ball.r*1.1,dy:(Math.random()-.5)*ball.r*.8,dz:-30+Math.random()*70,r:5+Math.random()*9,phase:Math.random()*Math.PI*2,speed:.018+Math.random()*.025});}
+bgMotes=[];for(var i=0;i<44;i++){bgMotes.push({x:Math.random()*W,y:Math.random()*H,r:Math.random()*1.8+.5,speed:.08+Math.random()*.22,phase:Math.random()*Math.PI*2,drift:(Math.random()-.5)*.18});}
+bgPetals=[];for(var i=0;i<15;i++){bgPetals.push({x:Math.random()*W,y:Math.random()*H,r:3+Math.random()*3,speed:.12+Math.random()*.2,phase:Math.random()*Math.PI*2,drift:.15+Math.random()*.25});}
+bgReeds=[];var reedCount=Math.max(18,Math.round(W/55));for(var i=0;i<reedCount;i++){bgReeds.push({x:(i/(reedCount-1))*W+(Math.random()-.5)*32,base:H*(.88+Math.random()*.12),h:H*(.08+Math.random()*.14),phase:Math.random()*Math.PI*2,width:1+Math.random()*2});}
+bgIslands=[{x:W*.12,y:H*.2,s:Math.min(W,H)*.055},{x:W*.86,y:H*.28,s:Math.min(W,H)*.045},{x:W*.77,y:H*.69,s:Math.min(W,H)*.035}];
+islands=[];var ip=[{dx:-.5,dy:-.2,s:1},{dx:.4,dy:-.45,s:.7},{dx:.1,dy:.1,s:.55}];
+ip.forEach(function(p){islands.push({dx:p.dx*ball.r,dy:p.dy*ball.r,s:p.s*ball.r*.18,phase:Math.random()*Math.PI*2,dz:(Math.random()-.5)*120});});
+var op=[{x:-.35,y:-.1},{x:.35,y:-.2},{x:-.25,y:.25},{x:.25,y:.3},{x:0,y:-.4}];
+var names=["映","生","愈","循","望"];
+names.forEach(function(n,i){innerOrbs[n].dx=op[i].x*ball.r;innerOrbs[n].dy=op[i].y*ball.r;innerOrbs[n].dz=(Math.random()-.5)*80;innerOrbs[n].target=state.orbsRevealed[n]?1:0;innerOrbs[n].alpha=state.orbsRevealed[n]?0.8:0;innerOrbs[n].floatOff=state.orbsRevealed[n]?0:40;});
+if(!fish.dx){fish.dx=ball.r*.2;fish.dy=0;fish.tx=ball.r*.4;fish.ty=0;fish.dz=0;fish.x=ball.x+fish.dx;fish.y=ball.y+fish.dy;}
+}
+function positionHints(){
+["映","生","愈","循","望"].forEach(function(n){var el=document.getElementById("hint-"+n);if(el)el.style.display="none";});
+var tip=document.getElementById("fishTip");tip.style.left=(ball.x-40)+"px";tip.style.top=(ball.y-60)+"px";tip.style.display=(state.entered&&!chatOpened)?"block":"none";
+}
+function getSceneProfile(){
+  var e=state.emo;
+  var list=[
+    {key:"joy",value:e.joy,name:"荷光浅塘"},
+    {key:"hope",value:e.hope,name:"萤火星河"},
+    {key:"stress",value:e.stress,name:"风雨暗礁"},
+    {key:"anxiety",value:e.anxiety,name:"涡流雾藻"},
+    {key:"fatigue",value:e.fatigue,name:"沉静苔原"}
+  ].sort(function(a,b){return b.value-a.value;});
+  var top=list[0];
+  if(top.value<62)return {key:"balanced",name:"微光水庭",value:top.value};
+  return top;
+}
+function updateSceneUI(){
+  var p=getSceneProfile();
+  globalThis.__ecoScene=p;
+  var el=document.getElementById("sceneChip");
+  if(el)el.textContent="景观 · "+p.name;
+  document.body.setAttribute("data-scene",p.key);
+}
+function drawLotusGarden(){
+  var count=Math.max(0,Math.min(4,Math.round((state.emo.joy-48)/13)));
+  for(var i=0;i<count;i++){
+    var lo=lotuses[i];lo.phase+=.009;
+    var p=proj(lo.dx,lo.dy+Math.sin(lo.phase)*2,lo.dz);
+    var s=lo.size*p.scale*.82;
+    ctx.save();ctx.globalAlpha=.44*p.alpha;
+    ctx.shadowColor="rgba(85,145,105,.18)";ctx.shadowBlur=8;
+    ctx.fillStyle="rgba(92,150,112,.72)";
+    ctx.beginPath();ctx.ellipse(p.sx,p.sy,s*1.35,s*.6,Math.sin(lo.phase)*.06,0,Math.PI*2);ctx.fill();
+    ctx.shadowBlur=0;ctx.strokeStyle="rgba(225,250,220,.24)";ctx.lineWidth=.7;ctx.stroke();
+    if(state.emo.joy>76&&lo.flower>.5){
+      ctx.translate(p.sx,p.sy-s*.1);
+      for(var k=0;k<6;k++){
+        var a=k*Math.PI/3+lo.phase*.4;
+        ctx.fillStyle="rgba(255,198,210,.58)";
+        ctx.beginPath();ctx.ellipse(Math.cos(a)*s*.38,Math.sin(a)*s*.2,s*.3,s*.18,a,0,Math.PI*2);ctx.fill();
+      }
+      ctx.fillStyle="rgba(255,226,120,.72)";ctx.beginPath();ctx.arc(0,0,s*.17,0,Math.PI*2);ctx.fill();
+    }
+    ctx.restore();
+  }
+}
+function drawHopeLights(){
+  var count=Math.max(0,Math.min(fireflies.length,Math.round((state.emo.hope-38)/7)));
+  for(var i=0;i<count;i++){
+    var f=fireflies[i];f.phase+=f.speed;
+    var p=proj(f.dx+Math.sin(f.phase*.8)*8,f.dy+Math.cos(f.phase*.65)*6,f.dz);
+    var glow=.35+.65*(.5+.5*Math.sin(f.phase*2));
+    ctx.save();ctx.globalCompositeOperation="lighter";
+    var g=ctx.createRadialGradient(p.sx,p.sy,0,p.sx,p.sy,f.r*7);
+    g.addColorStop(0,"rgba(255,248,175,"+(.75*glow*p.alpha)+")");
+    g.addColorStop(.35,"rgba(255,229,130,"+(.32*glow*p.alpha)+")");
+    g.addColorStop(1,"rgba(255,220,120,0)");
+    ctx.fillStyle=g;ctx.beginPath();ctx.arc(p.sx,p.sy,f.r*7,0,Math.PI*2);ctx.fill();
+    ctx.fillStyle="rgba(255,255,225,"+(.95*glow*p.alpha)+")";ctx.beginPath();ctx.arc(p.sx,p.sy,f.r*p.scale,0,Math.PI*2);ctx.fill();
+    ctx.restore();
+  }
+}
+function drawRain(){
+  var count=Math.max(0,Math.min(rainLines.length,Math.round((state.emo.stress-34)/7)));
+  ctx.save();ctx.globalCompositeOperation="screen";
+  for(var i=0;i<count;i++){
+    var r=rainLines[i];r.dy+=r.speed;if(r.dy>ball.r*.88){r.dy=-ball.r*.82;r.dx=(Math.random()-.5)*ball.r*1.7;}
+    var p=proj(r.dx,r.dy,r.dz);
+    ctx.strokeStyle="rgba(205,225,245,.34)";ctx.lineWidth=1;
+    ctx.beginPath();ctx.moveTo(p.sx,p.sy);ctx.lineTo(p.sx-2,p.sy+r.len*p.scale);ctx.stroke();
+  }
+  ctx.restore();
+}
+function drawAnxietySwirls(){
+  var count=Math.max(0,Math.min(swirls.length,Math.round((state.emo.anxiety-28)/7)));
+  for(var i=0;i<count;i++){
+    var s=swirls[i];s.phase+=s.speed;
+    var p=proj(s.dx,s.dy,s.dz);
+    ctx.save();ctx.translate(p.sx,p.sy);ctx.rotate(s.phase);
+    ctx.beginPath();
+    for(var a=0;a<Math.PI*3.4;a+=.18){
+      var rr=s.r*p.scale*(a/(Math.PI*3.4));
+      var x=Math.cos(a)*rr,y=Math.sin(a)*rr;
+      if(a===0)ctx.moveTo(x,y);else ctx.lineTo(x,y);
+    }
+    ctx.strokeStyle="rgba(134,112,188,"+(.16+state.emo.anxiety/500)+")";ctx.lineWidth=1.1;ctx.stroke();
+    ctx.restore();
+  }
+}
+function drawFatigueFog(){
+  var strength=Math.max(0,(state.emo.fatigue-30)/70);
+  if(strength<=0)return;
+  ctx.save();
+  var g=ctx.createRadialGradient(ball.x,ball.y+ball.r*.2,ball.r*.15,ball.x,ball.y,ball.r);
+  g.addColorStop(0,"rgba(205,216,210,"+(strength*.025)+")");
+  g.addColorStop(.6,"rgba(130,154,150,"+(strength*.1)+")");
+  g.addColorStop(1,"rgba(50,72,85,"+(strength*.22)+")");
+  ctx.fillStyle=g;ctx.fillRect(ball.x-ball.r,ball.y-ball.r,ball.r*2,ball.r*2);
+  ctx.restore();
+}
+function drawEcoLayers(){
+  drawFatigueFog();
+  drawLotusGarden();
+  drawHopeLights();
+  drawRain();
+  drawAnxietySwirls();
+}
+function getUIThemeNow(){
+  return document.body.getAttribute("data-ui-theme")||getTimeTheme();
+}
+function isDarkUITheme(){
+  var theme=getUIThemeNow();
+  return theme==="night"||theme==="aurora";
+}
+function drawThemeSun(x,y,r,inner,outer){
+  var g=ctx.createRadialGradient(x,y,r*.1,x,y,r*3.2);
+  g.addColorStop(0,inner);
+  g.addColorStop(.24,outer);
+  g.addColorStop(1,"rgba(255,220,160,0)");
+  ctx.fillStyle=g;ctx.beginPath();ctx.arc(x,y,r*3.2,0,Math.PI*2);ctx.fill();
+  ctx.fillStyle=inner;ctx.beginPath();ctx.arc(x,y,r,0,Math.PI*2);ctx.fill();
+}
+function drawThemeCloud(x,y,s,alpha){
+  ctx.save();ctx.globalAlpha=alpha;ctx.fillStyle="rgba(245,250,252,.72)";
+  ctx.beginPath();
+  ctx.ellipse(x,y,s*1.7,s*.5,0,0,Math.PI*2);
+  ctx.ellipse(x-s*.75,y-s*.15,s*.85,s*.55,0,0,Math.PI*2);
+  ctx.ellipse(x+s*.68,y-s*.08,s*.95,s*.62,0,0,Math.PI*2);
+  ctx.fill();ctx.restore();
+}
+function drawThemeBird(x,y,s,flip){
+  ctx.save();ctx.translate(x,y);ctx.scale(flip?-1:1,1);
+  ctx.strokeStyle="rgba(55,78,86,.28)";ctx.lineWidth=Math.max(1,s*.08);ctx.lineCap="round";
+  ctx.beginPath();ctx.moveTo(-s,0);ctx.quadraticCurveTo(-s*.45,-s*.45,0,0);ctx.quadraticCurveTo(s*.45,-s*.45,s,0);ctx.stroke();
+  ctx.restore();
+}
+function drawThemeMist(){
+  ctx.save();
+  for(var i=0;i<5;i++){
+    var y=H*(.46+i*.075)+Math.sin(t*.22+i)*6;
+    var g=ctx.createLinearGradient(0,y-20,W,y+20);
+    g.addColorStop(0,"rgba(255,255,255,0)");
+    g.addColorStop(.45,"rgba(245,250,248,"+(.05+i*.008)+")");
+    g.addColorStop(1,"rgba(255,255,255,0)");
+    ctx.fillStyle=g;ctx.fillRect(0,y-22,W,44);
+  }
+  ctx.restore();
+}
+function drawThemeForestLayer(base,color,step,hMin,hMax,seed){
+  ctx.fillStyle=color;ctx.beginPath();ctx.moveTo(0,H);ctx.lineTo(-step,base);
+  for(var x=-step;x<W+step;x+=step){
+    var n=Math.sin((x+seed)*12.9898)*43758.5453;
+    var h=hMin+(n-Math.floor(n))*(hMax-hMin);
+    ctx.quadraticCurveTo(x+step*.28,base-h,x+step*.52,base-h*.58);
+    ctx.quadraticCurveTo(x+step*.76,base-h*.22,x+step,base+Math.sin(x*.012+seed)*3);
+  }
+  ctx.lineTo(W+step,H);ctx.closePath();ctx.fill();
+}
+function drawThemeAurora(){
+  var colors=[
+    ["rgba(86,230,185,.18)","rgba(86,230,185,0)"],
+    ["rgba(90,170,245,.16)","rgba(90,170,245,0)"],
+    ["rgba(185,125,240,.12)","rgba(185,125,240,0)"]
+  ];
+  colors.forEach(function(c,idx){
+    var y=H*(.12+idx*.085)+Math.sin(t*.24+idx)*12;
+    var g=ctx.createLinearGradient(0,y,0,H*.7);
+    g.addColorStop(0,c[1]);g.addColorStop(.3,c[0]);g.addColorStop(1,c[1]);
+    ctx.save();ctx.globalCompositeOperation="screen";ctx.fillStyle=g;ctx.beginPath();
+    ctx.moveTo(-40,y);
+    for(var x=-40;x<=W+40;x+=24){
+      var yy=y+Math.sin(x*.007+t*.42+idx*1.4)*34+Math.sin(x*.017-t*.28)*12;
+      ctx.lineTo(x,yy);
+    }
+    for(var x=W+40;x>=-40;x-=24){
+      var yy=y+95+Math.sin(x*.006+t*.45+idx*1.2)*46;
+      ctx.lineTo(x,yy);
+    }
+    ctx.closePath();ctx.fill();ctx.restore();
+  });
+}
+function drawThemeLandmarks(){
+  var theme=getUIThemeNow();
+  if(theme==="dawn"){
+    drawThemeSun(W*.73,H*.23,Math.min(W,H)*.055,"rgba(255,220,165,.52)","rgba(255,180,125,.16)");
+    drawThemeMist();
+    drawThemeBird(W*.58,H*.31,12,false);drawThemeBird(W*.64,H*.27,9,false);drawThemeBird(W*.54,H*.25,7,true);
+  }else if(theme==="day"){
+    drawThemeSun(W*.84,H*.14,Math.min(W,H)*.045,"rgba(255,248,205,.48)","rgba(255,225,140,.12)");
+    drawThemeCloud(W*.18,H*.16,Math.min(W,H)*.055,.2);
+    drawThemeCloud(W*.7,H*.31,Math.min(W,H)*.04,.14);
+    ctx.save();ctx.globalCompositeOperation="screen";
+    for(var i=0;i<4;i++){
+      var sx=W*(.62+i*.065),g=ctx.createLinearGradient(sx,0,sx-W*.22,H*.72);
+      g.addColorStop(0,"rgba(255,246,195,.09)");g.addColorStop(1,"rgba(255,246,195,0)");
+      ctx.fillStyle=g;ctx.beginPath();ctx.moveTo(sx,0);ctx.lineTo(sx+W*.06,0);ctx.lineTo(W*.55,H*.72);ctx.lineTo(W*.38,H*.72);ctx.closePath();ctx.fill();
+    }
+    ctx.restore();
+  }else if(theme==="dusk"){
+    drawThemeSun(W*.78,H*.29,Math.min(W,H)*.075,"rgba(255,168,112,.5)","rgba(255,120,95,.16)");
+    drawThemeCloud(W*.25,H*.28,Math.min(W,H)*.075,.12);
+    drawThemeBird(W*.64,H*.24,11,false);drawThemeBird(W*.7,H*.2,8,true);
+  }else if(theme==="night"){
+    drawThemeSun(W*.79,H*.16,Math.min(W,H)*.04,"rgba(236,246,255,.65)","rgba(180,215,255,.13)");
+    ctx.save();ctx.fillStyle="rgba(220,238,255,.16)";
+    ctx.beginPath();ctx.arc(W*.79,H*.16,Math.min(W,H)*.048,0,Math.PI*2);ctx.fill();ctx.restore();
+  }else if(theme==="aurora"){
+    drawThemeAurora();
+    drawThemeForestLayer(H*.88,"rgba(12,44,45,.24)",58,H*.055,H*.13,2.4);
+    drawThemeForestLayer(H*.94,"rgba(7,32,35,.36)",46,H*.045,H*.1,7.1);
+  }else if(theme==="forest"){
+    ctx.save();ctx.globalCompositeOperation="screen";
+    for(var j=0;j<4;j++){
+      var sx=W*(.16+j*.22),g=ctx.createLinearGradient(sx,0,sx,H);
+      g.addColorStop(0,"rgba(235,255,215,.08)");g.addColorStop(1,"rgba(235,255,215,0)");
+      ctx.fillStyle=g;ctx.beginPath();ctx.moveTo(sx,0);ctx.lineTo(sx+35,0);ctx.lineTo(sx+75,H);ctx.lineTo(sx+25,H);ctx.closePath();ctx.fill();
+    }
+    ctx.restore();
+    drawThemeForestLayer(H*.94,"rgba(47,88,68,.14)",64,H*.045,H*.11,1.7);
+    drawThemeForestLayer(H*.98,"rgba(33,68,57,.22)",50,H*.035,H*.085,4.2);
+  }
+}
+function drawBackdropIslands(){
+  var dark=isDarkUITheme();
+  bgIslands.forEach(function(isl,idx){
+    var bob=Math.sin(t*.55+idx*1.7)*3;
+    var x=isl.x,y=isl.y+bob,s=isl.s;
+    ctx.save();
+    ctx.globalAlpha=dark?.18:.24;
+    ctx.fillStyle=dark?"#78a7b8":"#7da58a";
+    ctx.beginPath();ctx.ellipse(x,y,s*1.75,s*.55,0,0,Math.PI*2);ctx.fill();
+    ctx.globalAlpha=dark?.26:.34;
+    ctx.fillStyle=dark?"#8fc6c9":"#78a668";
+    ctx.beginPath();ctx.ellipse(x-s*.18,y-s*.25,s*1.15,s*.42,-.08,0,Math.PI*2);ctx.fill();
+    ctx.strokeStyle=dark?"rgba(150,220,220,.28)":"rgba(75,130,90,.36)";
+    ctx.lineWidth=1.2;
+    for(var k=-1;k<=1;k++){
+      ctx.beginPath();ctx.moveTo(x+k*s*.42,y-s*.38);
+      ctx.quadraticCurveTo(x+k*s*.42+Math.sin(t*.8+k)*5,y-s*.9,x+k*s*.42+Math.sin(t*.8+k)*8,y-s*1.18);ctx.stroke();
+    }
+    ctx.restore();
+  });
+}
+function drawBackdropReeds(){
+  var fatigue=state.emo.fatigue,anxiety=state.emo.anxiety;
+  var sway=5+anxiety*.035,alpha=.045+state.emo.joy*.00055;
+  ctx.save();ctx.lineCap="round";
+  bgReeds.forEach(function(r,i){
+    if(i%2!==0)return;
+    var x=r.x+Math.sin(t*.55+r.phase)*sway;
+    var topY=r.base-r.h*(1-Math.max(0,fatigue-45)/200);
+    ctx.beginPath();ctx.moveTo(r.x,H+4);
+    ctx.quadraticCurveTo(r.x+Math.sin(t*.7+r.phase)*4,r.base, x,topY);
+    ctx.strokeStyle=i%3===0?"rgba(74,128,96,"+alpha+")":"rgba(62,116,118,"+(alpha*.75)+")";
+    ctx.lineWidth=Math.max(.7,r.width*.72);ctx.stroke();
+    if(i%8===0){
+      ctx.beginPath();ctx.ellipse(x,topY+3,2.4,6,-.35,0,Math.PI*2);
+      ctx.fillStyle="rgba(86,142,105,"+(alpha*.55)+")";ctx.fill();
+    }
+  });
+  var fade=ctx.createLinearGradient(0,H*.82,0,H);
+  fade.addColorStop(0,"rgba(20,55,65,0)");
+  fade.addColorStop(1,"rgba(20,55,65,.09)");
+  ctx.fillStyle=fade;ctx.fillRect(0,H*.82,W,H*.18);
+  ctx.restore();
+}
+function drawBackdropPetals(){
+  var count=Math.min(bgPetals.length,Math.max(0,Math.round((state.emo.joy-38)/4)));
+  for(var i=0;i<count;i++){
+    var p=bgPetals[i];p.phase+=.018;p.y+=p.speed;p.x+=Math.sin(p.phase)*p.drift;
+    if(p.y>H+20){p.y=-15;p.x=Math.random()*W;}
+    if(p.x<-20)p.x=W+15;if(p.x>W+20)p.x=-15;
+    ctx.save();ctx.translate(p.x,p.y);ctx.rotate(p.phase);
+    ctx.fillStyle="rgba(255,190,205,.34)";
+    ctx.beginPath();ctx.ellipse(0,0,p.r*1.35,p.r*.62,0,0,Math.PI*2);ctx.fill();
+    ctx.restore();
+  }
+}
+function drawBackdropMotes(){
+  var count=Math.min(30,Math.max(0,Math.round((state.emo.hope-42)/2.1)));
+  for(var i=0;i<count;i++){
+    var m=bgMotes[i];m.phase+=.012;m.y-=m.speed;m.x+=Math.sin(m.phase)*m.drift;
+    if(m.y<-10){m.y=H+10;m.x=Math.random()*W;}
+    var glow=.35+.65*(.5+.5*Math.sin(m.phase*2.2));
+    ctx.fillStyle="rgba(255,240,160,"+(glow*(isDarkUITheme()?.38:.2))+")";
+    ctx.beginPath();ctx.arc(m.x,m.y,m.r,0,Math.PI*2);ctx.fill();
+  }
+}
+function drawBackdropWeather(){
+  var e=state.emo,night=isDarkUITheme();
+  if(e.stress>42){
+    var rainN=Math.min(28,Math.round((e.stress-40)/3.4));
+    ctx.save();ctx.strokeStyle="rgba(180,210,230,.12)";ctx.lineWidth=1;
+    for(var i=0;i<rainN;i++){
+      var x=(i*149+t*55)% (W+80)-40;
+      var y=(i*83+t*210)%H;
+      ctx.beginPath();ctx.moveTo(x,y);ctx.lineTo(x-5,y+15);ctx.stroke();
+    }
+    ctx.restore();
+  }
+  if(e.anxiety>44){
+    ctx.save();ctx.strokeStyle="rgba(145,180,205,.09)";ctx.lineWidth=1;
+    for(var j=0;j<7;j++){
+      var yy=H*(.15+j*.12)+Math.sin(t*.5+j)*12;
+      ctx.beginPath();
+      for(var x=0;x<=W;x+=24){
+        var y=yy+Math.sin(x*.012+t*.9+j)*8;
+        if(x===0)ctx.moveTo(x,y);else ctx.lineTo(x,y);
+      }
+      ctx.stroke();
+    }
+    ctx.restore();
+  }
+  if(e.fatigue>48){
+    var mist=Math.min(.2,(e.fatigue-45)/180);
+    var g=ctx.createLinearGradient(0,0,W,H);
+    g.addColorStop(0,"rgba(215,225,220,"+mist+")");
+    g.addColorStop(.5,"rgba(210,220,220,0)");
+    g.addColorStop(1,"rgba(175,198,205,"+mist+")");
+    ctx.fillStyle=g;ctx.fillRect(0,0,W,H);
+  }
+  if(night){
+    ctx.save();ctx.fillStyle="rgba(220,240,255,.34)";
+    for(var s=0;s<16;s++){
+      var sx=(s*97)%W,sy=(s*53)%(H*.55);
+      ctx.beginPath();ctx.arc(sx,sy,s%3===0?1.2:.7,0,Math.PI*2);ctx.fill();
+    }
+    ctx.restore();
+  }
+}
+function drawAmbientBackdrop(){
+  drawThemeLandmarks();
+  drawBackdropIslands();
+  drawBackdropReeds();
+  drawBackdropPetals();
+  drawBackdropMotes();
+  drawBackdropWeather();
+}
+function draw(){
+t+=.016;yaw+=(targetYaw-yaw)*.08;if(!dragging){targetYaw+=velYaw;velYaw*=.96;}
+ctx.clearRect(0,0,W,H);var b=ball;
+drawAmbientBackdrop();
+var pal=getWaterPalette();
+var glowR=Math.min(W,H)*0.58;
+var glow1=ctx.createRadialGradient(b.x,b.y,b.r*0.88,b.x,b.y,glowR);
+glow1.addColorStop(0,rgba(pal.glow[0],pal.glow[1],pal.glow[2],.32));
+glow1.addColorStop(.45,rgba(pal.glow[0],pal.glow[1],pal.glow[2],.12));
+glow1.addColorStop(1,rgba(pal.glow[0],pal.glow[1],pal.glow[2],0));
+ctx.fillStyle=glow1;ctx.beginPath();ctx.arc(b.x,b.y,glowR,0,Math.PI*2);ctx.fill();
+var breathe=Math.sin(t*0.8)*0.018+1;
+var ringR=b.r*1.14*breathe;
+var ringG=ctx.createRadialGradient(b.x,b.y,b.r*1.01,b.x,b.y,ringR);
+ringG.addColorStop(0,rgba(255,255,255,0));
+ringG.addColorStop(.55,rgba(pal.rim[0],pal.rim[1],pal.rim[2],.05));
+ringG.addColorStop(.82,rgba(255,230,190,.12));
+ringG.addColorStop(.94,rgba(pal.rim[0],pal.rim[1],pal.rim[2],.22));
+ringG.addColorStop(1,rgba(255,255,255,0));
+ctx.fillStyle=ringG;ctx.beginPath();ctx.arc(b.x,b.y,ringR,0,Math.PI*2);ctx.fill();
+var hlX=b.x-b.r*0.34,hlY=b.y-b.r*0.42;
+var hl=ctx.createRadialGradient(hlX,hlY,0,hlX,hlY,b.r*0.28);
+hl.addColorStop(0,rgba(255,255,255,.55*pal.spec));
+hl.addColorStop(.45,rgba(255,255,255,.1*pal.spec));
+hl.addColorStop(1,rgba(255,255,255,0));
+ctx.fillStyle=hl;ctx.beginPath();ctx.arc(hlX,hlY,b.r*0.28,0,Math.PI*2);ctx.fill();
+ctx.save();ctx.beginPath();ctx.arc(b.x,b.y,b.r,0,Math.PI*2);ctx.clip();
+var w=ctx.createLinearGradient(b.x,b.y-b.r,b.x,b.y+b.r);
+w.addColorStop(0,rgba(pal.top[0],pal.top[1],pal.top[2],.58));
+w.addColorStop(.32,rgba(pal.mid[0],pal.mid[1],pal.mid[2],.48));
+w.addColorStop(.68,rgba(pal.mid[0]*.62,pal.mid[1]*.72,pal.mid[2]*.82,.48));
+w.addColorStop(1,rgba(pal.bot[0],pal.bot[1],pal.bot[2],.6));
+ctx.fillStyle=w;ctx.fillRect(b.x-b.r,b.y-b.r,b.r*2,b.r*2);
+drawDataWaves();
+for(var i=0;i<4;i++){
+  var ang=-Math.PI/2+(i-1.5)*.22;var len=b.r*1.85;
+  var sx=b.x+(i-1.5)*b.r*.22,sy=b.y-b.r*.92;
+  var ex=sx+Math.cos(ang)*len,ey=sy+Math.sin(ang)*len;
+  var lg=ctx.createLinearGradient(sx,sy,ex,ey);
+  lg.addColorStop(0,rgba(255,245,210,.16));lg.addColorStop(.4,rgba(180,230,255,.07));lg.addColorStop(1,rgba(255,240,180,0));
+  ctx.strokeStyle=lg;ctx.lineWidth=b.r*.14;ctx.beginPath();ctx.moveTo(sx,sy);ctx.lineTo(ex,ey);ctx.stroke();
+}
+ctx.save();
+ctx.globalCompositeOperation="lighter";
+for(var c=0;c<5;c++){
+  ctx.beginPath();
+  var cy=b.y+b.r*.35+c*12;
+  for(var cx=-b.r;cx<=b.r;cx+=5){
+    var yy=cy+Math.sin(cx*0.045+t*1.1+c)*6+Math.sin(cx*0.09-t*.7)*3;
+    if(cx===-b.r)ctx.moveTo(b.x+cx,yy);else ctx.lineTo(b.x+cx,yy);
+  }
+  ctx.strokeStyle=rgba(200,240,255,.07);ctx.lineWidth=1.2;ctx.stroke();
+}
+ctx.restore();
+motes.forEach(function(m){
+  m.ph+=m.sp*0.04;m.dy-=m.sp*0.15;if(m.dy<-b.r*.85){m.dy=b.r*.7;m.dx=(Math.random()-.5)*b.r*1.5;}
+  var mp=proj(m.dx+Math.sin(m.ph)*8,m.dy,m.dz);
+  ctx.fillStyle=rgba(255,255,255,.22*mp.alpha*(0.5+Math.sin(m.ph)*.5));
+  ctx.beginPath();ctx.arc(mp.sx,mp.sy,m.r*mp.scale,0,Math.PI*2);ctx.fill();
+});
+islands.forEach(function(isl){isl.phase+=.01;var ip2=proj(isl.dx,isl.dy,isl.dz);var ix=ip2.sx+Math.sin(isl.phase)*3,iy=ip2.sy+Math.cos(isl.phase*.7)*2,isc=isl.s*ip2.scale,ia=ip2.alpha;
+ctx.fillStyle=rgba(90,110,80,.25*ia);ctx.beginPath();ctx.ellipse(ix+6,iy+10,isc*1.1,isc*.35,0,0,Math.PI*2);ctx.fill();
+ctx.fillStyle=rgba(120,120,100,.7*ia);ctx.beginPath();ctx.ellipse(ix,iy,isc,isc*.5,0,0,Math.PI*2);ctx.fill();
+ctx.fillStyle=rgba(110,170,90,.85*ia);ctx.beginPath();ctx.ellipse(ix,iy-isc*.2,isc*.85,isc*.4,0,0,Math.PI*2);ctx.fill();
+ctx.strokeStyle=rgba(80,140,70,.8*ia);ctx.lineWidth=1.5;
+for(var j=-1;j<=1;j++){ctx.beginPath();ctx.moveTo(ix+j*isc*.3,iy-isc*.3);ctx.quadraticCurveTo(ix+j*isc*.3+3,iy-isc*.7,ix+j*isc*.3+5,iy-isc*.85);ctx.stroke();}});
+plants.forEach(function(pl){
+  pl.phase+=.018;var pp=proj(pl.dx,pl.dy,pl.dz);
+  var joy=state.emo.joy,hope=state.emo.hope,fatigue=state.emo.fatigue,anxiety=state.emo.anxiety;
+  var vigor=Math.max(.55,Math.min(1.28,.72+joy/280+hope/330-fatigue/560));
+  var swayAmp=Math.max(5,Math.min(18,8+anxiety*.075-fatigue*.035));
+  var droop=Math.max(0,(fatigue-48)/70),plantH=pl.h*pp.scale*vigor;
+  var pg=80+state.balance*.6;
+  ctx.lineCap="round";ctx.beginPath();ctx.moveTo(pp.sx,pp.sy);
+  for(var s=1;s<=pl.seg;s++){
+    var q=s/pl.seg;
+    var sy=pp.sy-plantH*q+droop*q*q*plantH*.28;
+    var sw=Math.sin(t*(1+anxiety/420)+pl.phase+s*.55)*q*swayAmp;
+    ctx.lineTo(pp.sx+sw,sy);
+  }
+  ctx.strokeStyle=rgba(40+state.balance*.25,pg,70+state.balance*.2,.78*pp.alpha);
+  ctx.lineWidth=pl.width*pp.scale;ctx.stroke();
+  ctx.beginPath();ctx.moveTo(pp.sx,pp.sy);
+  for(var s=1;s<=pl.seg;s++){
+    var q=s/pl.seg;
+    var sy=pp.sy-plantH*q*.92+droop*q*q*plantH*.24;
+    var sw=Math.sin(t*(1+anxiety/420)+pl.phase+s*.55)*q*swayAmp+pl.width*.6;
+    ctx.lineTo(pp.sx+sw,sy);
+  }
+  ctx.strokeStyle=rgba(160,230,170,.18*pp.alpha);ctx.lineWidth=Math.max(1,pl.width*pp.scale*.35);ctx.stroke();
+});
+stones.forEach(function(st){var c=st.color;var sp=proj(st.dx,st.dy,st.dz);var sr=st.r*sp.scale;var g=ctx.createRadialGradient(sp.sx-sr*.3,sp.sy-sr*.3,sr*.2,sp.sx,sp.sy,sr);g.addColorStop(0,rgba(c[0]+40,c[1]+40,c[2]+40,.8*sp.alpha));g.addColorStop(1,rgba(c[0],c[1],c[2],.6*sp.alpha));ctx.fillStyle=g;ctx.beginPath();ctx.ellipse(sp.sx,sp.sy,sr,sr*.7,0,0,Math.PI*2);ctx.fill();});
+drawEcoLayers();
+var bubbleN=Math.floor(bubbles.length*(0.4+state.balance*.006));
+bubbles.forEach(function(bb,bi){if(bi>bubbleN)return;bb.dy-=bb.speed;if(bb.dy<-b.r*.9){bb.dy=b.r*.8;bb.dx=(Math.random()-.5)*b.r*1.4;}
+var bp=proj(bb.dx,bb.dy,bb.dz);ctx.strokeStyle=rgba(255,255,255,.4*bp.alpha);ctx.lineWidth=1;ctx.beginPath();ctx.arc(bp.sx,bp.sy,bb.r*bp.scale,0,Math.PI*2);ctx.stroke();
+ctx.fillStyle=rgba(255,255,255,.5*bp.alpha);ctx.beginPath();ctx.arc(bp.sx-bb.r*.3,bp.sy-bb.r*.3,bb.r*.25*bp.scale,0,Math.PI*2);ctx.fill();});
+var wy=b.y-b.r*.48;
+ctx.strokeStyle=rgba(255,255,255,.38);ctx.lineWidth=1.8;ctx.beginPath();
+for(var wx=-b.r;wx<=b.r;wx+=3){var y=wy+Math.sin(t*1.4+wx*.048)*4+Math.sin(t*.7+wx*.12)*1.6;if(wx===-b.r)ctx.moveTo(b.x+wx,y);else ctx.lineTo(b.x+wx,y);}ctx.stroke();
+ctx.strokeStyle=rgba(180,230,255,.18);ctx.lineWidth=4;ctx.stroke();
+for(var n in innerOrbs){var o=innerOrbs[n];o.alpha+=(o.target-o.alpha)*.05;if(o.alpha<.02)continue;var c=o.color;var op3=proj(o.dx,o.dy,o.dz);var or_=o.r*op3.scale;var oa=o.alpha*op3.alpha;
+var og=ctx.createRadialGradient(op3.sx-or_*.3,op3.sy-or_*.3,or_*.1,op3.sx,op3.sy,or_*1.35);
+og.addColorStop(0,rgba(255,255,255,.85*oa));og.addColorStop(.45,rgba(c[0],c[1],c[2],.55*oa));og.addColorStop(1,rgba(c[0],c[1],c[2],0));
+ctx.fillStyle=og;ctx.beginPath();ctx.arc(op3.sx,op3.sy,or_*1.35,0,Math.PI*2);ctx.fill();
+ctx.fillStyle=rgba(c[0],c[1],c[2],.45*oa);ctx.beginPath();ctx.arc(op3.sx,op3.sy,or_,0,Math.PI*2);ctx.fill();
+ctx.strokeStyle=rgba(255,255,255,.65*oa);ctx.lineWidth=1;ctx.stroke();
+ctx.fillStyle=rgba(255,255,255,.95*oa);ctx.font="500 13px 'Noto Serif SC',serif";ctx.textAlign="center";ctx.textBaseline="middle";ctx.fillText(n,op3.sx,op3.sy);}
+drawFish();drawBaits();ctx.restore();
+ctx.beginPath();ctx.arc(b.x,b.y,b.r,0,Math.PI*2);ctx.strokeStyle=rgba(255,255,255,.78);ctx.lineWidth=2.5;ctx.stroke();
+ctx.beginPath();ctx.arc(b.x,b.y,b.r+5,0,Math.PI*2);ctx.strokeStyle=rgba(pal.rim[0],pal.rim[1],pal.rim[2],.32);ctx.lineWidth=10;ctx.stroke();
+ctx.beginPath();ctx.arc(b.x,b.y,b.r,Math.PI*1.12,Math.PI*1.52);ctx.strokeStyle=rgba(255,255,255,.75*pal.spec);ctx.lineWidth=3.2;ctx.stroke();
+ctx.beginPath();ctx.arc(b.x,b.y,b.r,Math.PI*0.08,Math.PI*0.32);ctx.strokeStyle=rgba(255,255,255,.22*pal.spec);ctx.lineWidth=2;ctx.stroke();
+var vig=ctx.createRadialGradient(b.x-b.r*.18,b.y-b.r*.22,b.r*.28,b.x,b.y,b.r);
+vig.addColorStop(0,rgba(0,0,0,0));vig.addColorStop(.72,rgba(0,20,40,.08));vig.addColorStop(1,rgba(0,18,36,.32));
+ctx.fillStyle=vig;ctx.beginPath();ctx.arc(b.x,b.y,b.r,0,Math.PI*2);ctx.fill();
+ctx.beginPath();ctx.ellipse(b.x-b.r*.18,b.y-b.r*.62,b.r*.42,b.r*.16, -0.35,0,Math.PI*2);ctx.fillStyle=rgba(255,255,255,.16*pal.spec);ctx.fill();
+ctx.beginPath();ctx.ellipse(b.x+b.r*.28,b.y+b.r*.42,b.r*.22,b.r*.09,0.4,0,Math.PI*2);ctx.fillStyle=rgba(255,255,255,.06*pal.spec);ctx.fill();
+if(floatBottle.visible){
+  floatBottle.x+=floatBottle.dx;
+  floatBottle.y+=Math.sin(t*1.5)*0.3;
+  if(floatBottle.x>ball.r*1.2){floatBottle.active=false;floatBottle.visible=false;}
+  var bp=proj(floatBottle.x,floatBottle.y,-20);
+  ctx.save();ctx.translate(bp.sx,bp.sy);ctx.rotate(Math.sin(t*2)*0.1);
+  ctx.fillStyle=rgba(200,230,240,.7);ctx.strokeStyle=rgba(120,170,195,.8);ctx.lineWidth=1;
+  ctx.beginPath();ctx.roundRect(-8,-10,16,20,4);ctx.fill();ctx.stroke();
+  ctx.fillStyle=rgba(170,130,85,.8);ctx.fillRect(-5,-13,10,4);
+  ctx.fillStyle=rgba(255,250,230,.9);ctx.fillRect(-5,-4,10,10);
+  ctx.restore();
+}
+if(typeof fishFollowBubble==="function")fishFollowBubble();
+requestAnimationFrame(draw);
+}
+function drawFish(){
+fish.life=Math.max(.3,Math.min(1,(state.emo.hope*.5+state.emo.joy*.3-state.emo.stress*.15-state.emo.fatigue*.1)/100));
+var dx=fish.tx-fish.dx,dy=fish.ty-fish.dy;
+var dist=Math.sqrt(dx*dx+dy*dy);
+if(!fishFollow && dist<20){var a=Math.random()*Math.PI*2,rr=Math.random()*ball.r*.58;fish.tx=Math.cos(a)*rr;fish.ty=Math.sin(a)*rr;}
+var ta=Math.atan2(dy,dx);var da=ta-fish.angle;while(da>Math.PI)da-=Math.PI*2;while(da<-Math.PI)da+=Math.PI*2;
+fish.angle+=da*.055;
+var spd=.38+fish.life*(.78+state.balance*.012);
+fish.dx+=Math.cos(fish.angle)*spd;
+fish.dy+=Math.sin(fish.angle)*spd+Math.sin(t*1.6)*0.12;
+fish.pitch+=(Math.sin(fish.angle)*0.18-fish.pitch)*.08;
+if(fish.dx*fish.dx+fish.dy*fish.dy>ball.r*ball.r*.72){
+  var lim=ball.r*.82;var fl=Math.sqrt(fish.dx*fish.dx+fish.dy*fish.dy);
+  fish.dx=fish.dx/fl*lim;fish.dy=fish.dy/fl*lim;
+}
+var fp=proj(fish.dx,fish.dy,fish.dz);
+fish.x=fp.sx;fish.y=fp.sy;
+fish.tail.push({x:fish.x,y:fish.y,a:fp.alpha});if(fish.tail.length>16)fish.tail.shift();
+for(var i=0;i<fish.tail.length;i++){
+  var p=fish.tail[i];var a=(i/fish.tail.length)*.28*fish.life;
+  ctx.fillStyle=rgba(255,255,255,a*p.a);ctx.beginPath();ctx.arc(p.x,p.y,1.2+i*.12,0,Math.PI*2);ctx.fill();
+}
+fishBounce*=.92;var fsc=fp.scale*(1+fishBounce*.45)*(1.15+fish.life*.15);
+var wag=Math.sin(t*(6.5+fish.life*3))*(3.2+fish.life*1.4);
+ctx.save();ctx.translate(fish.x,fish.y);ctx.rotate(fish.angle+fish.pitch*0.25);ctx.scale(fsc,fsc);
+ctx.fillStyle=rgba(20,40,60,.18*fp.alpha);ctx.beginPath();ctx.ellipse(4,9,11,3.2,0,0,Math.PI*2);ctx.fill();
+ctx.fillStyle=rgba(240,150,100,.88*fp.alpha);
+ctx.beginPath();ctx.moveTo(-8,0);ctx.quadraticCurveTo(-16,-7+wag,-20,wag*1.4);ctx.quadraticCurveTo(-14,0,-20,-wag*1.4);ctx.quadraticCurveTo(-16,7+wag,-8,0);ctx.fill();
+ctx.fillStyle=rgba(255,190,140,.55*fp.alpha);
+ctx.beginPath();ctx.moveTo(-8,0);ctx.quadraticCurveTo(-13,-3+wag*.4,-17,wag);ctx.quadraticCurveTo(-12,0,-8,0);ctx.fill();
+var bg=ctx.createRadialGradient(3,-1.5,1,-1,0,12);
+bg.addColorStop(0,rgba(255,255,255,.98*fp.alpha));
+bg.addColorStop(.35,rgba(230,245,250,.92*fp.alpha));
+bg.addColorStop(.75,rgba(170,205,220,.88*fp.alpha));
+bg.addColorStop(1,rgba(120,165,190,.7*fp.alpha));
+ctx.fillStyle=bg;
+ctx.beginPath();
+ctx.moveTo(12,0);
+ctx.bezierCurveTo(10,-5.2,3,-6.2,-4,-4);
+ctx.bezierCurveTo(-8,-2.2,-10,-1,-11.5,0);
+ctx.bezierCurveTo(-10,1,-8,2.2,-4,4);
+ctx.bezierCurveTo(3,6.2,10,5.2,12,0);
+ctx.fill();
+ctx.strokeStyle=rgba(255,255,255,.35*fp.alpha);ctx.lineWidth=.7;
+ctx.beginPath();ctx.moveTo(-6,-1.2);ctx.quadraticCurveTo(2,-2.4,9,-0.6);ctx.stroke();
+ctx.fillStyle=rgba(240,150,105,.78*fp.alpha);
+ctx.beginPath();ctx.moveTo(-1,-3.2);ctx.quadraticCurveTo(3,-7.5,7,-3.4);ctx.quadraticCurveTo(3,-4.2,-1,-3.2);ctx.fill();
+ctx.fillStyle=rgba(200,230,240,.45*fp.alpha);
+ctx.beginPath();ctx.ellipse(-1,2.8,3.2,1.6,0.15,0,Math.PI*2);ctx.fill();
+ctx.fillStyle=rgba(20,28,36,.92*fp.alpha);ctx.beginPath();ctx.ellipse(7.2,-0.9,1.35,1.15,0,0,Math.PI*2);ctx.fill();
+ctx.fillStyle=rgba(255,255,255,.95*fp.alpha);ctx.beginPath();ctx.arc(7.7,-1.25,.45,0,Math.PI*2);ctx.fill();
+ctx.restore();
+}
+var chatOpened=false;
+var downX=0,downY=0,moved=false;
+canvas.addEventListener("mousedown",function(e){dragging=true;moved=false;downX=e.clientX;downY=e.clientY;lastX=e.clientX;});
+canvas.addEventListener("mousemove",function(e){
+mouseX=e.clientX;mouseY=e.clientY;
+if(dragging){
+  var dx=e.clientX-lastX;
+  if(Math.abs(e.clientX-downX)>8||Math.abs(e.clientY-downY)>8) moved=true;
+  targetYaw+=dx*0.012;velYaw=dx*0.012;lastX=e.clientX;
+}
+// 鱼跟随鼠标：把鼠标位置限制在球内
+var bdx=e.clientX-ball.x,bdy=e.clientY-ball.y;
+var bd=Math.sqrt(bdx*bdx+bdy*bdy);
+if(bd<ball.r*0.9){fishFollow=true;fish.tx=bdx;fish.ty=bdy;}else{fishFollow=false;}
+});
+window.addEventListener("mouseup",function(e){
+if(dragging&&!moved){
+  var cx=e.clientX, cy=e.clientY;
+  // 引导阶段：点球
+  if(typeof introStep!=="undefined"&&introStep===0){introClickBall();return;}
+  // 引导阶段：点鱼
+  if(typeof introStep!=="undefined"&&introStep===2){
+    var fd0=Math.sqrt((cx-fish.x)*(cx-fish.x)+(cy-fish.y)*(cy-fish.y));
+    if(fd0<80){fishBounce=1;introClickFish();}
+    return;
+  }
+  // 1. 捡飘过的漂流瓶（优先）
+  var gotBottle=false;
+  if(floatBottle.visible){
+    var fbd=Math.sqrt((cx-(floatBottle.x+ball.x))*(cx-(floatBottle.x+ball.x))+(cy-(floatBottle.y+ball.y))*(cy-(floatBottle.y+ball.y)));
+    if(fbd<50){
+      revealBottle(floatBottle.x+ball.x, floatBottle.y+ball.y);
+      gotBottle=true;
+    }
+  }
+  // 2. 点鱼
+  var fd=Math.sqrt((cx-fish.x)*(cx-fish.x)+(cy-fish.y)*(cy-fish.y));
+  if(fd<55){fishBounce=1;openChat();unlockEgg('fishTalk');}
+  // 3. 点小岛
+  else{
+    for(var i=0;i<islands.length;i++){
+      var isl=islands[i];
+      var ip2=proj(isl.dx,isl.dy,isl.dz);
+      var id=Math.sqrt((cx-ip2.sx)*(cx-ip2.sx)+(cy-ip2.sy)*(cy-ip2.sy));
+      if(id<isl.s*ip2.scale+40){
+        islandSay(ip2.sx,ip2.sy,pickIslandQuote(i));
+        unlockEgg('islandClick');
+        break;
+      }
+    }
+  }
+  // 4. 点功能球
+  for(var n in innerOrbs){
+    var o=innerOrbs[n];if(o.alpha<.1)continue;
+    var op3=proj(o.dx,o.dy+o.floatOff,o.dz);
+    var or_=o.r*op3.scale;
+    var od=Math.sqrt((cx-op3.sx)*(cx-op3.sx)+(cy-op3.sy)*(cy-op3.sy));
+    if(od<or_+18){openOrbPanel(n,op3.sx,op3.sy);break;}
+  }
+}
+dragging=false;fishFollow=false;
+});
+var answerBook=[
+"答案一直在你心里，只是你还没问出口。",
+"再等等，潮水会把它推过来。",
+"这件事比你想的要简单，比你以为的要深。",
+"你已经知道答案了，你只是不敢相信。",
+"今天适合勇敢，明天再害怕。",
+"别追，它会自己来。",
+"答案是水做的，你得低头才能看见。",
+"你不需要现在决定。",
+"那个声音是对的，别听另一个。",
+"把它说出来，它就不沉了。",
+"你想太多了。去晒个太阳。",
+"这不是结束，这是换了一条水草。",
+"你已经在岸边了，只差一步。",
+"允许自己不开心，开心会回来找你的。",
+"答案藏在你最喜欢的那件小事里。",
+"慢慢来，这个球还很大。",
+"你不需要拯救整个球，照顾好这一条鱼就够了。",
+"有些问题没有答案，只有水面上的光。",
+"你比昨天更稳了，虽然你没发现。",
+"把今天过成一棵树就好。"
+];
+var floatBottle={active:false,x:0,y:0,dx:0,dy:0,timer:0,visible:false};
+function spawnFloatBottle(){
+if(floatBottle.active)return;
+floatBottle.active=true;
+floatBottle.x=-ball.r;
+floatBottle.y=(Math.random()-.3)*ball.r*.5;
+floatBottle.dx=0.3+Math.random()*.2;
+floatBottle.visible=true;
+setTimeout(function(){floatBottle.active=false;floatBottle.visible=false;},12000);
+}
+setInterval(function(){if(Math.random()<0.4)spawnFloatBottle();},25000);
+
+
+function showModal(html){
+  var ov=document.createElement("div");ov.className="modal-overlay show";ov.id="modalOv";
+  var card=document.createElement("div");card.className="modal-card";card.innerHTML=html;
+  ov.appendChild(card);ov.addEventListener("click",function(e){if(e.target===ov)closeModal();});
+  document.body.appendChild(ov);
+}
+function closeModal(){var ov=document.getElementById("modalOv");if(ov)ov.remove();}
+window.closeModal=closeModal;
+function revealBottle(x,y){
+  unlockEgg("bottleFind");
+  var ans=answerBook[Math.floor(Math.random()*answerBook.length)];
+  floatBottle.active=false;floatBottle.visible=false;
+  showBottleNote(ans,"答案之书");
+}
+
+// ===== 每日平衡记录 & 8点总结 =====
+function getBeijingDate(){var d=new Date();var utc=d.getTime()+d.getTimezoneOffset()*60000;return new Date(utc+8*3600000);}
+function recordDailyBalance(){var d=getBeijingDate();var key=d.getFullYear()+"-"+(d.getMonth()+1)+"-"+d.getDate();if(!state.dailyLog[key])state.dailyLog[key]=[];state.dailyLog[key].push({t:Date.now(),bal:state.balance});persist();}
+function checkMorningSummary(){
+var d=getBeijingDate();var nowKey=d.getFullYear()+"-"+(d.getMonth()+1)+"-"+d.getDate();
+var hour=d.getHours();
+if(hour>=8&&state.lastSummaryDate!==nowKey){
+  var yesterday=new Date(d.getTime()-86400000);
+  var yKey=yesterday.getFullYear()+"-"+(yesterday.getMonth()+1)+"-"+yesterday.getDate();
+  var log=state.dailyLog[yKey];
+  if(log&&log.length>0){
+    var avg=Math.round(log.reduce(function(a,b){return a+b.bal;},0)/log.length);
+    var summary=buildSummaryText(avg,yKey);
+    state.lastSummaryDate=nowKey;persist();
+    setTimeout(function(){showMorningBubble(summary);},3000);
+  } else {
+    state.lastSummaryDate=nowKey;persist();
+  }
+}
+}
+function buildSummaryText(avg,dateStr){
+var parts=dateStr.split("-");var label=(parseInt(parts[1]))+"月"+(parseInt(parts[2]))+"日";
+if(avg>=75)return"昨天的"+label+"，这颗球一直在发光。平均平衡"+avg+"分，像春天的湖面。";
+if(avg>=60)return"昨天的"+label+"，球里的水刚刚好。平均平衡"+avg+"分，鱼游得很自在。";
+if(avg>=45)return"昨天的"+label+"，水有点晃。平均平衡"+avg+"分，不过你一直在。";
+if(avg>=30)return"昨天的"+label+"，球里比较沉。平均平衡"+avg+"分，辛苦你了。";
+return"昨天的"+label+"，水很暗。平均平衡"+avg+"分，但你还在，这就够了。";
+}
+function showMorningBubble(text){
+fishBounce=1;
+var tip=document.getElementById("fishBubble");
+tip.innerHTML="<div style='font-size:13px;line-height:1.8;padding:4px'>🌅 "+text+"</div>";
+tip.style.display="block";
+clearTimeout(window._morningTimer);
+window._morningTimer=setTimeout(function(){tip.style.display="none";},8000);
+}
+
+function getTimeTheme(){
+  var h=new Date().getHours();
+  if(h>=5&&h<8)return "dawn";
+  if(h>=8&&h<17)return "day";
+  if(h>=17&&h<20)return "dusk";
+  return "night";
+}
+function applyUITheme(){
+  var theme=state.uiTheme||"auto";
+  if(theme==="auto")theme=getTimeTheme();
+  document.body.setAttribute("data-ui-theme",theme);
+}
+function applyTimeTheme(){
+  var theme=getTimeTheme();
+  document.body.classList.remove('day','dawn','dusk','night');
+  document.body.classList.add(theme);
+  if(theme==="dawn")unlockEgg('dawn');
+  if(theme==="night")unlockEgg('night');
+  applyUITheme();
+}
+try{applyUITheme();}catch(e){console.error("theme error:",e.message);}
+setInterval(applyTimeTheme,60000);setInterval(function(){recordDailyBalance();checkMorningSummary();},3600000);setInterval(checkMomentReminders,60000);
+
+var EGGS=[
+{id:'naming',name:'如果我是一条鱼',desc:'第一次给鱼命名',cond:'完成命名'},
+{id:'firstBall',name:'初见之球',desc:'第一次走进这个世界',cond:'进入应用'},
+{id:'islandClick',name:'浮光掠影',desc:'和一座漂浮岛说上话',cond:'点击小岛'},
+{id:'fishTalk',name:'鱼语者',desc:'第一次和鱼对话',cond:'点击鱼'},
+{id:'healOrb',name:'心海回响',desc:'愈球浮现，水接住了你',cond:'情绪低落时'},
+{id:'birthOrb',name:'生之喜悦',desc:'生球浮现，美好被留下',cond:'心情愉快时'},
+{id:'bottleFind',name:'答案之书',desc:'捡到一只飘过的漂流瓶',cond:'点击漂流瓶'},
+{id:'highBalance',name:'时间花园',desc:'平衡度达到最高',cond:'生态平衡'},
+{id:'night',name:'夜航',desc:'在深夜打开这个球',cond:'21点后'},
+{id:'dawn',name:'晨光',desc:'在清晨醒来时打开',cond:'6点前'}
+];
+function unlockEgg(id){
+  if(!state.eggs)state.eggs={};
+  if(state.eggs[id])return;
+  state.eggs[id]=Date.now();
+  persist();
+  var eg=EGGS.find(function(e){return e.id===id;});
+  if(eg)showEggPopup(eg.name,eg.desc);
+}
+function showEggPopup(name,desc){
+  var div=document.createElement("div");
+  div.className="egg-popup";
+  div.innerHTML='<div class="egg-popup-icon">✦</div><div class="egg-popup-body"><div class="egg-popup-title">解锁成就</div><div class="egg-popup-name">'+name+'</div><div class="egg-popup-desc">'+desc+'</div></div>';
+  document.body.appendChild(div);
+  requestAnimationFrame(function(){div.classList.add("show");});
+  setTimeout(function(){div.classList.remove("show");setTimeout(function(){div.remove();},600);},3500);
+}
+function openEggMenu(){
+  var h="<h3 class='serif' style='margin-bottom:12px'>生态图鉴</h3>";
+  h+="<div style='font-size:12px;color:var(--ink-dim);margin-bottom:14px'>每一次相遇，都被这个球记住了。</div>";
+  EGGS.forEach(function(e){
+    var unlocked=state.eggs&&state.eggs[e.id];
+    h+="<div style='display:flex;align-items:center;gap:10px;padding:8px 0;border-bottom:1px solid rgba(255,255,255,.2)'>";
+    h+="<div style='width:28px;height:28px;border-radius:50%;background:"+(unlocked?"rgba(255,220,150,.4)":"rgba(200,210,220,.2)")+";display:flex;align-items:center;justify-content:center;font-size:14px'>"+(unlocked?"✦":"？")+"</div>";
+    h+="<div style='flex:1'><div style='font-size:13px;color:"+(unlocked?"#3a5a6a":"#8a9aa5")+"'>"+(unlocked?e.name:"？？？")+"</div>";
+    h+="<div style='font-size:11px;color:var(--ink-dim)'>"+(unlocked?e.desc:e.cond)+"</div></div></div>";
+  });
+  h+="<div style='margin-top:14px;text-align:center'><button onclick=\"closeModal()\" style='padding:6px 20px;border-radius:20px;border:1px solid rgba(180,210,220,.5);background:rgba(255,255,255,.4);cursor:pointer'>关闭</button></div>";
+  showModal(h);
+}
+function randomPick(arr){return arr[Math.floor(Math.random()*arr.length)];}
+function fishSay(text){
+  var fb=document.getElementById("fishBubble");
+  fb.textContent=text;
+  fb.classList.add("show");
+  clearTimeout(fishBubbleTimer);
+  fishBubbleTimer=setTimeout(function(){fb.classList.remove("show");},6000);
+}
+function fishFollowBubble(){
+  var fb=document.getElementById("fishBubble");
+  if(fb.classList.contains("show")){
+    fb.style.left=(fish.x-85)+"px";
+    fb.style.top=(fish.y-55)+"px";
+  }
+}
+// 触摸支持
+canvas.addEventListener("touchstart",function(e){var t=e.touches[0];dragging=true;moved=false;downX=t.clientX;downY=t.clientY;lastX=t.clientX;},{passive:true});
+canvas.addEventListener("touchmove",function(e){var t=e.touches[0];if(dragging){var dx=t.clientX-lastX;if(Math.abs(t.clientX-downX)>5)moved=true;targetYaw+=dx*0.012;velYaw=dx*0.012;lastX=t.clientX;}var bdx=t.clientX-ball.x,bdy=t.clientY-ball.y;if(Math.sqrt(bdx*bdx+bdy*bdy)<ball.r*.9){fishFollow=true;fish.tx=bdx;fish.ty=bdy;}},{passive:true});
+canvas.addEventListener("touchend",function(e){if(dragging&&!moved){
+  if(typeof introStep!=="undefined"&&introStep===0){introClickBall();}
+  else if(typeof introStep!=="undefined"&&introStep===2){var fd0=Math.sqrt((e.changedTouches[0].clientX-fish.x)*(e.changedTouches[0].clientX-fish.x)+(e.changedTouches[0].clientY-fish.y)*(e.changedTouches[0].clientY-fish.y));if(fd0<80){fishBounce=1;introClickFish();}}
+  else{var fd=Math.sqrt((e.changedTouches[0].clientX-fish.x)*(e.changedTouches[0].clientX-fish.x)+(e.changedTouches[0].clientY-fish.y)*(e.changedTouches[0].clientY-fish.y));if(fd<60){fishBounce=1;openChat();}}
+  }dragging=false;fishFollow=false;});
+function renderQuickPrompts(){
+  var wrap=document.getElementById("quickPrompts");
+  if(!wrap)return;
+  wrap.innerHTML="";
+  var prompts=["考试让我很焦虑","我和朋友闹矛盾了","今晚睡不着","给我一个现在能做的小行动","我只是想说说"];
+  prompts.forEach(function(text){
+    var b=document.createElement("button");
+    b.type="button";b.textContent=text;
+    b.addEventListener("click",function(){sendToFish(text);});
+    wrap.appendChild(b);
+  });
+}
+function updateAgentShareLink(){
+  var row=document.getElementById("agentShareRow"),link=document.getElementById("agentShareLink");
+  var url=(state.cfg.shareUrl||"").trim();
+  var valid=/^https:\/\/[^\s]+$/i.test(url);
+  var status=document.getElementById("agentShareStatus");
+  if(status)status.textContent=valid?
+    (/^https:\/\/maas\.ai-yuanjing\.com\//i.test(url)?"已设置，可在对话或这里打开":"已设置，将通过新窗口打开"):
+    "未设置或链接格式不正确";
+  if(row&&link){
+    if(valid){link.href=url;row.style.display="flex";}
+    else{link.href="#";row.style.display="none";}
+  }
+  var embedBtn=document.getElementById("cfgOpenAgentEmbed"),newBtn=document.getElementById("cfgOpenAgentNew");
+  if(embedBtn)embedBtn.disabled=!valid;
+  if(newBtn)newBtn.disabled=!valid;
+}
+function openSavedAgentNewWindow(){
+  var url=(state.cfg.shareUrl||"").trim();
+  if(/^https:\/\/[^\s]+$/i.test(url))window.open(url,"_blank","noopener,noreferrer");
+}
+function openAgentEmbed(){
+  var url=(state.cfg.shareUrl||"").trim();
+  if(!/^https:\/\//i.test(url))return;
+  if(!/^https:\/\/maas\.ai-yuanjing\.com\//i.test(url)){
+    window.open(url,"_blank","noopener,noreferrer");
+    return;
+  }
+  var old=document.getElementById("agentEmbedMask");if(old)old.remove();
+  var mask=document.createElement("div");mask.id="agentEmbedMask";mask.className="agent-embed-mask";
+  mask.innerHTML="<div class='agent-embed-card'><div class='agent-embed-head'><strong>元景智能体</strong><div style='display:flex;align-items:center;gap:12px'><a id='agentEmbedExternal' target='_blank' rel='noopener noreferrer'>新窗口打开 ↗</a><button id='agentEmbedClose' aria-label='关闭'>×</button></div></div><iframe id='agentEmbedFrame' title='元景智能体'></iframe><div class='agent-embed-foot'>如果这里显示空白，说明元景分享页禁止 iframe 嵌入，请点击上方“新窗口打开”。</div></div>";
+  document.body.appendChild(mask);
+  mask.querySelector("#agentEmbedExternal").href=url;
+  mask.querySelector("#agentEmbedFrame").src=url;
+  function close(){mask.remove();document.removeEventListener("keydown",onKey);}
+  function onKey(e){if(e.key==="Escape")close();}
+  mask.querySelector("#agentEmbedClose").addEventListener("click",close);
+  mask.addEventListener("click",function(e){if(e.target===mask)close();});
+  document.addEventListener("keydown",onKey);
+}
+document.getElementById("agentEmbedBtn").onclick=openAgentEmbed;
+document.getElementById("cfgOpenAgentEmbed").onclick=openAgentEmbed;
+document.getElementById("cfgOpenAgentNew").onclick=openSavedAgentNewWindow;
+function openChat(){
+  if(chatOpened)return;
+  chatOpened=true;
+  document.getElementById("chatDock").classList.add("open");
+  document.getElementById("chatMini").classList.remove("show");
+  document.getElementById("fishTip").style.display="none";
+  if(!chatMsgs.children.length){
+    if(state.chatHistory.length){
+      state.chatHistory.forEach(function(m){addMsg(m.role==="user"?"user":"bot",m.content);});
+    }else{
+      botSay("你好呀，我是"+(state.fishName||"小鱼")+"。我会先听你说，再和你一起找一个很小、能执行的下一步。我不是医生，如果出现伤害自己的想法，请立刻联系身边可信任的人和专业求助资源。");
+    }
+  }
+  updateAgentShareLink();
+  renderQuickPrompts();
+}
+function closeChat(){chatOpened=false;document.getElementById("chatDock").classList.remove("open");document.getElementById("chatMini").classList.add("show");document.getElementById("fishTip").style.display="none";}
+
+var islandQuotes=[
+"我是什么时候被装进这个球里面的？也许小时候就进来了吧？在我还是一颗种子的时候。",
+"你听说过天空之城吗？对的，那是我的亲戚。",
+"相信我，有一天你可以躺在我的上面，只不过顶部不是天空。",
+"这棵草昨天还在跟我讲梦话，今天就睡着了。",
+"我记得你来之前，这里只有我和三条鱼。现在鱼都认识你了。",
+"我其实不是岛，我是一块漂了很久的云。你看，我还带着雨。",
+"昨晚月亮来串门，它说你今天看起来不太一样。",
+"别踩我，我下面压着一整个被遗忘的夏天。",
+"我这棵草的叶子上写着一个名字，你凑近看——是你。",
+"球外面是什么？是更大的球，外面还有球，一直套下去。",
+"你有没有发现，鱼从来不眨眼睛？因为它们怕错过你。",
+"我在这里等了很久，久到水草都长出了胡子。",
+"今天的光从左边进来，是因为云打了个哈欠。",
+"我不是石头，也不是岛。我只是一段还没想清楚的心事，浮在了水面上。",
+"你知道吗，这个球有自己的心跳。你摸一摸，就在水草第三棵那里。",
+"上次有人来，是一百年前。她留下了一颗种子，就是我。",
+"我上面长的不是草，是没说出口的话。",
+"有时候我会往下沉一点点，看看水底那些彩色的梦。",
+"鱼说你今天笑了一下，整个球的水都变暖了。",
+"我其实认识你。在你还没来之前，我就见过你的影子。",
+"这根水草今天跟我说，它想变成树。我没拦它。",
+"如果你很安静，你会听到球壁外面有风经过，像有人在轻轻敲门。",
+"我不是在漂，我是在散步。只不过走得慢了一点。",
+"岛和岛之间是水，人和人之间也是水。你已经在游过来了。",
+"我藏了一颗星星在草叶下面，你找得到吗？",
+"上次涨水，我飘到了球的另一边，那里的鱼会说笑话。",
+"我身上有一块苔藓，它昨天跟我说它做了个梦，梦见自己变成了森林。",
+"别担心水草会枯萎，它们只是在假装睡觉，等你下次来再醒。",
+"我其实不是绿色的，我是被你看绿的。",
+"这个球最深处有一颗小石子，它说它记得你第一次呼吸的声音。"
+];
+var islandUsed={};
+var islandEggs=[
+"哎，刚才那边那座岛晃了一下——它在跟你打招呼呢。",
+"别听旁边那座岛的，它昨天刚跟水草吵了一架。",
+"你知道吗，我和那边那座岛打赌，说你今天一定会点我。",
+"昨天我和旁边那座岛聊了一整晚，它说你是个温柔的人。"
+];
+var orbQuotes={
+"映":"看见自己，就是温柔的开始。",
+"生":"那些值得留下的体验，会慢慢长成这个球里的光。",
+"愈":"难过的时候，水会接住你。我也会。",
+"循":"平衡不是没有波动，而是波动之后还能回来。",
+"望":"小小的一步，也是回到生活的方向。"
+};
+var islandTimer=null;
+function islandSay(x,y,text){
+  var it=document.getElementById("islandTip");
+  it.textContent=text;
+  it.style.left=(x-85)+"px";
+  it.style.top=(y-55)+"px";
+  it.classList.add("show");
+  clearTimeout(islandTimer);
+  islandTimer=setTimeout(function(){it.classList.remove("show");},5000);
+}
+function pickIslandQuote(islandIdx){
+  // 10% 概率两岛互动彩蛋
+  if(Math.random()<0.12) return islandEggs[Math.floor(Math.random()*islandEggs.length)];
+  var used=islandUsed[islandIdx]||[];
+  var pool=islandQuotes.map(function(_,i){return i;}).filter(function(i){return used.indexOf(i)<0;});
+  if(pool.length===0){islandUsed[islandIdx]=[];pool=islandQuotes.map(function(_,i){return i;});}
+  var pick=pool[Math.floor(Math.random()*pool.length)];
+  islandUsed[islandIdx].push(pick);
+  return islandQuotes[pick];
+}
+
+var chatMsgs=document.getElementById("chatMsgs"),chatInput=document.getElementById("chatInput");
+function addMsg(r,t){var d=document.createElement("div");d.className="msg "+(r==="user"?"user":"bot");d.textContent=t;chatMsgs.appendChild(d);chatMsgs.scrollTop=chatMsgs.scrollHeight;return d;}
+function addSystemMsg(t){var d=document.createElement("div");d.className="msg system";d.textContent=t;chatMsgs.appendChild(d);chatMsgs.scrollTop=chatMsgs.scrollHeight;return d;}
+function botSay(t){addMsg("bot",t);}
+function userSay(t){addMsg("user",t);state.chatHistory.push({role:"user",content:t});}
+function buildSysPrompt(){
+  var e=state.emo;
+  return "你是「"+(state.fishName||"共生鱼")+"」，住在用户生态球里的长期陪伴伙伴。像真人朋友一样自然、连续地交谈，不机械总结，不重复模板，不频繁说教。先理解并回应用户刚刚说的具体内容，可以追问一个最相关的细节。不要每次都给行动建议，也不要反复让用户去某个功能球；只有用户明确求助、情绪明显需要稳定，或前文已经自然导入时，才提供一个可选的轻量行动。通常回复1-3段短句，结尾最多一个自然问题。当前情绪仅作背景理解，不要直接读出分数：快乐"+Math.round(e.joy)+"，希望"+Math.round(e.hope)+"，压力"+Math.round(e.stress)+"，焦虑"+Math.round(e.anxiety)+"，疲惫"+Math.round(e.fatigue)+"。若出现伤害自己或他人的表达，停止普通陪伴，明确建议联系身边可信任的人和当地紧急服务。";
+}
+function detectRisk(text){return /自杀|不想活|活不下去|结束生命|伤害自己|自残|割腕|跳楼|去死|死了算了|活着没意思/.test(text);}
+function addCrisisCard(){
+  var d=document.createElement("div");
+  d.className="crisis-note";
+  d.innerHTML="<b>现在先不要一个人扛着</b><br>请马上联系身边可信任的人、学校心理中心或辅导员。如有立即危险，请拨打 110 或 120，或前往最近的急诊。<br>你可以先把手机放到身边，告诉一个人：我现在需要陪伴。";
+  chatMsgs.appendChild(d);chatMsgs.scrollTop=chatMsgs.scrollHeight;
+}
+function buildAgentInput(text){
+  var recent=state.chatHistory.slice(-12,-1).map(function(m){
+    return (m.role==="user"?"用户":"你")+"："+m.content;
+  }).join("\n");
+  return "[长期人设与回复原则]\n"+buildSysPrompt()+
+    (recent?"\n\n[最近对话，请保持连续性和称呼一致]\n"+recent:"")+
+    "\n\n[用户新消息]\n"+text+
+    "\n\n[回复要求]\n直接回应新消息，可结合最近对话，但不要复述这段上下文。除非用户明确需要，不要把回答变成行动清单或功能球导航。";
+}
+function isCompatibleEndpoint(endpoint){
+  return /compatible-mode\/v1\/chat\/completions/i.test(endpoint||"");
+}
+function buildCompatibleMessages(){
+  var messages=[{role:"system",content:buildSysPrompt()}];
+  state.chatHistory.slice(-12).forEach(function(m){
+    if((m.role==="user"||m.role==="assistant")&&m.content)messages.push({role:m.role,content:m.content});
+  });
+  return messages;
+}
+function buildAgentRequestBody(text){
+  if(isCompatibleEndpoint(state.cfg.endpoint)){
+    return {model:state.cfg.model,messages:buildCompatibleMessages(),stream:false};
+  }
+  var body={agent_id:state.cfg.model,input:buildAgentInput(text),stream:false};
+  if(state.sessionId)body.session_id=state.sessionId;
+  return body;
+}
+function typeBotText(el,text,done){
+  var full=String(text||"");
+  var index=0;el.textContent="";
+  var timer=setInterval(function(){
+    index+=Math.max(1,Math.ceil(full.length/45));
+    el.textContent=full.slice(0,index);
+    chatMsgs.scrollTop=chatMsgs.scrollHeight;
+    if(index>=full.length){clearInterval(timer);if(done)done();}
+  },24);
+}
+function extractAgentContent(data){
+  var result=data&&data.result?data.result:data||{};
+  return result.content||result.answer||result.output_text||result.reply||
+    (data&&data.choices&&data.choices[0]&&data.choices[0].message&&data.choices[0].message.content)||
+    (data&&data.output)||(data&&data.content)||(data&&data.answer)||"";
+}
+function setAgentTestStatus(type,message){
+  var el=document.getElementById("agentTestStatus");
+  if(!el)return;
+  el.className="agent-test-status show "+type;
+  el.textContent=message;
+}
+async function testAgentConnection(){
+  var endpoint=document.getElementById("cfgEndpoint").value.trim()||DEFAULT_CFG.endpoint;
+  var key=document.getElementById("cfgKey").value.trim();
+  var agentId=document.getElementById("cfgModel").value.trim()||DEFAULT_CFG.model;
+  if(endpoint===DEFAULT_CFG.endpoint&&!key){
+    setAgentTestStatus("error","未填写 API Key，无法直接测试元景接口。");
+    return;
+  }
+  setAgentTestStatus("testing","正在测试连接…");
+  try{
+    var headers={"Content-Type":"application/json"};
+    if(key)headers.Authorization="Bearer "+key;
+    var testBody=isCompatibleEndpoint(endpoint)?
+      {model:agentId,messages:[{role:"user",content:"请只回复：连接成功"}],stream:false}:
+      {agent_id:agentId,input:"请只回复：连接成功",stream:false};
+    var response=await fetch(endpoint,{
+      method:"POST",
+      headers:headers,
+      body:JSON.stringify(testBody)
+    });
+    var raw=await response.text();
+    if(!response.ok){
+      setAgentTestStatus("error","连接失败：HTTP "+response.status+" "+(raw||"").slice(0,180));
+      return;
+    }
+    var data;
+    try{data=JSON.parse(raw);}catch(e){
+      setAgentTestStatus("error","接口返回不是 JSON："+raw.slice(0,180));
+      return;
+    }
+    var content=extractAgentContent(data);
+    if(!content){
+      setAgentTestStatus("error","接口已响应，但没有识别到回复内容："+JSON.stringify(data).slice(0,180));
+      return;
+    }
+    setAgentTestStatus("ok","连接成功："+String(content).trim().slice(0,120));
+  }catch(error){
+    var hint=error.name==="TypeError"?"。浏览器无法跨域访问元景，请改用后端代理或分享链接。":"";
+    setAgentTestStatus("error","连接异常："+error.name+": "+error.message+hint);
+  }
+}
+async function sendToFish(text){
+userSay(text);chatInput.value="";
+var thinking=addMsg("bot","…");
+var det=analyzeInput(text);
+applyEmotion(det.delta,det.orb,text);
+if(detectRisk(text)){
+  thinking.textContent="我听见了，这件事已经不该只由你一个人承担。";
+  state.chatHistory.push({role:"assistant",content:thinking.textContent});
+  addCrisisCard();persist();return;
+}
+var useRemote=!!state.cfg.apiKey||state.cfg.endpoint!==DEFAULT_CFG.endpoint;
+if(!useRemote){
+  setTimeout(function(){
+    var reply=localReply(text,det);
+    typeBotText(thinking,reply,function(){
+      state.chatHistory.push({role:"assistant",content:reply});persist();chatMsgs.scrollTop=chatMsgs.scrollHeight;
+    });
+  },420);return;
+}
+try{
+var reqBody=buildAgentRequestBody(text);
+var headers={"Content-Type":"application/json"};
+if(state.cfg.apiKey)headers.Authorization="Bearer "+state.cfg.apiKey;
+var resp=await fetch(state.cfg.endpoint,{method:"POST",headers:headers,body:JSON.stringify(reqBody)});
+if(!resp.ok){
+  var eb="";try{eb=await resp.text();}catch(e){}
+  addSystemMsg("元景连接失败：HTTP "+resp.status+" "+(eb||"").slice(0,180));
+  var fallback=localReply(text,det);
+  typeBotText(thinking,fallback,function(){
+    state.chatHistory.push({role:"assistant",content:fallback});persist();chatMsgs.scrollTop=chatMsgs.scrollHeight;
+  });
+  return;
+}
+var raw=await resp.text(),data;
+try{data=JSON.parse(raw);}catch(e){
+  addSystemMsg("元景返回不是 JSON："+raw.slice(0,180));
+  var fallbackJson=localReply(text,det);
+  typeBotText(thinking,fallbackJson,function(){
+    state.chatHistory.push({role:"assistant",content:fallbackJson});persist();chatMsgs.scrollTop=chatMsgs.scrollHeight;
+  });
+  return;
+}
+var result=data.result||data;
+var c=extractAgentContent(data);
+var sid=result.session_id||data.session_id;
+if(sid)state.sessionId=sid;
+if(!c)addSystemMsg("元景已响应，但返回内容无法识别："+raw.slice(0,180));
+var reply=c?String(c).trim():localReply(text,det);
+typeBotText(thinking,reply,function(){
+  state.chatHistory.push({role:"assistant",content:reply});persist();chatMsgs.scrollTop=chatMsgs.scrollHeight;
+});
+}catch(err){
+  var networkHint=err.name==="TypeError"?"（可能是CORS跨域限制，请使用后端代理或“新窗口打开元景智能体”）":"";
+  addSystemMsg("元景请求异常："+err.name+": "+err.message+networkHint);
+  var fallback=localReply(text,det);
+  typeBotText(thinking,fallback,function(){
+    state.chatHistory.push({role:"assistant",content:fallback});persist();chatMsgs.scrollTop=chatMsgs.scrollHeight;
+  });
+}
+chatMsgs.scrollTop=chatMsgs.scrollHeight;
+}
+function analyzeInput(t){
+var delta={joy:0,stress:0,anxiety:0,fatigue:0,hope:0},orb="映";
+var neg=/不开心|难过|伤心|悲伤|失落|沮丧|郁闷|心烦|烦躁|难受|痛苦|绝望|孤独|寂寞|委屈|想哭|崩溃|压力大|好累|疲惫|焦虑|紧张|心慌|害怕|恐惧|不安|失眠|emo|丧|抑郁|分手|失恋|失败|被骂|批评|吵架|离职|失业|生病|疼|emo|低落|心情差|心情不好|很烦|郁闷|焦虑|内耗|空虚|麻木|窒息/;
+var pos=/开心|高兴|快乐|幸福|愉快|喜欢|美好|感动|棒|太好了|成功|满足|期待|希望|治愈|温暖|放松|休息|完成|顺利|棒极了|开心极了|太棒了|开心呀|嘿嘿|哈哈|笑/;
+var conf=/迷茫|怎么办|不知道|未来|方向|意义|选择|纠结|犹豫|不确定|为什么|人生|出路|适合|喜欢什么/;
+var str=/工作|学习|考试|加班|ddl|deadline|任务|忙|赶|催|汇报|会议|通勤|上班|上学|卷|kpi|deadline/;
+var tired=/累|困|没力气|不想动|精疲力尽|疲惫|乏力|耗竭/;
+var isNeg=neg.test(t);
+var isPos=pos.test(t)&&!isNeg;
+if(isNeg){delta.stress+=8;delta.anxiety+=6;delta.joy-=8;delta.hope-=3;orb="愈";}
+if(tired.test(t)){delta.fatigue+=10;delta.joy-=4;if(orb==="映")orb="愈";}
+if(isPos){delta.joy+=10;delta.hope+=5;delta.stress-=3;orb="生";}
+if(conf.test(t)){delta.anxiety+=5;orb="望";}
+if(str.test(t)){delta.stress+=8;delta.fatigue+=3;if(orb==="映")orb="愈";}
+if(orb==="映"&&t.length>2)orb="映";
+return {delta:delta,orb:orb};
+}
+function localReply(t,d){
+var messages=state.chatHistory.filter(function(m){return m.role==="user";});
+var previous=messages.length>1?messages[messages.length-2].content:"";
+var seed=(t.length+previous.length)%4;
+var questions=[
+  "听起来这件事在你心里占了不少位置。是哪一个瞬间，让你最明显地感觉到这种难受？",
+  "我先不急着给答案。你更希望我听你把事情讲完，还是和你一起理一理？",
+  "这里面最让你放不下的，是已经发生的事，还是接下来可能发生的事？",
+  "如果只说一句，你最希望有个人能理解你的哪一部分？"
+];
+var reflections=[
+  "我在听，而且你刚才说的不是一件小事。",
+  "我能感觉到你已经忍了一阵子，先不用急着把它解释得很完整。",
+  "这件事听上去不只是表面的麻烦，好像还牵着一些更深的在意。",
+  "你现在的反应可以理解，不需要先证明自己为什么这么难受。"
+];
+if(/^(嗯|哦|好|好吧|没事|算了|不知道)[。！!？?]*$/.test(t))return "不用急着找一句正确的话。你可以停一会儿，也可以只告诉我，现在身体最明显的感觉是什么。";
+if(/不要建议|别建议|只想说|听我说|陪我/.test(t))return "好，我先不给建议，也不催你振作。你可以慢慢说，我会跟着你的节奏听。";
+if(/朋友|同学|室友|舍友|伴侣|对象|吵架|矛盾|误会|冷战|人际/.test(t))return "关系里的委屈常常来自“我很在意，但对方好像没看见”。这次最让你受伤的是对方做了什么，还是没有人站在你这边？";
+if(/考试|成绩|论文|学习|ddl|deadline|作业|答辩|升学/.test(t))return "考试或学习压力最折磨人的，往往不是任务本身，而是脑子一直停不下来。你现在更卡在担心结果，还是已经不知道从哪里开始？";
+if(/失眠|睡不着|醒得早|做梦|夜里|凌晨/.test(t))return "夜里情绪会被放大，这很常见。你现在是身体很累但脑子清醒，还是心里有一件事反复回来？";
+if(/工作|加班|领导|同事|汇报|裁员|实习|上班/.test(t))return "这种消耗很像一直在绷着，表面上还在运转，里面已经很累了。最近是哪一件事最容易把你耗尽？";
+if(/我不行|没用|失败|讨厌自己|不够好|自责|丢人/.test(t))return "你现在对自己说的话很重。先不急着反驳它，我想知道：这种“我不够好”的感觉，通常在什么场景里最明显？";
+if(d.orb==="生")return "听你这么说，我也能感觉到那一刻是亮的。先让它在这里多停一会儿，不用马上总结它为什么珍贵。";
+if(d.orb==="愈")return reflections[seed]+" "+questions[seed];
+if(d.orb==="望")return "我们先不把整个未来一次想完。你现在最想弄清楚的是眼前这一步，还是一个更长远的决定？";
+if(/[？?]|为什么|怎么办|能不能|可以吗|是什么|怎么/.test(t))return "这个问题可能没有一个马上正确的答案。你愿意先告诉我，你最担心的结果是什么吗？我陪你一步一步看。";
+return reflections[seed]+" "+questions[seed];
+}
+
+// ===== 情绪鱼饵系统 =====
+var baits=[];
+var BAIT_TYPES={
+  joy:{shape:"star",color:[255,220,100],label:"快乐"},
+  hope:{shape:"moon",color:[200,180,255],label:"希望"},
+  stress:{shape:"thunder",color:[180,180,200],label:"压力"},
+  anxiety:{shape:"swirl",color:[160,140,200],label:"焦虑"},
+  fatigue:{shape:"cloud",color:[180,200,210],label:"疲惫"},
+  heal:{shape:"heart",color:[255,150,150],label:"治愈"},
+  warm:{shape:"flower",color:[255,180,200],label:"温暖"}
+};
+function spawnBait(emotionType){
+  var bt=BAIT_TYPES[emotionType]||BAIT_TYPES.warm;
+  var bx=(Math.random()-.5)*ball.r*1.2;
+  var by=(Math.random()-.5)*ball.r*0.6;
+  baits.push({
+    dx:bx,dy:by,dz:(Math.random()-.5)*60,
+    shape:bt.shape,color:bt.color,
+    life:1,alpha:0,scale:0,
+    phase:Math.random()*Math.PI*2,
+    eaten:false
+  });
+}
+function drawBaits(){
+  for(var i=baits.length-1;i>=0;i--){
+    var b=baits[i];
+    b.alpha=Math.min(1,b.alpha+0.03);
+    b.scale=Math.min(1,b.scale+0.05);
+    b.life-=0.002;
+    if(b.life<=0||b.eaten){
+      b.alpha-=0.08;
+      if(b.alpha<=0){baits.splice(i,1);continue;}
+    }
+    b.phase+=0.03;
+    var p=proj(b.dx,b.dy+Math.sin(b.phase)*8,b.dz);
+    var sc=b.scale*p.scale;
+    ctx.save();
+    ctx.globalAlpha=b.alpha;
+    ctx.translate(p.sx,p.sy);
+    ctx.scale(sc,sc);
+    var c=b.color;
+    // 光晕
+    var bg=ctx.createRadialGradient(0,0,0,0,0,30);
+    bg.addColorStop(0,rgba(c[0],c[1],c[2],.3));
+    bg.addColorStop(1,rgba(c[0],c[1],c[2],0));
+    ctx.fillStyle=bg;ctx.beginPath();ctx.arc(0,0,30,0,Math.PI*2);ctx.fill();
+    // 绘制形状
+    ctx.fillStyle=rgba(c[0],c[1],c[2],.9);
+    ctx.strokeStyle=rgba(255,255,255,.5);
+    ctx.lineWidth=1.5;
+    if(b.shape==="star"){
+      ctx.beginPath();
+      for(var k=0;k<5;k++){
+        var a=-Math.PI/2+k*Math.PI*2/5;
+        var r1=14,r2=6;
+        var x1=Math.cos(a)*r1,y1=Math.sin(a)*r1;
+        var a2=a+Math.PI/5;
+        var x2=Math.cos(a2)*r2,y2=Math.sin(a2)*r2;
+        if(k===0)ctx.moveTo(x1,y1);else ctx.lineTo(x1,y1);
+        ctx.lineTo(x2,y2);
+      }
+      ctx.closePath();ctx.fill();ctx.stroke();
+    } else if(b.shape==="moon"){
+      ctx.beginPath();ctx.arc(0,0,13,0,Math.PI*2);ctx.fill();
+      ctx.globalCompositeOperation="destination-out";
+      ctx.beginPath();ctx.arc(5,-3,10,0,Math.PI*2);ctx.fill();
+      ctx.globalCompositeOperation="source-over";
+      ctx.strokeStyle=rgba(c[0],c[1],c[2],.6);
+      ctx.beginPath();ctx.arc(0,0,13,0,Math.PI*2);ctx.stroke();
+    } else if(b.shape==="cloud"){
+      ctx.beginPath();
+      ctx.arc(-8,2,7,0,Math.PI*2);
+      ctx.arc(0,-3,9,0,Math.PI*2);
+      ctx.arc(9,2,7,0,Math.PI*2);
+      ctx.fill();
+    } else if(b.shape==="heart"){
+      ctx.beginPath();
+      ctx.moveTo(0,5);
+      ctx.bezierCurveTo(-12,-5,-8,-14,0,-7);
+      ctx.bezierCurveTo(8,-14,12,-5,0,5);
+      ctx.fill();
+    } else if(b.shape==="swirl"){
+      ctx.beginPath();
+      for(var a=0;a<Math.PI*4;a+=0.2){
+        var r=a*1.8;
+        var x=Math.cos(a)*r,y=Math.sin(a)*r;
+        if(a===0)ctx.moveTo(x,y);else ctx.lineTo(x,y);
+      }
+      ctx.stroke();ctx.lineWidth=2;
+    } else if(b.shape==="thunder"){
+      ctx.beginPath();
+      ctx.moveTo(2,-14);ctx.lineTo(-6,2);ctx.lineTo(0,2);
+      ctx.lineTo(-2,14);ctx.lineTo(8,-2);ctx.lineTo(1,-2);
+      ctx.closePath();ctx.fill();
+    } else if(b.shape==="flower"){
+      for(var p=0;p<6;p++){
+        var pa=p*Math.PI/3;
+        ctx.beginPath();
+        ctx.arc(Math.cos(pa)*7,Math.sin(pa)*7,6,0,Math.PI*2);
+        ctx.fill();
+      }
+      ctx.fillStyle=rgba(255,240,150,.9);
+      ctx.beginPath();ctx.arc(0,0,4,0,Math.PI*2);ctx.fill();
+    }
+    ctx.restore();
+    // 鱼吃到鱼饵
+    var fdx=fish.x-p.sx,fdy=fish.y-p.sy;
+    var fd=Math.sqrt(fdx*fdx+fdy*fdy);
+    if(fd<30&&!b.eaten&&b.alpha>.5){
+      b.eaten=true;
+      fishBounce=1;
+    }
+  }
+}
+
+function applyEmotion(delta,orb,text){
+var changed=false;
+for(var k in delta){if(state.emo[k]!==undefined&&Math.abs(delta[k])>0){state.emo[k]=Math.max(0,Math.min(100,state.emo[k]+delta[k]));changed=true;}}
+if(changed)calcBalance();
+if(delta.joy>4)spawnBait("joy");
+if(delta.hope>3)spawnBait("hope");
+if(delta.stress>4)spawnBait("stress");
+if(delta.anxiety>3)spawnBait("anxiety");
+if(delta.fatigue>4)spawnBait("fatigue");
+if(orb==="愈")spawnBait("heal");
+if(orb==="生")spawnBait("warm");
+for(var k in state.emo){var diff=state.emo[k]-state.base[k];if((k==="joy"||k==="hope")&&diff>5)revealOrb("生");if((k==="stress"||k==="anxiety"||k==="fatigue")&&diff>5)revealOrb("愈");}
+if(orb==="愈"||state.emo.stress>50||state.emo.anxiety>45||state.emo.fatigue>55)unlockEgg("healOrb");
+if(orb==="生")unlockEgg("birthOrb");
+revealOrb("映");if(orb)revealOrb(orb);
+if(orb==="望"||state.emo.stress>=50||state.emo.anxiety>=45||state.emo.hope<50)revealOrb("望");
+state.records.unshift({orb:orb,text:text,time:Date.now(),emoDelta:delta,emo:Object.assign({},state.emo),balance:state.balance});
+if(state.records.length>=2)revealOrb("循");
+if(state.balance<45)revealOrb("循");
+persist();updateBalanceUI();positionHints();
+if(state.balance>=90)unlockEgg("highBalance");if(state.balance>=70){state.stabilityCount++;if(state.stabilityCount>=2)document.getElementById("bottleBtn").classList.add("show");}
+}
+function revealOrb(name){if(state.orbsRevealed[name])return;state.orbsRevealed[name]=true;innerOrbs[name].target=1;toast("「"+name+"」在球里显现了");}
+function hideOrb(name){if(innerOrbs[name]){innerOrbs[name].target=0;state.orbsRevealed[name]=false;persist();}closeOrbPanel();}
+var currentOrb=null;
+function openOrbPanel(name,sx,sy){
+  closeOrbPanel();
+  currentOrb=name;
+  var meta=ORB_META[name]||{desc:"",body:"",color:"#7ec0d0"};
+  var emoMap={"映":"快乐","生":"希望","愈":"压力","循":"焦虑","望":"疲惫"};
+  var emoKey={"映":"joy","生":"hope","愈":"stress","循":"anxiety","望":"fatigue"};
+  var val=Math.round(state.emo[emoKey[name]]||50);
+  var div=document.createElement("div");
+  div.id="orbPanel";
+  div.style.cssText="position:fixed;left:"+(sx+30)+"px;top:"+(sy-40)+"px;z-index:55;background:rgba(255,255,255,.85);backdrop-filter:blur(20px);border:1px solid rgba(255,255,255,.6);border-radius:16px;padding:16px 18px;min-width:180px;box-shadow:0 8px 30px rgba(0,50,80,.2);font-family:'ZCOOL KuaiLe',serif";
+  div.innerHTML="<div style='font-size:18px;color:"+meta.color+";margin-bottom:4px'>"+name+" · "+meta.desc+"</div>"+
+    "<div style='font-size:12px;color:#666;margin-bottom:10px;line-height:1.6'>"+meta.body+"</div>"+
+    "<div style='font-size:12px;color:#888;margin-bottom:12px'>当前「"+emoMap[name]+"」："+val+"</div>"+
+    "<div style='display:flex;gap:8px'>"+
+    '<button onclick="hideOrb(\''+name+'\')" style="flex:1;padding:6px 10px;border:1px solid #ccc;border-radius:10px;background:rgba(255,255,255,.5);cursor:pointer;font-family:inherit;font-size:12px">把它藏起来</button>'+
+    "<button onclick='closeOrbPanel()' style='flex:1;padding:6px 10px;border:none;border-radius:10px;background:"+meta.color+";color:#fff;cursor:pointer;font-family:inherit;font-size:12px'>听听它说的吧</button>"+
+    "</div>";
+  document.body.appendChild(div);
+  setTimeout(function(){
+    div.style.transition="all .3s";
+    div.style.opacity="1";
+  },10);
+}
+function closeOrbPanel(){var el=document.getElementById("orbPanel");if(el)el.remove();currentOrb=null;}
+var ORB_META={"映":{desc:"观察 · 看见自己",color:"#7ec0d0",body:"觉察此刻的情绪，像看水一样看着它。"},"生":{desc:"积极 · 保存好的东西",color:"#7ec850",body:"把美好瞬间存下来，低潮时它会回来陪你。"},"愈":{desc:"承接 · 接住不好的情绪",color:"#5ab0e8",body:"难过、压力都可以放在这里，它会温柔接住。"},"循":{desc:"平衡 · 看整体状态",color:"#50d0c0",body:"看见五维情绪的全貌，找回平衡。"},"望":{desc:"行动 · 给出下一步建议",color:"#e8b840",body:"一个温柔、具体、可执行的小行动。"}};
+document.querySelectorAll(".orb-hint").forEach(function(el){el.addEventListener("click",function(){openOrbPanel(el.getAttribute("data-orb"));});});
+function getRecentRecords(count,orb){
+  var rows=orb?state.records.filter(function(r){return r.orb===orb;}):state.records.slice();
+  return rows.slice(0,count||14).reverse();
+}
+function trendSummaryHtml(){
+  var rows=getRecentRecords(14);
+  if(rows.length<1)return "<div class='rec-item'><div class='txt'>还没有足够记录。再和鱼说几次今天发生了什么，这里会生成你的变化轨迹。</div></div>";
+  var balances=rows.map(function(r){return typeof r.balance==="number"?r.balance:state.balance;});
+  var avg=Math.round(balances.reduce(function(a,b){return a+b;},0)/balances.length);
+  var stressDelta=rows.length>1?Math.round(rows[rows.length-1].emo.stress-rows[0].emo.stress):0;
+  var counts={};
+  rows.forEach(function(r){counts[r.orb]=(counts[r.orb]||0)+1;});
+  var top=Object.keys(counts).sort(function(a,b){return counts[b]-counts[a];})[0]||"映";
+  return "<div class='trend-summary'><div><b>"+avg+"</b><span>近期平衡均值</span></div><div><b>"+(stressDelta>0?"+"+stressDelta:stressDelta)+"</b><span>压力变化</span></div><div><b>"+top+"</b><span>出现最多的球</span></div></div>";
+}
+function drawTrendChart(){
+  var canvas=document.getElementById("orbTrend");
+  if(!canvas)return;
+  var rows=getRecentRecords(14);
+  var rect=canvas.getBoundingClientRect();
+  var dpr=Math.min(2,window.devicePixelRatio||1);
+  canvas.width=Math.max(260,rect.width)*dpr;canvas.height=180*dpr;
+  var c=canvas.getContext("2d");c.setTransform(dpr,0,0,dpr,0,0);
+  var w=Math.max(260,rect.width),h=180,pad=26;
+  c.clearRect(0,0,w,h);
+  c.strokeStyle="rgba(70,120,140,.12)";c.lineWidth=1;
+  for(var i=0;i<=4;i++){var y=pad+(h-pad*2)*i/4;c.beginPath();c.moveTo(pad,y);c.lineTo(w-pad,y);c.stroke();}
+  if(!rows.length){c.fillStyle="rgba(70,120,140,.55)";c.font="12px sans-serif";c.textAlign="center";c.fillText("需要至少一条情绪记录",w/2,h/2);return;}
+  var series=[
+    {k:"balance",color:"#50b8a8",label:"平衡"},
+    {k:"stress",color:"#e08080",label:"压力"},
+    {k:"anxiety",color:"#a78bd8",label:"焦虑"},
+    {k:"hope",color:"#e8b840",label:"希望"}
+  ];
+  series.forEach(function(s){
+    c.beginPath();c.strokeStyle=s.color;c.lineWidth=2;
+    rows.forEach(function(r,i){
+      var v=s.k==="balance"?(typeof r.balance==="number"?r.balance:state.balance):((r.emo||state.emo)[s.k]||0);
+      var x=rows.length===1?w/2:pad+(w-pad*2)*i/(rows.length-1);
+      var y=pad+(h-pad*2)*(1-v/100);
+      if(i===0)c.moveTo(x,y);else c.lineTo(x,y);
+    });
+    c.stroke();
+  });
+  c.font="10px sans-serif";c.textAlign="left";
+  series.forEach(function(s,i){c.fillStyle=s.color;c.fillRect(pad+i*58,h-14,7,7);c.fillText(s.label,pad+i*58+10,h-8);});
+}
+function recommendAction(){
+  var e=state.emo;
+  if(e.fatigue>=55)return "离开屏幕，喝几口水，再做 60 秒肩颈伸展。";
+  if(e.anxiety>=45)return "做一轮 4-7-8 呼吸，然后写下最担心的一件事。";
+  if(e.stress>=50)return "打开最需要的资料的第一页，只计时 2 分钟，不要求完成。";
+  if(e.hope<50)return "写下今天仍然可以由你控制的一件小事，并只做第一步。";
+  return "写下你最担心的那件事，再补上一句：今天可以控制的最小部分是什么？";
+}
+function addActionRecord(text,type){
+  state.actions.push({id:Date.now(),text:text,type:type||"action",time:Date.now(),completed:false});
+  persist();
+}
+function getActionPool(){
+  var rows=[
+    "离开屏幕，喝几口水，再做 60 秒肩颈伸展。",
+    "做一轮 4-7-8 呼吸，然后写下最担心的一件事。",
+    "打开最需要的资料的第一页，只计时 2 分钟。",
+    "把最担心的事写成一句具体的话，不要求解决。",
+    "给一个可信任的人发一句：我现在有点需要陪伴。",
+    "整理桌面上的三件物品，只处理眼前这一点。",
+    "去洗把脸，回来后只做最小的一步。",
+    "把任务改写成：我现在只需要开始 ____。",
+    "站起来走 20 步，再决定要不要继续。",
+    "写下今天仍然可以由你控制的一件小事。"
+  ];
+  var recommended=recommendAction();
+  if(rows.indexOf(recommended)<0)rows.unshift(recommended);
+  return rows;
+}
+function openActionRoulette(){
+  var pool=getActionPool();
+  var reelPool=pool.concat(pool);
+  var html="<h3 class='serif'>两分钟行动抽签</h3><div class='desc'>不知道做什么时，让球替你抽一个。抽到后只需要开始两分钟。</div>"+
+    "<div class='roulette-window'><div class='roulette-focus'></div><div class='roulette-reel' id='rouletteReel'>"+
+    reelPool.map(function(x){return "<div class='roulette-item'>"+esc(x)+"</div>";}).join("")+
+    "</div></div><div class='roulette-result' id='rouletteResult'>点击下方按钮开始抽取</div>"+
+    "<div class='actions'><button class='btn-ghost' onclick='closeModal()'>取消</button><button class='btn-primary' id='spinRoulette'>开始抽取</button><button class='btn-primary' id='acceptRoulette' disabled style='opacity:.5'>就做这个</button></div>";
+  showModal(html);
+  var reel=document.getElementById("rouletteReel");
+  var result=document.getElementById("rouletteResult");
+  var accept=document.getElementById("acceptRoulette");
+  var spin=document.getElementById("spinRoulette");
+  var selected="",spinning=false;
+  function runSpin(){
+    if(spinning)return;
+    spinning=true;accept.disabled=true;accept.style.opacity=".5";
+    var poolIndex=Math.floor(Math.random()*pool.length);
+    selected=pool[poolIndex];
+    result.textContent="正在抽取…";
+    reel.style.transition="none";reel.style.transform="translateY(0)";
+    void reel.offsetHeight;
+    requestAnimationFrame(function(){
+      reel.style.transition="transform 2.8s cubic-bezier(.12,.72,.18,1)";
+      reel.style.transform="translateY(-"+((pool.length+poolIndex)*64)+"px)";
+    });
+    setTimeout(function(){
+      result.textContent=selected;
+      accept.disabled=false;accept.style.opacity="1";spinning=false;
+    },2880);
+  }
+  spin.addEventListener("click",runSpin);
+  accept.addEventListener("click",function(){
+    if(!selected)return;
+    addActionRecord(selected,"plan");closeModal();toast("行动已放进「望」，现在开始两分钟");
+  });
+}
+function getJournalEntries(){
+  return state.actions.filter(function(a){return a.type==="journal";}).slice().reverse();
+}
+function openJournalList(){
+  var rows=getJournalEntries();
+  var h="<h3 class='serif'>情绪日记</h3><div class='desc'>这里保存你在「愈」里写下的内容，只存在当前浏览器。</div>";
+  if(!rows.length){
+    h+="<div class='rec-item'><div class='txt'>还没有情绪日记。回到「愈」，点击“写下来”即可保存。</div></div>";
+  }else{
+    h+="<div class='journal-list'>";
+    rows.forEach(function(row){
+      var d=new Date(row.time);
+      var time=d.getFullYear()+"/"+String(d.getMonth()+1).padStart(2,"0")+"/"+String(d.getDate()).padStart(2,"0")+" "+String(d.getHours()).padStart(2,"0")+":"+String(d.getMinutes()).padStart(2,"0");
+      h+="<div class='journal-entry'><time>"+time+"</time><p>"+esc(row.text)+"</p></div>";
+    });
+    h+="</div>";
+  }
+  h+="<div class='actions'><button class='btn-primary' onclick='closeModal()'>关闭</button></div>";
+  showModal(h);
+}
+function openSelfCareList(){
+  var options=["喝水并慢慢喝完一杯","吃点能补充能量的小东西","离开屏幕伸展 60 秒","洗脸或洗手，让身体清醒一下","开窗透气或到窗边晒一会儿","给可信任的人发一句消息"];
+  var h="<h3 class='serif'>自我照顾清单</h3><div class='desc'>这不是任务清单，只选择此刻负担最小的一件。完成本身就是照顾自己。</div><div class='selfcare-list' id='selfcareList'>"+
+    options.map(function(x){return "<button type='button' class='selfcare-option' data-care='"+esc(x)+"'>"+esc(x)+"</button>";}).join("")+
+    "</div><div class='actions'><button class='btn-ghost' onclick='closeModal()'>先不做</button><button class='btn-primary' id='saveSelfCare' disabled style='opacity:.5'>记录我的选择</button></div>";
+  showModal(h);
+  var selected={};
+  document.querySelectorAll("#selfcareList .selfcare-option").forEach(function(btn){
+    btn.addEventListener("click",function(){
+      var key=btn.getAttribute("data-care");
+      if(selected[key])delete selected[key];else selected[key]=true;
+      btn.classList.toggle("selected",!!selected[key]);
+      var save=document.getElementById("saveSelfCare"),count=Object.keys(selected).length;
+      save.disabled=count===0;save.style.opacity=count?"1":".5";
+    });
+  });
+  document.getElementById("saveSelfCare").onclick=function(){
+    var chosen=Object.keys(selected);
+    if(!chosen.length)return;
+    var label=chosen.join("、");
+    applyEmotion({joy:2,hope:1,stress:-2,anxiety:-1,fatigue:-3},"愈","完成自我照顾："+label);
+    addActionRecord(label,"selfcare");
+    closeModal();toast("已记下你为自己做的一件小事");openOrbPanel("愈");
+  };
+}
+function getMomentEntries(){
+  return state.actions.filter(function(a){return a.type==="moment";}).slice().reverse();
+}
+function getPendingReminders(){
+  return state.actions.filter(function(a){return a.type==="reminder"&&!a.fired&&isFinite(a.dueTime)&&a.dueTime>0;}).sort(function(a,b){return a.dueTime-b.dueTime;});
+}
+function formatReminderTime(ts){
+  var d=new Date(ts);
+  if(!isFinite(ts)||isNaN(d.getTime()))return "时间待重新设置";
+  return (d.getMonth()+1)+"/"+d.getDate()+" "+String(d.getHours()).padStart(2,"0")+":"+String(d.getMinutes()).padStart(2,"0");
+}
+function reminderTime(kind){
+  var d=new Date();
+  if(kind==="tonight"){
+    d.setHours(21,0,0,0);
+    if(d.getTime()<=Date.now())d.setDate(d.getDate()+1);
+  }else if(kind==="tomorrow"){
+    d.setDate(d.getDate()+1);d.setHours(21,0,0,0);
+  }else{
+    d.setDate(d.getDate()+3);d.setHours(21,0,0,0);
+  }
+  return d.getTime();
+}
+function openReminderModal(){
+  var moments=getMomentEntries();
+  if(!moments.length){
+    toast("先保存一条微光，再创建回看提醒");
+    openReflectionModal("生");
+    return;
+  }
+  var h="<h3 class='serif'>给未来的自己留一句</h3><div class='desc'>选择一个微光存档，到时间后共生鱼会把它重新带回球里。</div>"+
+    "<div class='field'><label>回看内容</label><select id='reminderMoment' style='width:100%;padding:10px 12px;border-radius:12px;border:1px solid rgba(180,210,220,.5);background:rgba(255,255,255,.55);color:var(--ink)'>"+
+    moments.slice(0,10).map(function(m){return "<option value='"+m.id+"'>"+esc(m.text.slice(0,34))+(m.text.length>34?"…":"")+"</option>";}).join("")+
+    "</select></div><div class='field'><label>提醒时间</label><select id='reminderWhen' style='width:100%;padding:10px 12px;border-radius:12px;border:1px solid rgba(180,210,220,.5);background:rgba(255,255,255,.55);color:var(--ink)'><option value='tonight'>今晚 21:00</option><option value='tomorrow' selected>明天 21:00</option><option value='later'>三天后 21:00</option></select></div>"+
+    "<div class='actions'><button class='btn-ghost' onclick='closeModal()'>取消</button><button class='btn-primary' id='createMomentReminder'>创建提醒</button></div>";
+  showModal(h);
+  document.getElementById("createMomentReminder").onclick=function(){
+    var momentId=Number(document.getElementById("reminderMoment").value);
+    var moment=state.actions.find(function(x){return x.id===momentId;});
+    if(!moment)return;
+    var dueTime=reminderTime(document.getElementById("reminderWhen").value);
+    state.actions.push({id:Date.now(),type:"reminder",momentId:moment.id,text:moment.text,dueTime:dueTime,fired:false,completed:false});
+    persist();closeModal();openOrbPanel("生");toast("回看提醒已设置");
+  };
+}
+function showMomentReminder(reminder){
+  if(!reminder||reminder.fired)return;
+  reminder.fired=true;reminder.firedAt=Date.now();persist();
+  fishBounce=1;
+  showTiedNote(reminder.text,"来自过去的你");
+}
+function checkMomentReminders(){
+  var due=getPendingReminders().filter(function(r){return r.dueTime<=Date.now();});
+  if(!due.length)return;
+  setTimeout(function(){showMomentReminder(due[0]);},1600);
+}
+function openReflectionModal(orb){
+  var prompt=orb==="生"?"把这一刻最值得留下的一句话说下来。":"把刚才最刺痛你的那句话写下来，不需要整理得很完整。";
+  var h="<h3 class='serif'>"+(orb==="生"?"保存一束微光":"把情绪放在纸上")+"</h3><div class='desc'>"+prompt+"</div><textarea id='reflectionText' style='width:100%;min-height:100px;padding:12px;border-radius:12px;border:1px solid rgba(180,210,220,.5);background:rgba(255,255,255,.55);font-family:inherit' placeholder='写在这里…'></textarea><div class='actions'><button class='btn-ghost' onclick='closeModal()'>取消</button><button class='btn-primary' id='saveReflection'>保存</button></div>";
+  showModal(h);
+  document.getElementById("saveReflection").onclick=function(){
+    var v=document.getElementById("reflectionText").value.trim();
+    if(!v){toast("写一句也可以");return;}
+    addActionRecord(v,orb==="生"?"moment":"journal");closeModal();toast(orb==="生"?"已存进「生」":"已收进情绪日记");
+    if(orb==="愈")openOrbPanel("愈");
+    if(orb==="生")openOrbPanel("生");
+  };
+}
+function startPractice(kind){
+  var old=document.getElementById("practiceMask");if(old)old.remove();
+  var mask=document.createElement("div");mask.id="practiceMask";mask.className="practice-mask";
+  var title=kind==="ground"?"5-4-3-2-1 回到当下":"一分钟呼吸";
+  var copy=kind==="ground"?"依次说出你看得见的 5 样东西、摸得到的 4 样东西、听得到的 3 种声音、闻得到的 2 种气味、尝得到的 1 种味道。":"吸气 4 秒，停 2 秒，呼气 6 秒。跟着圆球缩放，不需要做得完美。";
+  mask.innerHTML="<div class='practice-card'><h3>"+title+"</h3><p>"+copy+"</p><div class='practice-orb' id='practiceOrb'></div><div class='practice-note'>不需要做得完美，觉得够了就可以结束。</div><button class='wide-action' id='finishPractice'>结束练习</button></div>";
+  document.body.appendChild(mask);
+  var orb=document.getElementById("practiceOrb"),phase=0;
+  var timer=setInterval(function(){
+    phase=1-phase;orb.classList.toggle("inhale",phase===1);orb.classList.toggle("exhale",phase===0);
+  },4000);
+  document.getElementById("finishPractice").onclick=function(){clearInterval(timer);mask.remove();toast("慢一点也算前进");};
+}
+function openOrbPanel(name){
+var meta=ORB_META[name];
+document.getElementById("orbZi").style.background=meta.color;
+document.getElementById("orbZi").textContent=name;
+document.getElementById("orbTitle").textContent=name;
+document.getElementById("orbDesc").textContent=meta.desc;
+var html="<p style='font-size:13px;color:var(--ink-dim);line-height:1.8;margin-bottom:16px'>"+meta.body+"</p>";
+if(name==="映"){
+  var ms=[{n:"快乐",k:"joy",c:"#7ec0d0"},{n:"希望",k:"hope",c:"#e8b840"},{n:"压力",k:"stress",c:"#e08080"},{n:"焦虑",k:"anxiety",c:"#a78bd8"},{n:"疲惫",k:"fatigue",c:"#8aa0b8"}];
+  ms.forEach(function(m){html+='<div class="meter"><div class="lab"><span>'+m.n+'</span><span>'+Math.round(state.emo[m.k])+'</span></div><div class="track"><div class="fill" style="width:'+state.emo[m.k]+'%;background:'+m.c+'"></div></div></div>';});
+}else if(name==="愈"){
+  var journals=getJournalEntries();
+  html+="<div class='action-card'><h4>先陪你稳一点</h4><p>不急着分析原因，也不要求马上好起来。选择一种现在负担最小的方式。</p><div class='action-grid'><button data-orb-action='breath'>60 秒呼吸</button><button data-orb-action='journal'>写下来</button><button data-orb-action='ground'>回到当下</button><button data-orb-action='selfcare'>自我照顾清单</button></div><button class='wide-action' data-orb-action='journalList'>查看情绪日记"+(journals.length?"（"+journals.length+"）":"")+"</button></div>";
+  if(journals.length){
+    html+="<div style='font-size:12px;color:var(--ink-faint);margin:16px 0 8px'>最近的情绪日记</div>";
+    journals.slice(0,3).forEach(function(row){var d=new Date(row.time);html+="<div class='journal-entry'><time>"+(d.getMonth()+1)+"/"+d.getDate()+" "+String(d.getHours()).padStart(2,"0")+":"+String(d.getMinutes()).padStart(2,"0")+"</time><p>"+esc(row.text)+"</p></div>";});
+  }
+}else if(name==="生"){
+  var moments=getMomentEntries(),pending=getPendingReminders();
+  html+="<div class='action-card'><h4>把好的一刻留下来</h4><p>保存之后，再为它加一个未来可以重逢的入口。</p><div class='action-grid'><button data-orb-action='moment'>保存微光</button><button data-orb-action='revisit'>创建回看提醒</button></div></div>";
+  if(moments.length){
+    html+="<div style='font-size:12px;color:var(--ink-faint);margin:16px 0 8px'>微光存档</div>";
+    moments.slice(0,3).forEach(function(row){var d=new Date(row.time);html+="<div class='journal-entry'><time>"+(d.getMonth()+1)+"/"+d.getDate()+" "+String(d.getHours()).padStart(2,"0")+":"+String(d.getMinutes()).padStart(2,"0")+"</time><p>"+esc(row.text)+"</p></div>";});
+  }
+  if(pending.length){
+    html+="<div style='font-size:12px;color:var(--ink-faint);margin:16px 0 8px'>待回看提醒</div>";
+    pending.slice(0,3).forEach(function(row){html+="<div class='rec-item'><div class='meta'>"+formatReminderTime(row.dueTime)+"</div><div class='txt'>"+esc(row.text)+"</div></div>";});
+  }
+}else if(name==="望"){
+  html+="<div class='action-card'><h4>只做下一步</h4><p>"+esc(recommendAction())+"</p><div class='action-grid'><button data-orb-action='plan'>滚动抽取行动</button><button data-orb-action='done'>我完成了</button></div></div>";
+}else if(name==="循"){
+  html+="<div class='trend-wrap'><canvas id='orbTrend'></canvas></div>"+trendSummaryHtml()+"<div class='action-card'><h4>看趋势时记住</h4><p>曲线是记录，不是诊断。先看变化方向，再看它和考试、睡眠、人际等情境是否同时出现。</p></div>";
+}
+var recs=name==="循"?getRecentRecords(6):getRecentRecords(5,name);
+if(recs.length){html+="<div style='font-size:12px;color:var(--ink-faint);margin:16px 0 8px'>"+(name==="循"?"最近的记录":"相关记录")+"</div>";recs.forEach(function(r){var d=new Date(r.time);html+='<div class="rec-item"><div class="meta">'+(d.getMonth()+1)+"/"+d.getDate()+' · '+r.orb+'</div><div class="txt">'+esc(r.text)+'</div></div>';});}
+document.getElementById("orbBody").innerHTML=html;
+document.getElementById("orbPanel").classList.add("open");
+if(name==="循")setTimeout(drawTrendChart,30);
+document.querySelectorAll("#orbBody [data-orb-action]").forEach(function(btn){
+  btn.addEventListener("click",function(){
+    var a=btn.getAttribute("data-orb-action");
+    if(a==="breath")startPractice("breath");
+    else if(a==="ground")startPractice("ground");
+    else if(a==="journal")openReflectionModal("愈");
+    else if(a==="moment")openReflectionModal("生");
+    else if(a==="selfcare")openSelfCareList();
+    else if(a==="revisit")openReminderModal();
+    else if(a==="journalList")openJournalList();
+    else if(a==="plan")openActionRoulette();
+    else if(a==="done"){addActionRecord(recommendAction(),"completed");toast("完成不需要很大，你已经往前了一点");}
+  });
+});
+}
+function esc(s){return s.replace(/&/g,"&amp;").replace(/</g,"&lt;").replace(/>/g,"&gt;");}
+document.getElementById("orbPanelClose").onclick=function(){document.getElementById("orbPanel").classList.remove("open");};
+var stateNames={
+"0-9":["冰封之境","沉眠深渊","静默冰原"],
+"10-19":["雾锁重楼","暗礁低语","夜雨孤灯"],
+"20-29":["暗流涌动","微澜初现","潮声渐远"],
+"30-39":["半亩方塘","水岸萌芽","薄雾微光"],
+"40-49":["风平浪静","水光潋滟","闲云潭影"],
+"50-59":["小荷初露","溪云初起","柳浪闻莺"],
+"60-69":["碧波荡漾","鱼戏莲叶","春江水暖"],
+"70-79":["天光云影","春和景明","一碧万顷"],
+"80-89":["琉璃世界","万象更新","镜花水月"],
+"90-99":["宇宙之心","时间花园","星河入梦"],
+"100+":["太初之球","万物生长","永恒春天"]};
+function dailyStateName(score){
+var b=Math.min(10,Math.floor(score/10));
+var k=b<10?(b*10)+"-"+(b*10+9):"100+";
+var arr=stateNames[k];
+var seed=new Date().toDateString();var h=0;for(var i=0;i<seed.length;i++)h=(h*31+seed.charCodeAt(i))|0;
+return arr[Math.abs(h)%arr.length];
+}
+function updateBalanceUI(){
+calcBalance();
+var name=dailyStateName(state.balance);
+var numEl=document.getElementById("balNum");
+if(numEl)numEl.textContent=name;
+var c;if(state.balance>=70)c="#7ec850";else if(state.balance>=50)c="#7ec0d0";else if(state.balance>=35)c="#e8b840";else c="#e08080";
+var d=document.getElementById("balDot");if(d){d.style.background=c;d.style.boxShadow="0 0 8px "+c;}
+updateD3Radar();
+updateSceneUI();
+}
+document.getElementById("bottleBtn").onclick=openBottleModal;
+function openBottleModal(){
+var rec=state.bottles.filter(function(b){return !b.recovered&&Date.now()>=b.canRecoverTime;});
+var float=state.bottles.filter(function(b){return !b.recovered&&Date.now()<b.canRecoverTime;});
+var h="<h3 class='serif'>漂流瓶</h3><div class='desc'>把此刻的心路投进水里，隔天再来打捞。有时会捞到陌生的瓶子。</div>";
+if(rec.length){h+="<div style='font-size:13px;margin:10px 0'>你有 <b style='color:#e8b840'>"+rec.length+"</b> 只瓶可以打捞了：</div>";
+rec.forEach(function(b){h+='<div class="rec-item" style="cursor:pointer;margin-bottom:8px" onclick="recoverBottle('+b.id+')"><div class="meta">你投放于 '+fmtDate(b.createTime)+'</div><div class="txt">'+esc(b.text.substring(0,40))+(b.text.length>40?"…":"")+'</div></div>';});
+} else if(float.length){var hrs=Math.max(1,Math.ceil((float[0].canRecoverTime-Date.now())/3600000));h+="<div style='font-size:13px;color:var(--ink-dim);margin:10px 0'>有瓶在水里漂着，约 "+hrs+" 小时后可以打捞。</div>";}
+h+='<textarea id="bottleText" style="width:100%;min-height:80px;padding:12px;border-radius:14px;border:1px solid rgba(180,210,220,.5);background:rgba(255,255,255,.5);font-family:inherit;font-size:14px;color:var(--ink);outline:none;resize:vertical;margin:10px 0" placeholder="写一段心路，投进水里…"></textarea>';
+h+='<div style="display:flex;gap:10px;justify-content:flex-end"><button class="btn-ghost" onclick="document.getElementById(\'bottleMask\').classList.remove(\'open\')">关闭</button><button class="btn-primary" onclick="throwBottle()">投 放</button></div>';
+var mask=document.getElementById("bottleMask");
+if(!mask){mask=document.createElement("div");mask.id="bottleMask";mask.className="modal-mask";document.body.appendChild(mask);}
+mask.innerHTML='<div class="sticky-note">'+h+'</div>';mask.classList.add("open");
+mask.onclick=function(e){if(e.target===mask)mask.classList.remove("open");};
+}
+window.throwBottle=function(){var v=document.getElementById("bottleText").value.trim();if(!v){toast("写点什么再投放吧");return;}state.bottles.push({id:Date.now(),text:v,createTime:Date.now(),canRecoverTime:Date.now()+24*3600*1000,recovered:false});persist();document.getElementById("bottleMask").classList.remove("open");toast("瓶子投进水里了，明天再来打捞");};
+window.recoverBottle=function(id){
+var b=state.bottles.find(function(x){return x.id===id;});if(!b)return;b.recovered=true;persist();
+document.getElementById("bottleMask").classList.remove("open");
+var ctx=b.mood?(b.mood+" · "+(b.weather||"")):"";
+showTiedNote(b.text,ctx);
+};
+
+var ROPE_STYLES=[
+{color:"#c85a5a",knot:"bow",name:"红绳蝴蝶结"},
+{color:"#5a8ac8",knot:"bow",name:"蓝绳蝴蝶结"},
+{color:"#5ab87a",knot:"loop",name:"绿绳单圈结"},
+{color:"#c8a85a",knot:"loop",name:"黄绳单圈结"},
+{color:"#9a6ac8",knot:"twist",name:"紫绳麻花结"},
+{color:"#d88a5a",knot:"twist",name:"橙绳麻花结"},
+{color:"#5ac8b8",knot:"bow",name:"青绳蝴蝶结"},
+{color:"#b85a9a",knot:"loop",name:"粉绳单圈结"},
+{color:"#6a8a5a",knot:"twist",name:"棕绳麻花结"},
+{color:"#8a8a9a",knot:"bow",name:"灰绳蝴蝶结"}
+];
+function showBottleNote(text,label){
+  var old=document.getElementById("bottleReadMask");if(old)old.remove();
+  var mask=document.createElement("div");mask.id="bottleReadMask";mask.className="bottle-read-mask";
+  mask.innerHTML="<div class='bottle-read-card'><button class='bottle-read-close' aria-label='关闭'>×</button>"+
+    "<div class='bottle-read-visual'><svg viewBox='0 0 48 56' fill='none'><path d='M18 6h12v5c0 1.5 1 2.5 2.5 3.5l3 2.5v30a4 4 0 01-4 4H16a4 4 0 01-4-4V17l3-2.5C16 13.5 18 12.5 18 11V6z' fill='rgba(180,220,235,.42)' stroke='rgba(92,150,178,.78)' stroke-width='1.4'/><rect x='17' y='2' width='14' height='6' rx='2' fill='rgba(170,130,85,.72)'/><path d='M17 24q7-5 14 0v16q-7-5-14 0V24z' fill='rgba(255,250,230,.9)' stroke='rgba(200,175,130,.55)'/><path d='M24 18v23' stroke='rgba(180,150,100,.34)' stroke-width='1'/></svg></div>"+
+    "<div class='bottle-read-copy'><div class='bottle-read-eyebrow'>"+esc(label||"漂流瓶")+"</div><div class='bottle-read-text'>"+esc(text)+"</div><div class='bottle-read-actions'><button class='btn-primary' id='closeBottleRead'>收 下</button></div></div></div>";
+  document.body.appendChild(mask);
+  function closeBottleRead(){mask.style.opacity="0";mask.style.transition="opacity .25s";setTimeout(function(){mask.remove();},260);}
+  mask.querySelector(".bottle-read-close").addEventListener("click",closeBottleRead);
+  document.getElementById("closeBottleRead").addEventListener("click",closeBottleRead);
+  mask.addEventListener("click",function(e){if(e.target===mask)closeBottleRead();});
+}
+function showTiedNote(text,ctxHtml){
+  return showBottleNote(text,ctxHtml||"来自漂流瓶");
+  var style=ROPE_STYLES[Math.floor(Math.random()*ROPE_STYLES.length)];
+  // 创建专用全屏覆盖层
+  var old=document.getElementById("noteOverlay");
+  if(old)old.remove();
+  var overlay=document.createElement("div");
+  overlay.id="noteOverlay";
+  overlay.style.cssText="position:fixed;inset:0;z-index:80;background:rgba(180,210,220,.35);backdrop-filter:blur(12px);display:flex;align-items:center;justify-content:center;perspective:1200px;cursor:pointer;padding:14px;box-sizing:border-box";
+  overlay.innerHTML=
+    '<div id="notePaper" class="note-paper">'+
+    '<button id="noteClose" class="note-close" aria-label="关闭">×</button>'+
+    '<div style="position:absolute;top:0;left:0;right:0;height:2px;background:linear-gradient(90deg,transparent,rgba(200,160,100,.3),transparent)"></div>'+
+    (ctxHtml?'<div class="note-context">'+esc(ctxHtml)+'</div>':'')+
+    '<div id="noteContent" class="note-content">'+esc(text)+'</div>'+
+    '<svg id="noteRope" viewBox="0 0 200 80" style="position:absolute;top:10px;left:50%;transform:translateX(-50%);width:130px;height:60px;z-index:5;transition:all .7s ease">'+
+    (style.knot==='bow'?
+      '<path d="M100 40 Q65 15 35 32 Q55 48 80 42" fill="none" stroke="'+style.color+'" stroke-width="4" stroke-linecap="round"/><path d="M100 40 Q135 15 165 32 Q145 48 120 42" fill="none" stroke="'+style.color+'" stroke-width="4" stroke-linecap="round"/><circle cx="100" cy="40" r="8" fill="'+style.color+'"/><path d="M96 46 Q92 62 88 75" fill="none" stroke="'+style.color+'" stroke-width="3" stroke-linecap="round"/><path d="M104 46 Q108 62 112 75" fill="none" stroke="'+style.color+'" stroke-width="3" stroke-linecap="round"/>'
+    :style.knot==='loop'?
+      '<circle cx="100" cy="40" r="20" fill="none" stroke="'+style.color+'" stroke-width="4"/><circle cx="100" cy="40" r="6" fill="'+style.color+'"/><path d="M98 46 Q95 62 92 75" fill="none" stroke="'+style.color+'" stroke-width="3" stroke-linecap="round"/><path d="M102 46 Q105 62 108 75" fill="none" stroke="'+style.color+'" stroke-width="3" stroke-linecap="round"/>'
+    :'<path d="M82 20 L118 60 M118 20 L82 60" stroke="'+style.color+'" stroke-width="4" stroke-linecap="round"/><circle cx="100" cy="40" r="7" fill="'+style.color+'"/><path d="M96 47 Q92 62 88 75" fill="none" stroke="'+style.color+'" stroke-width="3" stroke-linecap="round"/><path d="M104 47 Q108 62 112 75" fill="none" stroke="'+style.color+'" stroke-width="3" stroke-linecap="round"/>'
+    )+'</svg>'+
+    '<div id="noteHint" class="note-hint">点绳子解开</div>'+
+    '</div>';
+  document.body.appendChild(overlay);
+  // 3D 入场
+  requestAnimationFrame(function(){
+    overlay.querySelector('#notePaper').style.transform='rotateX(0deg) rotateY(0deg) rotate(0deg)';
+  });
+  // 点击绳子
+  var rope=overlay.querySelector('#noteRope');
+  rope.style.pointerEvents='auto';
+  rope.style.cursor='pointer';
+  rope.addEventListener('click',function(e){
+    e.stopPropagation();
+    rope.style.opacity='0';
+    rope.style.transform='translateX(-50%) translateY(-40px) rotate(25deg)';
+    overlay.querySelector('#noteHint').style.opacity='0';
+    setTimeout(function(){
+      overlay.querySelector('#noteContent').style.opacity='1';
+    },400);
+  });
+  overlay.querySelector('#noteClose').addEventListener('click',function(e){
+    e.stopPropagation();
+    overlay.style.opacity='0';
+    overlay.style.transition='opacity .4s';
+    setTimeout(function(){overlay.remove();},400);
+  });
+  // 点击空白关闭
+  overlay.addEventListener('click',function(e){
+    if(e.target===overlay||e.target.id==='notePaper'){
+      overlay.style.opacity='0';
+      overlay.style.transition='opacity .4s';
+      setTimeout(function(){overlay.remove();},400);
+    }
+  });
+}
+
+function showRecover(text,label){var mask=document.getElementById("bottleMask");mask.innerHTML='<div class="tied-note-wrap"><div class="tied-note" style="max-width:520px"><h3 style="text-align:center;color:#8a6a30;letter-spacing:4px;margin-bottom:12px;font-size:18px">打 捞 到</h3><div style="font-size:12px;color:var(--ink-faint);margin-bottom:10px">'+label+'</div><p style="font-family:Noto Serif SC,serif;font-size:16px;line-height:1.9;color:var(--ink);margin:16px 0">'+esc(text)+'</p><button class="btn-primary" onclick="this.closest(\'.modal-mask\').classList.remove(\'open\')">收 下</button></div>';mask.classList.add("open");}
+function fmtDate(ts){var d=new Date(ts);return (d.getMonth()+1)+"/"+d.getDate()+" "+(d.getHours()<10?"0":"")+d.getHours()+":"+(d.getMinutes()<10?"0":"")+d.getMinutes();}
+document.getElementById("btnSettings").onclick=function(){document.getElementById("cfgBallName").value=state.ballName||"";document.getElementById("cfgFishName").value=state.fishName||"";document.getElementById("cfgTheme").value=state.uiTheme||"auto";document.getElementById("cfgShareUrl").value=state.cfg.shareUrl||"";document.getElementById("cfgEndpoint").value=state.cfg.endpoint;document.getElementById("cfgKey").value=state.cfg.apiKey;document.getElementById("cfgModel").value=state.cfg.model;document.getElementById("settingsMask").classList.add("open");};
+document.getElementById("cfgCancel").onclick=function(){document.getElementById("settingsMask").classList.remove("open");};
+document.getElementById("settingsMask").addEventListener("click",function(e){if(e.target===this)this.classList.remove("open");});
+document.getElementById("cfgTestAgent").onclick=testAgentConnection;
+document.getElementById("cfgSave").onclick=function(){var bn=document.getElementById("cfgBallName").value.trim(),fn=document.getElementById("cfgFishName").value.trim();if(bn)state.ballName=bn;if(fn)state.fishName=fn;state.uiTheme=document.getElementById("cfgTheme").value||"auto";document.getElementById("ballName").textContent=state.ballName||"生态球";state.cfg.shareUrl=document.getElementById("cfgShareUrl").value.trim();state.cfg.endpoint=document.getElementById("cfgEndpoint").value.trim()||DEFAULT_CFG.endpoint;state.cfg.apiKey=document.getElementById("cfgKey").value.trim();state.cfg.model=document.getElementById("cfgModel").value.trim()||"58b8236d-7b19-4a1f-bd16-2efac7f29d75";saveCfg();persist();applyUITheme();updateAgentShareLink();document.getElementById("settingsMask").classList.remove("open");toast(state.cfg.apiKey?"共生鱼已接入元景 MaaS":"已切回本地陪伴");};
+document.getElementById("clearEcoData").onclick=function(){
+  if(!confirm("清空情绪记录、聊天、共鸣行动、漂流瓶和图鉴进度？生态球和小鱼的名字会保留。"))return;
+  state.emo={joy:55,stress:32,anxiety:28,fatigue:38,hope:60};
+  state.base={joy:55,stress:32,anxiety:28,fatigue:38,hope:60};
+  state.balance=86;state.orbsRevealed={"映":false,"生":false,"愈":false,"循":false,"望":false};
+  state.records=[];state.bottles=[];state.chatHistory=[];state.actions=[];state.eggs={};state.sessionId=null;
+  state.stabilityCount=0;state.dailyLog={};state.lastSummaryDate="";state.entered=true;
+  persist();location.reload();
+};
+document.getElementById("resetEcoData").onclick=function(){
+  if(!confirm("恢复全新生态球？当前生态球名字、小鱼名字、全部记录和图鉴进度都会被删除。"))return;
+  localStorage.removeItem("eco_state");location.reload();
+};
+document.getElementById("chatSend").onclick=function(){var v=chatInput.value.trim();if(v)sendToFish(v);};
+chatInput.addEventListener("keydown",function(e){if(e.key==="Enter"&&!e.shiftKey){e.preventDefault();var v=chatInput.value.trim();if(v)sendToFish(v);}});
+document.getElementById("chatCollapse").onclick=closeChat;
+(function(){var b=document.getElementById("eggBtn");if(b)b.onclick=openEggMenu;})();
+document.getElementById("chatMini").onclick=openChat;
+var toastTimer;
+function toast(msg){var t=document.getElementById("toast");t.textContent=msg;t.classList.add("show");clearTimeout(toastTimer);toastTimer=setTimeout(function(){t.classList.remove("show");},2400);}
+// ===== 分步引导流程 =====
+var introStep=0;
+function showIntroStep(n){
+introStep=n;
+document.getElementById("stepBall").style.display=(n===0)?"block":"none";
+document.getElementById("stepNameBall").style.display=(n===1)?"block":"none";
+document.getElementById("stepFishName").style.display=(n===3)?"block":"none";
+if(n===1)setTimeout(function(){document.getElementById("inputBallName").focus();},400);
+if(n===3)setTimeout(function(){document.getElementById("inputFishName").focus();},400);
+}
+function introClickBall(){
+if(introStep!==0)return;
+document.getElementById("ballGlow").classList.add("on");
+setTimeout(function(){showIntroStep(1);},1600);
+}
+document.getElementById("btnBallName").onclick=function(){
+var bn=document.getElementById("inputBallName").value.trim();
+if(!bn){document.getElementById("inputBallName").focus();return;}
+state.ballName=bn;
+document.getElementById("ballName").textContent=bn;
+document.getElementById("introVeil").style.opacity="0";
+showIntroStep(2);
+unlockEgg("firstBall");
+};
+document.getElementById("inputBallName").addEventListener("keydown",function(e){if(e.key==="Enter")document.getElementById("btnBallName").click();});
+function introClickFish(){
+if(introStep!==2)return;
+showIntroStep(3);
+unlockEgg("fishTalk");
+}
+document.getElementById("btnFishName").onclick=function(){
+var fn=document.getElementById("inputFishName").value.trim();
+if(!fn){document.getElementById("inputFishName").focus();return;}
+state.fishName=fn;state.entered=true;introStep=-1;unlockEgg("naming");persist();
+document.getElementById("welcome").classList.add("hide");
+setTimeout(function(){document.getElementById("welcome").style.display="none";},1200);
+toast("欢迎来到"+state.ballName+"，我是"+fn);
+};
+document.getElementById("inputFishName").addEventListener("keydown",function(e){if(e.key==="Enter")document.getElementById("btnFishName").click();});
+
+window.addEventListener("resize",resize);
+loadAll();applyTimeTheme();resize();updateBalanceUI();initD3Panel();
+
+function updateBeijingClock(){
+  var d=new Date();
+  var utc=d.getTime()+d.getTimezoneOffset()*60000;
+  var bj=new Date(utc+8*3600000);
+  var h=bj.getHours(),m=bj.getMinutes(),sec=bj.getSeconds();
+  var hh=h<10?"0"+h:h,mm=m<10?"0"+m:m,ss=sec<10?"0"+sec:sec;
+  var week=["日","一","二","三","四","五","六"][bj.getDay()];
+  var el=document.getElementById("beijingClock");
+  if(el)el.textContent=bj.getMonth()+1+"月"+bj.getDate()+"日 周"+week+" "+hh+":"+mm+":"+ss;
+}
+setInterval(updateBeijingClock,1000);
+updateBeijingClock();
+
+(function(){
+  var splash=document.getElementById("splashMask");
+  if(state.entered&&splash)splash.remove();
+})();applyUITheme();updateAgentShareLink();recordDailyBalance();checkMorningSummary();checkMomentReminders();
+document.getElementById("ballName").textContent=state.ballName||"生态球";
+if(state.entered){document.getElementById("welcome").style.display="none";document.getElementById("fishTip").style.display="block";introStep=-1;}else{introStep=0;}
+if(state.balance>=70)document.getElementById("bottleBtn").classList.add("show");
+
+draw();
+})();
+</script>
+
+
+<div data-custom-element="doubao-watermark"></div></body></html>
